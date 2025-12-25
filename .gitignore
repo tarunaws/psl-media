@@ -1,72 +1,41 @@
+# macOS
 .DS_Store
 
-# Secrets / env
-.env
-.env.local
-**/.env
-**/.env.local
-
 # Python
-**/__pycache__/
-**/*.pyc
+__pycache__/
+*.py[cod]
+
+# Virtual envs
 .venv/
-**/.venv/
+code/.venv/
 
 # Node
-**/node_modules/
-**/build/
-**/.cache/
+node_modules/
+
+# Local env/secrets
+.env
+.env.local
+code/.env
+code/.env.local
 
 # Runtime artifacts
-**/*.log
-**/*.pid
+*.log
+*.pid
 
-# Media/artifacts (large, regenerate locally)
-uploads/
-outputs/
-streams/
-subtitles/
-**/uploads/
-**/outputs/
-**/downloads/
+# Service runtime data (do not commit generated media)
+code/uploads/
+code/outputs/
+code/downloads/
+code/**/uploads/
+code/**/outputs/
+code/sceneSummarization/frames/
+code/semanticSearch/documents/
+code/semanticSearch/indices/
+code/semanticSearch/videos/
+code/highlightTrailer/outputs/
+code/personalizedTrailer/jobs/
 
-# Generated documentation artifacts (keep source markdown)
+# Docs build outputs / large exports
+mediaGenAI-Documentation/html/
 mediaGenAI-Documentation/pdf/
 mediaGenAI-Documentation/image/
-mediaGenAI-Documentation/html/
-
-# Per-service generated artifacts / caches (often huge)
-code/**/history/
-code/**/frames/
-code/**/videos/
-code/**/documents/
-code/**/indices/
-code/**/jobs/
-
-# Model weights
-**/*.pt
-
-# Large media samples
-**/*.mp4
-**/*.mp3
-
-# Service output reports
-code/**/reports/
-
-# Frontend demo media bundle
-code/frontend/public/demo_video/
-
-# Large binary installers/archives
-**/*.zip
-**/*.pkg
-
-# Spreadsheets/backups
-**/*.xlsx
-**/*.xlsx.bak
-**/*.bak
-
-# Bundled tooling binaries (prefer installing via brew)
-tools/ffmpeg/
-
-# Local design scratch
-Designer.png
