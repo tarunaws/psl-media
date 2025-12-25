@@ -22,12 +22,35 @@ code/.env.local
 *.log
 *.pid
 
+# Media / binary artifacts (keep repo small)
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.mp3
+*.wav
+*.m4a
+*.srt
+*.vtt
+*.pdf
+*.xlsx
+*.xls
+*.pkg
+*.pt
+*.onnx
+*.bin
+
 # Service runtime data (do not commit generated media)
 code/uploads/
 code/outputs/
 code/downloads/
 code/**/uploads/
 code/**/outputs/
+code/aiSubtitle/audio/
+code/contentModeration/reports/
+code/imageCreation/history/
+code/interactiveShoppable/videos/
 code/sceneSummarization/frames/
 code/semanticSearch/documents/
 code/semanticSearch/indices/
@@ -39,3 +62,6 @@ code/personalizedTrailer/jobs/
 mediaGenAI-Documentation/html/
 mediaGenAI-Documentation/pdf/
 mediaGenAI-Documentation/image/
+
+# Bundled tools (e.g., ffmpeg builds)
+tools/
