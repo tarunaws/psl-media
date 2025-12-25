@@ -1,0 +1,43 @@
+{
+  "completed": [
+    {
+      "ad_id": "tech_gadget_ad",
+      "generation_id": "857bf606-9016-4ca8-9022-718eaca39517",
+      "status": "processing",
+      "video_url": "https://mediagenai-video-gen-66ddc7.s3.amazonaws.com/generated-videos/857bf606-9016-4ca8-9022-718eaca39517/mnr20mh0z5eu/output.mp4?response-content-type=video%2Fmp4&AWSAccessKeyId=AKIAX432HYIKCGRFVCCA&Signature=Ep8UZqJW5FowIPe8dxOXs4AhtoE%3D&Expires=1766470533",
+      "s3_key": "generated-videos/857bf606-9016-4ca8-9022-718eaca39517/mnr20mh0z5eu/output.mp4",
+      "dai_video_key": "ads/tech_gadget_ad/creative.mp4",
+      "dai_thumbnail_key": "ads/tech_gadget_ad/thumbnail.jpg",
+      "voiceover_applied": true
+    },
+    {
+      "ad_id": "sports_drink_ad",
+      "generation_id": "aebf6457-4db0-40c5-8f94-29e803b5ecd9",
+      "status": "processing",
+      "video_url": "https://mediagenai-video-gen-66ddc7.s3.amazonaws.com/generated-videos/aebf6457-4db0-40c5-8f94-29e803b5ecd9/gc6ktxzruuu7/output.mp4?response-content-type=video%2Fmp4&AWSAccessKeyId=AKIAX432HYIKCGRFVCCA&Signature=x3472EaWfbuxxsuYFnMqpuTWAHk%3D&Expires=1766470549",
+      "s3_key": "generated-videos/aebf6457-4db0-40c5-8f94-29e803b5ecd9/gc6ktxzruuu7/output.mp4",
+      "dai_video_key": "ads/sports_drink_ad/creative.mp4",
+      "dai_thumbnail_key": "ads/sports_drink_ad/thumbnail.jpg",
+      "voiceover_applied": true
+    },
+    {
+      "ad_id": "streaming_service_ad",
+      "generation_id": "086b32ab-41a8-48c0-9f4b-cb063e661d94",
+      "status": "processing",
+      "video_url": "https://mediagenai-video-gen-66ddc7.s3.amazonaws.com/generated-videos/086b32ab-41a8-48c0-9f4b-cb063e661d94/1zz09bdifyo9/output.mp4?response-content-type=video%2Fmp4&AWSAccessKeyId=AKIAX432HYIKCGRFVCCA&Signature=IWHuqW%2FDrdkZV%2BsLryt%2BoHBY2Dk%3D&Expires=1766470563",
+      "s3_key": "generated-videos/086b32ab-41a8-48c0-9f4b-cb063e661d94/1zz09bdifyo9/output.mp4",
+      "dai_video_key": "ads/streaming_service_ad/creative.mp4",
+      "dai_thumbnail_key": "ads/streaming_service_ad/thumbnail.jpg",
+      "voiceover_applied": true
+    }
+  ],
+  "failed": [],
+  "summary": {
+    "total": 3,
+    "completed": 3,
+    "failed": 0,
+    "timestamp": "2025-12-16 11:46:12",
+    "source_bucket": "mediagenai-video-gen-66ddc7",
+    "dai_bucket": "mediagenai-dai-9135b8"
+  }
+}

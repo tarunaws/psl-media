@@ -1,0 +1,29 @@
+{
+  "deliverables": [
+    {
+      "type": "mezzanine",
+      "label": "UHD Master (MP4)",
+      "status": "pending",
+      "notes": "Will be generated from uploaded mezzanine"
+    },
+    {
+      "type": "ott_packaged",
+      "label": "HLS HDR",
+      "status": "pending",
+      "notes": "Will be generated from uploaded mezzanine"
+    },
+    {
+      "type": "social_cut",
+      "label": "9x16 TikTok",
+      "status": "pending",
+      "notes": "Will be generated from uploaded mezzanine"
+    }
+  ],
+  "time_to_air_minutes": 48,
+  "distribution_channels": [
+    "Prime OTT",
+    "YouTube Shorts",
+    "Partner Broadcast"
+  ],
+  "notes": "Automation prepared two localization kits and refreshed the metadata slate."
+}

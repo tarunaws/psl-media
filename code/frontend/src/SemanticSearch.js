@@ -1,0 +1,860 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
+
+const PageWrapper = styled.div`
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+`;
+
+const Sidebar = styled.div`
+  width: 280px;
+  background: #f8f9fa;
+  border-right: 1px solid #e0e0e0;
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 100vh;
+  position: sticky;
+  top: 0;
+`;
+
+const SidebarTitle = styled.h3`
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+const CatalogueItem = styled.div`
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  border: 2px solid ${props => props.isSelected ? '#667eea' : 'transparent'};
+  transition: all 0.2s;
+  
+  &:hover {
+    border-color: #667eea;
+    transform: translateX(4px);
+  }
+`;
+
+const CatalogueThumb = styled.div`
+  width: 100%;
+  height: 80px;
+  background: ${props => props.src ? `url(data:image/jpeg;base64,${props.src})` : '#e0e0e0'};
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 2rem;
+  margin-bottom: 8px;
+`;
+
+const CatalogueTitle = styled.div`
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+const CatalogueMeta = styled.div`
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 4px;
+`;
+
+const Container = styled.div`
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 100%;
+`;
+
+const Header = styled.div`
+  text-align: center;
+  margin-bottom: 50px;
+`;
+
+const Title = styled.h1`
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
+
+const Subtitle = styled.p`
+  font-size: 1.1rem;
+  color: #666;
+`;
+
+const TabContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0;
+`;
+
+const Tab = styled.button`
+  background: ${props => props.active ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'transparent'};
+  color: ${props => props.active ? 'white' : '#666'};
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s;
+  position: relative;
+  bottom: -2px;
+  
+  &:hover {
+    background: ${props => props.active ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'rgba(102, 126, 234, 0.1)'};
+  }
+`;
+
+const Section = styled.div`
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+const Icon = styled.span`
+  font-size: 1.8rem;
+`;
+
+const UploadArea = styled.div`
+  border: 2px dashed ${props => props.isDragging ? '#667eea' : '#ddd'};
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  background: ${props => props.isDragging ? '#f7f7ff' : '#fafafa'};
+  cursor: pointer;
+  transition: all 0.3s;
+  
+  &:hover {
+    border-color: #667eea;
+    background: #f7f7ff;
+  }
+`;
+
+const Input = styled.input`
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 15px;
+  
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+`;
+
+const TextArea = styled.textarea`
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 15px;
+  resize: vertical;
+  min-height: 100px;
+  
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+`;
+
+const Button = styled.button`
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+  }
+`;
+
+const SearchBox = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+`;
+
+const SearchInput = styled.input`
+  flex: 1;
+  padding: 14px 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+`;
+
+const SearchButton = styled(Button)`
+  padding: 14px 40px;
+`;
+
+const VideoGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+`;
+
+const VideoCard = styled.div`
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+`;
+
+const Thumbnail = styled.div`
+  width: 100%;
+  height: 180px;
+  background: ${props => props.src ? `url(data:image/jpeg;base64,${props.src})` : '#f0f0f0'};
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 3rem;
+`;
+
+const VideoInfo = styled.div`
+  padding: 15px;
+`;
+
+const VideoTitle = styled.h3`
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0 0 8px 0;
+`;
+
+const VideoCardMeta = styled.p`
+  font-size: 0.9rem;
+  color: #666;
+  margin: 4px 0;
+`;
+
+const SimilarityScore = styled.div`
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 8px;
+`;
+
+const Labels = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+`;
+
+const Label = styled.span`
+  background: #f0f0f0;
+  color: #666;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+`;
+
+const ProgressBar = styled.div`
+  width: 100%;
+  height: 6px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 20px 0;
+`;
+
+const ProgressFill = styled.div`
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  width: ${props => props.percent}%;
+  transition: width 0.3s;
+`;
+
+const Message = styled.div`
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background: ${props => props.type === 'error' ? '#fee' : '#efe'};
+  color: ${props => props.type === 'error' ? '#c33' : '#363'};
+  border-left: 4px solid ${props => props.type === 'error' ? '#c33' : '#363'};
+`;
+
+const EmptyState = styled.div`
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+`;
+
+const EmptyIcon = styled.div`
+  font-size: 4rem;
+  margin-bottom: 20px;
+`;
+
+const VideoPlayer = styled.div`
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+`;
+
+const VideoPlayerHeader = styled.div`
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const VideoPlayerTitle = styled.h3`
+  margin: 0;
+  font-size: 1.2rem;
+`;
+
+const CloseButton = styled.button`
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: background 0.2s;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+`;
+
+const VideoPlayerContent = styled.div`
+  padding: 20px;
+  background: white;
+`;
+
+const VideoThumbnail = styled.img`
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  background: #000;
+  border-radius: 8px;
+`;
+
+const VideoMeta = styled.div`
+  margin-top: 20px;
+`;
+
+const MetaSection = styled.div`
+  margin-bottom: 20px;
+`;
+
+const MetaLabel = styled.h4`
+  font-size: 1rem;
+  color: #333;
+  margin: 0 0 10px 0;
+`;
+
+const MetaContent = styled.p`
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+`;
+
+const BACKEND_URL = 'http://localhost:5008';
+
+function SemanticSearch() {
+  // Tab state - 'documents' or 'videos'
+  const [activeTab, setActiveTab] = useState('documents');
+  
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [videoTitle, setVideoTitle] = useState('');
+  const [videoDescription, setVideoDescription] = useState('');
+  const [uploading, setUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [message, setMessage] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
+  
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searching, setSearching] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const [allVideos, setAllVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  
+  // Document Q&A state
+  const [selectedDocument, setSelectedDocument] = useState(null);
+  const [documentTitle, setDocumentTitle] = useState('');
+  const [uploadingDoc, setUploadingDoc] = useState(false);
+  const [uploadDocProgress, setUploadDocProgress] = useState(0);
+  const [allDocuments, setAllDocuments] = useState([]);
+  const [textSearchQuery, setTextSearchQuery] = useState('');
+  const [textSearching, setTextSearching] = useState(false);
+  const [textSearchResults, setTextSearchResults] = useState([]);
+  // sidebar selection for documents (used for highlighting)
+  const [activeDocumentId, setActiveDocumentId] = useState(null);
+
+  useEffect(() => {
+    loadAllVideos();
+    loadAllDocuments();
+  }, []);
+
+  const loadAllVideos = async () => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/videos`);
+      setAllVideos(response.data.videos);
+    } catch (error) {
+      console.error('Failed to load videos:', error);
+    }
+  };
+  
+  const loadAllDocuments = async () => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/documents`);
+      setAllDocuments(response.data.documents || []);
+    } catch (error) {
+      console.error('Failed to load documents:', error);
+    }
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+    
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+      const file = files[0];
+      if (file.type.startsWith('video/')) {
+        setSelectedFile(file);
+        if (!videoTitle) {
+          setVideoTitle(file.name.replace(/\.[^/.]+$/, ''));
+        }
+      } else {
+        setMessage({ type: 'error', text: 'Please upload a video file' });
+      }
+    }
+  };
+
+  const handleFileSelect = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+      if (!videoTitle) {
+        setVideoTitle(file.name.replace(/\.[^/.]+$/, ''));
+      }
+    }
+  };
+
+  const handleUpload = async () => {
+    if (!selectedFile) {
+      setMessage({ type: 'error', text: 'Please select a video file' });
+      return;
+    }
+
+    setUploading(true);
+    setUploadProgress(0);
+    setMessage(null);
+
+    const formData = new FormData();
+    formData.append('video', selectedFile);
+    formData.append('title', videoTitle || selectedFile.name);
+    formData.append('description', videoDescription);
+
+    try {
+      const response = await axios.post(`${BACKEND_URL}/upload-video`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+        onUploadProgress: (progressEvent) => {
+          const percentCompleted = Math.round((progressEvent.loaded * 50) / progressEvent.total);
+          setUploadProgress(percentCompleted);
+        }
+      });
+
+      setUploadProgress(100);
+      setMessage({ 
+        type: 'success', 
+        text: `Video indexed successfully! Found ${response.data.labels_count} labels and ${response.data.frame_count} frames.` 
+      });
+      
+      setSelectedFile(null);
+      setVideoTitle('');
+      setVideoDescription('');
+      loadAllVideos();
+      
+    } catch (error) {
+      setMessage({ 
+        type: 'error', 
+        text: error.response?.data?.error || 'Failed to upload video' 
+      });
+    } finally {
+      setUploading(false);
+      setUploadProgress(0);
+    }
+  };
+
+  const handleSearch = async () => {
+    if (!searchQuery.trim()) {
+      setMessage({ type: 'error', text: 'Please enter a search query' });
+      return;
+    }
+
+    setSearching(true);
+    setMessage(null);
+
+    try {
+      const response = await axios.post(`${BACKEND_URL}/search`, {
+        query: searchQuery,
+        top_k: 10
+      });
+
+      setSearchResults(response.data.results);
+      
+      if (response.data.results.length === 0) {
+        setMessage({ type: 'info', text: 'No matching videos found. Try a different query.' });
+      }
+      
+    } catch (error) {
+      setMessage({ 
+        type: 'error', 
+        text: error.response?.data?.error || 'Search failed' 
+      });
+    } finally {
+      setSearching(false);
+    }
+  };
+
+  const handleVideoClick = async (videoId) => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/video/${videoId}`);
+      setSelectedVideo(response.data);
+    } catch (error) {
+      setMessage({ type: 'error', text: 'Failed to load video details' });
+    }
+  };
+  
+  const handleDocumentSelect = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedDocument(file);
+      if (!documentTitle) {
+        setDocumentTitle(file.name.replace(/\.[^/.]+$/, ''));
+      }
+    }
+  };
+  
+  const handleDocumentUpload = async () => {
+    if (!selectedDocument) {
+      setMessage({ type: 'error', text: 'Please select a document file' });
+      return;
+    }
+
+    setUploadingDoc(true);
+    setUploadDocProgress(0);
+    setMessage(null);
+
+    const formData = new FormData();
+    formData.append('document', selectedDocument);
+    formData.append('title', documentTitle || selectedDocument.name);
+
+    try {
+      const response = await axios.post(`${BACKEND_URL}/upload-document`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+        onUploadProgress: (progressEvent) => {
+          const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+          setUploadDocProgress(percentCompleted);
+        }
+      });
+
+      setMessage({ 
+        type: 'success', 
+        text: `Document indexed successfully! ${response.data.chunks_count} chunks created.` 
+      });
+      
+      setSelectedDocument(null);
+      setDocumentTitle('');
+      loadAllDocuments();
+      
+    } catch (error) {
+      setMessage({ 
+        type: 'error', 
+        text: error.response?.data?.error || 'Failed to upload document' 
+      });
+    } finally {
+      setUploadingDoc(false);
+      setUploadDocProgress(0);
+    }
+  };
+  
+  const handleTextSearch = async () => {
+    if (!textSearchQuery.trim()) {
+      setMessage({ type: 'error', text: 'Please enter a text search query' });
+      return;
+    }
+
+    setTextSearching(true);
+    setMessage(null);
+
+    try {
+      const response = await axios.post(`${BACKEND_URL}/search-text`, {
+        query: textSearchQuery,
+        top_k: 5
+      });
+
+      setTextSearchResults(response.data.results);
+      
+      if (response.data.results.length === 0) {
+        setMessage({ type: 'info', text: 'No matching documents found. Try a different query.' });
+      }
+      
+    } catch (error) {
+      setMessage({ 
+        type: 'error', 
+        text: error.response?.data?.error || 'Text search failed' 
+      });
+    } finally {
+      setTextSearching(false);
+    }
+  };
+
+  const renderSearchExamples = () => (
+    <div style={{ marginTop: '15px' }}>
+      <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '8px' }}>
+        Try these example searches:
+      </p>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+        {[
+          'happy moments',
+          'sunset scenes',
+          'people dancing',
+          'outdoor activities',
+          'emotional speech'
+        ].map(example => (
+          <Label 
+            key={example}
+            style={{ cursor: 'pointer', background: '#e7e7ff' }}
+            onClick={() => setSearchQuery(example)}
+          >
+            {example}
+          </Label>
+        ))}
+      </div>
+    </div>
+  );
+
+  return (
+    <PageWrapper>
+      <Sidebar>
+        <SidebarTitle>
+          <span>�</span>
+          Documents ({allDocuments.length})
+        </SidebarTitle>
+          {allDocuments.length === 0 ? (
+          <div style={{ textAlign: 'center', color: '#999', padding: '20px 0' }}>
+            <div style={{ fontSize: '2rem', marginBottom: '10px' }}>�</div>
+            <p style={{ fontSize: '0.85rem' }}>No documents yet</p>
+          </div>
+        ) : (
+          allDocuments.map(doc => (
+            <CatalogueItem
+              key={doc.id}
+              isSelected={activeDocumentId === doc.id}
+              onClick={() => setActiveDocumentId(doc.id)}
+            >
+              <CatalogueThumb src={null}>
+                📄
+              </CatalogueThumb>
+              <CatalogueTitle>{doc.title}</CatalogueTitle>
+              <CatalogueMeta>
+                {doc.chunks_count} chunks • {new Date(doc.uploaded_at).toLocaleDateString()}
+              </CatalogueMeta>
+            </CatalogueItem>
+          ))
+        )}
+      </Sidebar>
+      
+      <Container>
+        <Header>
+    <Title>Semantic Search (Text/Video)</Title>
+    <Subtitle>Upload documents and search them using natural language.</Subtitle>
+        </Header>
+
+        {message && (
+          <Message type={message.type}>{message.text}</Message>
+        )}
+
+      <Section>
+        <SectionTitle>
+          <Icon>📤</Icon>
+          Upload Document
+        </SectionTitle>
+
+        <div style={{ marginBottom: '20px' }}>
+          <input
+            id="docInput"
+            type="file"
+            accept=".pdf,.txt,.doc,.docx"
+            onChange={handleDocumentSelect}
+            style={{ display: 'none' }}
+          />
+          <Button onClick={() => document.getElementById('docInput').click()}>
+            Choose Document
+          </Button>
+          {selectedDocument && (
+            <div style={{ marginTop: '10px', color: '#666' }}>
+              📄 {selectedDocument.name} ({(selectedDocument.size / 1024).toFixed(2)} KB)
+            </div>
+          )}
+        </div>
+
+        {selectedDocument && (
+          <div>
+            <Input
+              type="text"
+              placeholder="Document Title"
+              value={documentTitle}
+              onChange={(e) => setDocumentTitle(e.target.value)}
+            />
+            <Button onClick={handleDocumentUpload} disabled={uploadingDoc}>
+              {uploadingDoc ? 'Uploading...' : 'Upload & Index Document'}
+            </Button>
+
+            {uploadingDoc && (
+              <ProgressBar>
+                <ProgressFill percent={uploadDocProgress} />
+              </ProgressBar>
+            )}
+          </div>
+        )}
+      </Section>
+
+      <Section>
+        <SectionTitle>
+          <Icon>🔎</Icon>
+          Search Documents (Text)
+        </SectionTitle>
+
+        <SearchBox>
+          <SearchInput
+            type="text"
+            placeholder="Search documents by content or keywords..."
+            value={textSearchQuery}
+            onChange={(e) => setTextSearchQuery(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleTextSearch()}
+          />
+          <SearchButton onClick={handleTextSearch} disabled={textSearching}>
+            {textSearching ? 'Searching...' : 'Search Text'}
+          </SearchButton>
+        </SearchBox>
+
+        {textSearchResults.length > 0 && (
+          <div style={{ marginTop: '20px', background: '#f8f9fa', padding: '20px', borderRadius: '8px' }}>
+            <h3 style={{ marginTop: 0 }}>Text Search Results ({textSearchResults.length})</h3>
+            {textSearchResults.map((result, idx) => (
+              <div key={idx} style={{ 
+                background: 'white', 
+                padding: '15px', 
+                marginBottom: '10px', 
+                borderRadius: '8px',
+                borderLeft: '4px solid #667eea'
+              }}>
+                <div style={{ fontWeight: 'bold', marginBottom: '8px', color: '#333' }}>
+                  📄 {result.document_title}
+                </div>
+                <div style={{ color: '#666', lineHeight: '1.6' }}>
+                  {result.text}
+                </div>
+                <div style={{ marginTop: '8px', fontSize: '0.85rem', color: '#999' }}>
+                  Similarity: {(result.similarity_score * 100).toFixed(1)}%
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </Section>
+
+      {/* Q&A removed: semantic search now returns text blocks where the query appears */}
+
+      {allDocuments.length === 0 && !uploadingDoc && (
+        <EmptyState>
+          <EmptyIcon>�</EmptyIcon>
+          <h3>No documents indexed yet</h3>
+          <p>Upload your first document to get started</p>
+        </EmptyState>
+      )}
+      </Container>
+    </PageWrapper>
+  );
+}
+
+export default SemanticSearch;

@@ -1,0 +1,49 @@
+{
+  "summary": {
+    "headline": "QC pass with two actionable warnings",
+    "automation_coverage": 0.82,
+    "runtime_savings_minutes": 47,
+    "confidence": "high"
+  },
+  "findings": {
+    "blocking": [],
+    "warnings": [
+      {
+        "type": "audio_peaks",
+        "description": "Left channel peaks at -1.1 dBFS between 00:00:14-00:00:19.",
+        "recommendation": "Apply limiter or gently rebalance",
+        "severity": "medium"
+      },
+      {
+        "type": "frame_tagging",
+        "description": "Two shots missing mood tags for personalization.",
+        "recommendation": "Annotate hero shot emotion markers",
+        "severity": "low"
+      }
+    ],
+    "notes": [
+      "Bit depth verified at 10-bit",
+      "No cadence errors detected"
+    ]
+  },
+  "metadata": {
+    "synopsis": "Rhea scrambles to assemble the fleet while an unexpected betrayal triggers a city-wide blackout.",
+    "keywords": [
+      "space opera",
+      "betrayal",
+      "AI copilot"
+    ],
+    "locations": [
+      "Neo Meridian",
+      "Orbital Yard 19"
+    ],
+    "talent": [
+      "Anika Rao",
+      "Devon Holt"
+    ]
+  },
+  "recommendations": [
+    "Route voiceover brief to GenAI narrator",
+    "Refresh OTT metadata before Friday syndication"
+  ]
+}

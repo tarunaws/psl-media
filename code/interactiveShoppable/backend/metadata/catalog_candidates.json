@@ -1,0 +1,5732 @@
+[
+  {
+    "label": "Lipstick",
+    "confidence": 70.28997802734375,
+    "timestamp_ms": 3500,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 70.52044677734375,
+        "boundingBox": {
+          "Width": 0.03766873851418495,
+          "Height": 0.25800514221191406,
+          "Left": 0.47438544034957886,
+          "Top": 0.5500394105911255
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 88.46631622314453,
+    "timestamp_ms": 4000,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.17884826660156,
+        "boundingBox": {
+          "Width": 0.03824536129832268,
+          "Height": 0.25774452090263367,
+          "Left": 0.47400963306427,
+          "Top": 0.5501332879066467
+        }
+      },
+      {
+        "confidence": 89.63607788085938,
+        "boundingBox": {
+          "Width": 0.035279784351587296,
+          "Height": 0.25540828704833984,
+          "Left": 0.4256543815135956,
+          "Top": 0.5486468076705933
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 92.98066711425781,
+    "timestamp_ms": 4500,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 94.41470336914062,
+        "boundingBox": {
+          "Width": 0.03843364864587784,
+          "Height": 0.25796717405319214,
+          "Left": 0.4737793207168579,
+          "Top": 0.550028920173645
+        }
+      },
+      {
+        "confidence": 88.58924865722656,
+        "boundingBox": {
+          "Width": 0.03545195236802101,
+          "Height": 0.25553640723228455,
+          "Left": 0.4254210293292999,
+          "Top": 0.5486820340156555
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 89.63890075683594,
+    "timestamp_ms": 5000,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 94.24375915527344,
+        "boundingBox": {
+          "Width": 0.0358695350587368,
+          "Height": 0.2027471512556076,
+          "Left": 0.4250863790512085,
+          "Top": 0.5491421222686768
+        }
+      },
+      {
+        "confidence": 90.47732543945312,
+        "boundingBox": {
+          "Width": 0.03741038590669632,
+          "Height": 0.21408289670944214,
+          "Left": 0.4747099280357361,
+          "Top": 0.5494233965873718
+        }
+      },
+      {
+        "confidence": 73.34001922607422,
+        "boundingBox": {
+          "Width": 0.051653482019901276,
+          "Height": 0.20783595740795135,
+          "Left": 0.36022552847862244,
+          "Top": 0.5516090989112854
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 79.45824432373047,
+    "timestamp_ms": 5500,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 91.57369995117188,
+        "boundingBox": {
+          "Width": 0.03840487822890282,
+          "Height": 0.25950124859809875,
+          "Left": 0.4740404188632965,
+          "Top": 0.5503484010696411
+        }
+      },
+      {
+        "confidence": 89.45195007324219,
+        "boundingBox": {
+          "Width": 0.11347300559282303,
+          "Height": 0.44419047236442566,
+          "Left": 0.33433064818382263,
+          "Top": 0.5515902042388916
+        }
+      },
+      {
+        "confidence": 89.2674331665039,
+        "boundingBox": {
+          "Width": 0.035796068608760834,
+          "Height": 0.25550734996795654,
+          "Left": 0.425226628780365,
+          "Top": 0.549195408821106
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 85.85182189941406,
+    "timestamp_ms": 6000,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.33776092529297,
+        "boundingBox": {
+          "Width": 0.6083961129188538,
+          "Height": 0.17749854922294617,
+          "Left": 0.028932197019457817,
+          "Top": 0.822180449962616
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 84.93487548828125,
+    "timestamp_ms": 6000,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.34586334228516,
+        "boundingBox": {
+          "Width": 0.4614158570766449,
+          "Height": 0.548830509185791,
+          "Left": 0.2063789814710617,
+          "Top": 0.1068754717707634
+        }
+      },
+      {
+        "confidence": 94.83287048339844,
+        "boundingBox": {
+          "Width": 0.14100100100040436,
+          "Height": 0.5094414949417114,
+          "Left": 0.8589927554130554,
+          "Top": 0.15871872007846832
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 95.1890640258789,
+    "timestamp_ms": 6500,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.74266815185547,
+        "boundingBox": {
+          "Width": 0.6176234483718872,
+          "Height": 0.18229471147060394,
+          "Left": 0.027751673012971878,
+          "Top": 0.8167119026184082
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 93.70558166503906,
+    "timestamp_ms": 6500,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 97.99185943603516,
+        "boundingBox": {
+          "Width": 0.46325138211250305,
+          "Height": 0.5553514361381531,
+          "Left": 0.20562361180782318,
+          "Top": 0.09923434257507324
+        }
+      },
+      {
+        "confidence": 97.11919403076172,
+        "boundingBox": {
+          "Width": 0.1402595490217209,
+          "Height": 0.5099994540214539,
+          "Left": 0.8597393035888672,
+          "Top": 0.15540173649787903
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.82230377197266,
+    "timestamp_ms": 7000,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.85062408447266,
+        "boundingBox": {
+          "Width": 0.6370458602905273,
+          "Height": 0.20076152682304382,
+          "Left": 0.0025037690065801144,
+          "Top": 0.796955406665802
+        }
+      },
+      {
+        "confidence": 75.54912567138672,
+        "boundingBox": {
+          "Width": 0.0855724960565567,
+          "Height": 0.15162970125675201,
+          "Left": 0.9144275188446045,
+          "Top": 0.7859451770782471
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.89955139160156,
+    "timestamp_ms": 7000,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 99.04967498779297,
+        "boundingBox": {
+          "Width": 0.46966519951820374,
+          "Height": 0.5701435804367065,
+          "Left": 0.1781746745109558,
+          "Top": 0.07939929515123367
+        }
+      },
+      {
+        "confidence": 96.72613525390625,
+        "boundingBox": {
+          "Width": 0.16635265946388245,
+          "Height": 0.5012888312339783,
+          "Left": 0.8336473703384399,
+          "Top": 0.1443626582622528
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.88358306884766,
+    "timestamp_ms": 7500,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.89991760253906,
+        "boundingBox": {
+          "Width": 0.635841429233551,
+          "Height": 0.20883528888225555,
+          "Left": 0.0,
+          "Top": 0.7885767221450806
+        }
+      },
+      {
+        "confidence": 71.88712310791016,
+        "boundingBox": {
+          "Width": 0.09400247037410736,
+          "Height": 0.15716060996055603,
+          "Left": 0.9059975147247314,
+          "Top": 0.7806889414787292
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.825927734375,
+    "timestamp_ms": 7500,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.86196899414062,
+        "boundingBox": {
+          "Width": 0.4684295058250427,
+          "Height": 0.5892295837402344,
+          "Left": 0.17844589054584503,
+          "Top": 0.06230957433581352
+        }
+      },
+      {
+        "confidence": 95.28755950927734,
+        "boundingBox": {
+          "Width": 0.1689734160900116,
+          "Height": 0.5018120408058167,
+          "Left": 0.8310266137123108,
+          "Top": 0.14250876009464264
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.8650894165039,
+    "timestamp_ms": 8000,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.85778045654297,
+        "boundingBox": {
+          "Width": 0.627707302570343,
+          "Height": 0.21489059925079346,
+          "Left": 0.001474184449762106,
+          "Top": 0.7821356058120728
+        }
+      },
+      {
+        "confidence": 85.81298828125,
+        "boundingBox": {
+          "Width": 0.10226478427648544,
+          "Height": 0.1688365787267685,
+          "Left": 0.8977352380752563,
+          "Top": 0.7799813747406006
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.85157012939453,
+    "timestamp_ms": 8000,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.94181823730469,
+        "boundingBox": {
+          "Width": 0.4680751860141754,
+          "Height": 0.5800018906593323,
+          "Left": 0.17797373235225677,
+          "Top": 0.05561641603708267
+        }
+      },
+      {
+        "confidence": 95.13307189941406,
+        "boundingBox": {
+          "Width": 0.17482154071331024,
+          "Height": 0.5008291602134705,
+          "Left": 0.8251784443855286,
+          "Top": 0.14953170716762543
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 95.34077453613281,
+    "timestamp_ms": 8500,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.88062286376953,
+        "boundingBox": {
+          "Width": 0.6225605607032776,
+          "Height": 0.22180791199207306,
+          "Left": 0.0008620013832114637,
+          "Top": 0.7739441394805908
+        }
+      },
+      {
+        "confidence": 73.34014892578125,
+        "boundingBox": {
+          "Width": 0.11385739594697952,
+          "Height": 0.1795903593301773,
+          "Left": 0.8857638239860535,
+          "Top": 0.7709126472473145
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 93.9717025756836,
+    "timestamp_ms": 8500,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.40402221679688,
+        "boundingBox": {
+          "Width": 0.46963781118392944,
+          "Height": 0.5872963666915894,
+          "Left": 0.17568907141685486,
+          "Top": 0.0370132252573967
+        }
+      },
+      {
+        "confidence": 93.87846374511719,
+        "boundingBox": {
+          "Width": 0.1806534379720688,
+          "Height": 0.4987388849258423,
+          "Left": 0.81934654712677,
+          "Top": 0.14721335470676422
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 86.27053833007812,
+    "timestamp_ms": 9000,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.89579772949219,
+        "boundingBox": {
+          "Width": 0.6205325722694397,
+          "Height": 0.2311878353357315,
+          "Left": 0.0008476239745505154,
+          "Top": 0.7638179063796997
+        }
+      },
+      {
+        "confidence": 95.35832214355469,
+        "boundingBox": {
+          "Width": 0.12082398682832718,
+          "Height": 0.18537208437919617,
+          "Left": 0.8788270354270935,
+          "Top": 0.7627567052841187
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 84.77680206298828,
+    "timestamp_ms": 9000,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.083740234375,
+        "boundingBox": {
+          "Width": 0.47153881192207336,
+          "Height": 0.5873106122016907,
+          "Left": 0.1726498156785965,
+          "Top": 0.02660536766052246
+        }
+      },
+      {
+        "confidence": 93.6580581665039,
+        "boundingBox": {
+          "Width": 0.18457216024398804,
+          "Height": 0.4943699538707733,
+          "Left": 0.815427839756012,
+          "Top": 0.14391988515853882
+        }
+      }
+    ]
+  },
+  {
+    "label": "Ketchup",
+    "confidence": 74.26180267333984,
+    "timestamp_ms": 9500,
+    "parents": [
+      "Food"
+    ],
+    "instances": [
+      {
+        "confidence": 89.6084976196289,
+        "boundingBox": {
+          "Width": 0.27322298288345337,
+          "Height": 0.424824982881546,
+          "Left": 0.589641809463501,
+          "Top": 0.4833580255508423
+        }
+      }
+    ]
+  },
+  {
+    "label": "Ketchup",
+    "confidence": 70.43852996826172,
+    "timestamp_ms": 10000,
+    "parents": [
+      "Food"
+    ],
+    "instances": [
+      {
+        "confidence": 80.86528015136719,
+        "boundingBox": {
+          "Width": 0.5720716118812561,
+          "Height": 0.6167536377906799,
+          "Left": 0.30308735370635986,
+          "Top": 0.29734599590301514
+        }
+      }
+    ]
+  },
+  {
+    "label": "Coat",
+    "confidence": 80.74772644042969,
+    "timestamp_ms": 14500,
+    "parents": [
+      "Clothing"
+    ],
+    "instances": [
+      {
+        "confidence": 96.21389770507812,
+        "boundingBox": {
+          "Width": 0.3337313234806061,
+          "Height": 0.7260258197784424,
+          "Left": 0.28717631101608276,
+          "Top": 0.002284383401274681
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 75.7336654663086,
+    "timestamp_ms": 18366,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 83.19681549072266,
+        "boundingBox": {
+          "Width": 0.22009724378585815,
+          "Height": 0.1477101594209671,
+          "Left": 0.04898542910814285,
+          "Top": 0.8052334189414978
+        }
+      }
+    ]
+  },
+  {
+    "label": "Shorts",
+    "confidence": 72.23706817626953,
+    "timestamp_ms": 18366,
+    "parents": [
+      "Clothing"
+    ],
+    "instances": [
+      {
+        "confidence": 86.0862808227539,
+        "boundingBox": {
+          "Width": 0.3126240372657776,
+          "Height": 0.4441900849342346,
+          "Left": 0.26365700364112854,
+          "Top": 0.1138712614774704
+        }
+      }
+    ]
+  },
+  {
+    "label": "Shorts",
+    "confidence": 74.42346954345703,
+    "timestamp_ms": 18500,
+    "parents": [
+      "Clothing"
+    ],
+    "instances": [
+      {
+        "confidence": 80.97382354736328,
+        "boundingBox": {
+          "Width": 0.31196731328964233,
+          "Height": 0.4443055987358093,
+          "Left": 0.2600005269050598,
+          "Top": 0.1182333379983902
+        }
+      }
+    ]
+  },
+  {
+    "label": "Tablet Computer",
+    "confidence": 71.26014709472656,
+    "timestamp_ms": 18500,
+    "parents": [
+      "Computer",
+      "Electronics"
+    ],
+    "instances": [
+      {
+        "confidence": 82.32678985595703,
+        "boundingBox": {
+          "Width": 0.23422227799892426,
+          "Height": 0.20330160856246948,
+          "Left": 0.6936570405960083,
+          "Top": 0.765812337398529
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 77.46237182617188,
+    "timestamp_ms": 18866,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 78.13656616210938,
+        "boundingBox": {
+          "Width": 0.2195785790681839,
+          "Height": 0.1477925032377243,
+          "Left": 0.04438542574644089,
+          "Top": 0.8094117045402527
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 85.3251953125,
+    "timestamp_ms": 19000,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 90.1639404296875,
+        "boundingBox": {
+          "Width": 0.21920464932918549,
+          "Height": 0.14868158102035522,
+          "Left": 0.04476965218782425,
+          "Top": 0.8086472749710083
+        }
+      }
+    ]
+  },
+  {
+    "label": "Tablet Computer",
+    "confidence": 74.56942749023438,
+    "timestamp_ms": 20366,
+    "parents": [
+      "Computer",
+      "Electronics"
+    ],
+    "instances": [
+      {
+        "confidence": 90.21940612792969,
+        "boundingBox": {
+          "Width": 0.24444815516471863,
+          "Height": 0.36410030722618103,
+          "Left": 0.6949223875999451,
+          "Top": 0.5747040510177612
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 70.07819366455078,
+    "timestamp_ms": 21866,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 73.06529998779297,
+        "boundingBox": {
+          "Width": 0.21887464821338654,
+          "Height": 0.14627718925476074,
+          "Left": 0.043990813195705414,
+          "Top": 0.8114591240882874
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 75.57383728027344,
+    "timestamp_ms": 22366,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 81.05216979980469,
+        "boundingBox": {
+          "Width": 0.21898886561393738,
+          "Height": 0.1476598083972931,
+          "Left": 0.0440434031188488,
+          "Top": 0.8102479577064514
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 72.4093246459961,
+    "timestamp_ms": 146633,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 92.1104507446289,
+        "boundingBox": {
+          "Width": 0.8611291646957397,
+          "Height": 0.9510260820388794,
+          "Left": 0.0,
+          "Top": 0.048863485455513
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 79.59021759033203,
+    "timestamp_ms": 154566,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 90.44896697998047,
+        "boundingBox": {
+          "Width": 0.5404931306838989,
+          "Height": 0.5997559428215027,
+          "Left": 0.0004437754978425801,
+          "Top": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 85.91974639892578,
+    "timestamp_ms": 154633,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 92.23481750488281,
+        "boundingBox": {
+          "Width": 0.6273282766342163,
+          "Height": 0.8382124900817871,
+          "Left": 0.0,
+          "Top": 0.003113769693300128
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 79.12850952148438,
+    "timestamp_ms": 155066,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 76.14361572265625,
+        "boundingBox": {
+          "Width": 0.8354434370994568,
+          "Height": 0.9899181127548218,
+          "Left": 7.390153041342273e-05,
+          "Top": 0.0037282307166606188
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 81.88069152832031,
+    "timestamp_ms": 155133,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 81.2921142578125,
+        "boundingBox": {
+          "Width": 0.8200052380561829,
+          "Height": 0.9967718124389648,
+          "Left": 0.002570848446339369,
+          "Top": 0.0006489664665423334
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 84.25042724609375,
+    "timestamp_ms": 155566,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 85.026611328125,
+        "boundingBox": {
+          "Width": 0.8008500337600708,
+          "Height": 0.9963368773460388,
+          "Left": 0.0010763799073174596,
+          "Top": 0.0030062664300203323
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 85.29898071289062,
+    "timestamp_ms": 155633,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 86.12609100341797,
+        "boundingBox": {
+          "Width": 0.7978765368461609,
+          "Height": 0.994135856628418,
+          "Left": 0.001398497144691646,
+          "Top": 0.0017238770378753543
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 83.47142028808594,
+    "timestamp_ms": 156066,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 82.10350799560547,
+        "boundingBox": {
+          "Width": 0.7142298221588135,
+          "Height": 0.7908530235290527,
+          "Left": 0.0015448578633368015,
+          "Top": 0.0033486736938357353
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 85.29344177246094,
+    "timestamp_ms": 156133,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 83.00777435302734,
+        "boundingBox": {
+          "Width": 0.08864834904670715,
+          "Height": 0.579977810382843,
+          "Left": 0.9113516211509705,
+          "Top": 0.07958164811134338
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 86.1899185180664,
+    "timestamp_ms": 156566,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.52399444580078,
+        "boundingBox": {
+          "Width": 0.5750040411949158,
+          "Height": 0.19504591822624207,
+          "Left": 0.00133226509205997,
+          "Top": 0.8031811118125916
+        }
+      },
+      {
+        "confidence": 96.24616241455078,
+        "boundingBox": {
+          "Width": 0.1428772658109665,
+          "Height": 0.2353515625,
+          "Left": 0.8570453524589539,
+          "Top": 0.7517117261886597
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 97.08610534667969,
+    "timestamp_ms": 156566,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 99.42069244384766,
+        "boundingBox": {
+          "Width": 0.48799461126327515,
+          "Height": 0.5832764506340027,
+          "Left": 0.1156058982014656,
+          "Top": 0.08244381099939346
+        }
+      },
+      {
+        "confidence": 93.36426544189453,
+        "boundingBox": {
+          "Width": 0.21276625990867615,
+          "Height": 0.5048401951789856,
+          "Left": 0.7872337102890015,
+          "Top": 0.13649512827396393
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 95.35961151123047,
+    "timestamp_ms": 156633,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.81272888183594,
+        "boundingBox": {
+          "Width": 0.5726630091667175,
+          "Height": 0.19858002662658691,
+          "Left": 0.0005015138885937631,
+          "Top": 0.7999591827392578
+        }
+      },
+      {
+        "confidence": 98.30146789550781,
+        "boundingBox": {
+          "Width": 0.1520971953868866,
+          "Height": 0.2420680820941925,
+          "Left": 0.8477556109428406,
+          "Top": 0.7450821995735168
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.38322448730469,
+    "timestamp_ms": 156633,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 99.15682983398438,
+        "boundingBox": {
+          "Width": 0.4764123558998108,
+          "Height": 0.5682255029678345,
+          "Left": 0.12083838880062103,
+          "Top": 0.09551528096199036
+        }
+      },
+      {
+        "confidence": 90.09441375732422,
+        "boundingBox": {
+          "Width": 0.22104746103286743,
+          "Height": 0.49461761116981506,
+          "Left": 0.7789525389671326,
+          "Top": 0.1501448005437851
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.86489868164062,
+    "timestamp_ms": 157066,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.89217376708984,
+        "boundingBox": {
+          "Width": 0.6055986881256104,
+          "Height": 0.2027195692062378,
+          "Left": 0.0,
+          "Top": 0.7941902279853821
+        }
+      },
+      {
+        "confidence": 96.53590393066406,
+        "boundingBox": {
+          "Width": 0.12541154026985168,
+          "Height": 0.19778130948543549,
+          "Left": 0.8744094967842102,
+          "Top": 0.7699208855628967
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.75330352783203,
+    "timestamp_ms": 157066,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.73049926757812,
+        "boundingBox": {
+          "Width": 0.4576475918292999,
+          "Height": 0.5535069108009338,
+          "Left": 0.16842490434646606,
+          "Top": 0.09752525389194489
+        }
+      },
+      {
+        "confidence": 79.02386474609375,
+        "boundingBox": {
+          "Width": 0.19637197256088257,
+          "Height": 0.4821990430355072,
+          "Left": 0.8036280274391174,
+          "Top": 0.16200421750545502
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.89256286621094,
+    "timestamp_ms": 157133,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.93712615966797,
+        "boundingBox": {
+          "Width": 0.6142922639846802,
+          "Height": 0.19693472981452942,
+          "Left": 0.001890075160190463,
+          "Top": 0.8015853762626648
+        }
+      },
+      {
+        "confidence": 97.17176818847656,
+        "boundingBox": {
+          "Width": 0.11454423516988754,
+          "Height": 0.18265189230442047,
+          "Left": 0.8854073882102966,
+          "Top": 0.7853868007659912
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.5600814819336,
+    "timestamp_ms": 157133,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.61143493652344,
+        "boundingBox": {
+          "Width": 0.45330220460891724,
+          "Height": 0.5562126040458679,
+          "Left": 0.18098613619804382,
+          "Top": 0.10089200735092163
+        }
+      },
+      {
+        "confidence": 86.77112579345703,
+        "boundingBox": {
+          "Width": 0.1871466338634491,
+          "Height": 0.49296116828918457,
+          "Left": 0.8128533959388733,
+          "Top": 0.16879960894584656
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.72858428955078,
+    "timestamp_ms": 157566,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.7292251586914,
+        "boundingBox": {
+          "Width": 0.6099088191986084,
+          "Height": 0.16353392601013184,
+          "Left": 0.03680383414030075,
+          "Top": 0.8347234129905701
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.0623779296875,
+    "timestamp_ms": 157566,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 97.92748260498047,
+        "boundingBox": {
+          "Width": 0.4471840560436249,
+          "Height": 0.5531606078147888,
+          "Left": 0.20942530035972595,
+          "Top": 0.13424555957317352
+        }
+      },
+      {
+        "confidence": 93.963623046875,
+        "boundingBox": {
+          "Width": 0.15839029848575592,
+          "Height": 0.4941883087158203,
+          "Left": 0.8416097164154053,
+          "Top": 0.19691672921180725
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.60516357421875,
+    "timestamp_ms": 157633,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.58678436279297,
+        "boundingBox": {
+          "Width": 0.6130289435386658,
+          "Height": 0.1692567616701126,
+          "Left": 0.03239426016807556,
+          "Top": 0.8281190395355225
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.12745666503906,
+    "timestamp_ms": 157633,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.06604766845703,
+        "boundingBox": {
+          "Width": 0.44956710934638977,
+          "Height": 0.5447971820831299,
+          "Left": 0.20748504996299744,
+          "Top": 0.13193316757678986
+        }
+      },
+      {
+        "confidence": 92.4367904663086,
+        "boundingBox": {
+          "Width": 0.16199125349521637,
+          "Height": 0.49151283502578735,
+          "Left": 0.8380087614059448,
+          "Top": 0.19635388255119324
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.45246124267578,
+    "timestamp_ms": 158066,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.42123413085938,
+        "boundingBox": {
+          "Width": 0.6104118824005127,
+          "Height": 0.17052510380744934,
+          "Left": 0.026523370295763016,
+          "Top": 0.8290117979049683
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.39747619628906,
+    "timestamp_ms": 158066,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.44715118408203,
+        "boundingBox": {
+          "Width": 0.44987067580223083,
+          "Height": 0.5565831661224365,
+          "Left": 0.1992238461971283,
+          "Top": 0.12718415260314941
+        }
+      },
+      {
+        "confidence": 93.07063293457031,
+        "boundingBox": {
+          "Width": 0.16470012068748474,
+          "Height": 0.49387326836586,
+          "Left": 0.8352998495101929,
+          "Top": 0.1923518031835556
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.5926513671875,
+    "timestamp_ms": 158133,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.68701934814453,
+        "boundingBox": {
+          "Width": 0.6155483722686768,
+          "Height": 0.16928620636463165,
+          "Left": 0.01847400888800621,
+          "Top": 0.8297442197799683
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.4228515625,
+    "timestamp_ms": 158133,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.3864974975586,
+        "boundingBox": {
+          "Width": 0.45679181814193726,
+          "Height": 0.5492138862609863,
+          "Left": 0.19483724236488342,
+          "Top": 0.1237373948097229
+        }
+      },
+      {
+        "confidence": 91.55574035644531,
+        "boundingBox": {
+          "Width": 0.16463641822338104,
+          "Height": 0.47727400064468384,
+          "Left": 0.8353635668754578,
+          "Top": 0.18336282670497894
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.14485168457031,
+    "timestamp_ms": 158566,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 98.93753814697266,
+        "boundingBox": {
+          "Width": 0.5843501687049866,
+          "Height": 0.1722521185874939,
+          "Left": 0.04233868420124054,
+          "Top": 0.8261951208114624
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.71148681640625,
+    "timestamp_ms": 158566,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.75749969482422,
+        "boundingBox": {
+          "Width": 0.46158358454704285,
+          "Height": 0.5592767596244812,
+          "Left": 0.22192725539207458,
+          "Top": 0.10593695193529129
+        }
+      },
+      {
+        "confidence": 96.83331298828125,
+        "boundingBox": {
+          "Width": 0.11930287629365921,
+          "Height": 0.5249322056770325,
+          "Left": 0.8806936144828796,
+          "Top": 0.1530284732580185
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.68831634521484,
+    "timestamp_ms": 158633,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.74168395996094,
+        "boundingBox": {
+          "Width": 0.5974703431129456,
+          "Height": 0.17392273247241974,
+          "Left": 0.04374505952000618,
+          "Top": 0.8259087204933167
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.69087219238281,
+    "timestamp_ms": 158633,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.64337158203125,
+        "boundingBox": {
+          "Width": 0.461562842130661,
+          "Height": 0.5593827962875366,
+          "Left": 0.2226315587759018,
+          "Top": 0.10469865798950195
+        }
+      },
+      {
+        "confidence": 96.48139190673828,
+        "boundingBox": {
+          "Width": 0.1182948425412178,
+          "Height": 0.5224736928939819,
+          "Left": 0.8817007541656494,
+          "Top": 0.15398432314395905
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.84565734863281,
+    "timestamp_ms": 159066,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.90750885009766,
+        "boundingBox": {
+          "Width": 0.6368739008903503,
+          "Height": 0.1996346414089203,
+          "Left": 0.00043175616883672774,
+          "Top": 0.7981675267219543
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.96176147460938,
+    "timestamp_ms": 159066,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 99.0259017944336,
+        "boundingBox": {
+          "Width": 0.4683687090873718,
+          "Height": 0.5704321265220642,
+          "Left": 0.1800336092710495,
+          "Top": 0.08236582577228546
+        }
+      },
+      {
+        "confidence": 94.33984375,
+        "boundingBox": {
+          "Width": 0.16672617197036743,
+          "Height": 0.49841970205307007,
+          "Left": 0.8332738280296326,
+          "Top": 0.14688324928283691
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.88772583007812,
+    "timestamp_ms": 159133,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.89889526367188,
+        "boundingBox": {
+          "Width": 0.6327219605445862,
+          "Height": 0.19969680905342102,
+          "Left": 0.0012517701834440231,
+          "Top": 0.7976253628730774
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.9295425415039,
+    "timestamp_ms": 159133,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.95199584960938,
+        "boundingBox": {
+          "Width": 0.46944814920425415,
+          "Height": 0.5717567801475525,
+          "Left": 0.17385858297348022,
+          "Top": 0.08027342706918716
+        }
+      },
+      {
+        "confidence": 92.4712905883789,
+        "boundingBox": {
+          "Width": 0.1691954880952835,
+          "Height": 0.4991501271724701,
+          "Left": 0.8308005928993225,
+          "Top": 0.14451126754283905
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.87129211425781,
+    "timestamp_ms": 159566,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.86563110351562,
+        "boundingBox": {
+          "Width": 0.6371866464614868,
+          "Height": 0.2055370807647705,
+          "Left": 0.0013855849392712116,
+          "Top": 0.7922790050506592
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.84062957763672,
+    "timestamp_ms": 159566,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.7960205078125,
+        "boundingBox": {
+          "Width": 0.46933677792549133,
+          "Height": 0.5710152387619019,
+          "Left": 0.17866794764995575,
+          "Top": 0.07322556525468826
+        }
+      },
+      {
+        "confidence": 94.25582122802734,
+        "boundingBox": {
+          "Width": 0.16664014756679535,
+          "Height": 0.5013952851295471,
+          "Left": 0.8333598375320435,
+          "Top": 0.14213185012340546
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.86705017089844,
+    "timestamp_ms": 159633,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.85973358154297,
+        "boundingBox": {
+          "Width": 0.6369451284408569,
+          "Height": 0.20640484988689423,
+          "Left": 0.002597519662231207,
+          "Top": 0.7911226749420166
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.91275024414062,
+    "timestamp_ms": 159633,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.93070983886719,
+        "boundingBox": {
+          "Width": 0.4690483808517456,
+          "Height": 0.5720579624176025,
+          "Left": 0.17841951549053192,
+          "Top": 0.07144995033740997
+        }
+      },
+      {
+        "confidence": 95.02204895019531,
+        "boundingBox": {
+          "Width": 0.1670522689819336,
+          "Height": 0.5019102692604065,
+          "Left": 0.8329402804374695,
+          "Top": 0.14142368733882904
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 99.89141845703125,
+    "timestamp_ms": 160066,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.89358520507812,
+        "boundingBox": {
+          "Width": 0.632573664188385,
+          "Height": 0.21091890335083008,
+          "Left": 0.0003544205683283508,
+          "Top": 0.7859211564064026
+        }
+      },
+      {
+        "confidence": 92.59244537353516,
+        "boundingBox": {
+          "Width": 0.09652970731258392,
+          "Height": 0.165242001414299,
+          "Left": 0.9034702777862549,
+          "Top": 0.7798638343811035
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 98.89691162109375,
+    "timestamp_ms": 160066,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.96613311767578,
+        "boundingBox": {
+          "Width": 0.46873238682746887,
+          "Height": 0.578677773475647,
+          "Left": 0.1772605925798416,
+          "Top": 0.059414736926555634
+        }
+      },
+      {
+        "confidence": 92.5406723022461,
+        "boundingBox": {
+          "Width": 0.1720631867647171,
+          "Height": 0.49779221415519714,
+          "Left": 0.8279368281364441,
+          "Top": 0.14443816244602203
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 95.36041259765625,
+    "timestamp_ms": 160566,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.90205383300781,
+        "boundingBox": {
+          "Width": 0.6271886229515076,
+          "Height": 0.21954300999641418,
+          "Left": 0.0,
+          "Top": 0.7773445248603821
+        }
+      },
+      {
+        "confidence": 93.161376953125,
+        "boundingBox": {
+          "Width": 0.10766417533159256,
+          "Height": 0.17597854137420654,
+          "Left": 0.892149806022644,
+          "Top": 0.7762833833694458
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 94.21141052246094,
+    "timestamp_ms": 160566,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.71292114257812,
+        "boundingBox": {
+          "Width": 0.4679339528083801,
+          "Height": 0.5767560601234436,
+          "Left": 0.1782836616039276,
+          "Top": 0.048972394317388535
+        }
+      },
+      {
+        "confidence": 94.318115234375,
+        "boundingBox": {
+          "Width": 0.17762978374958038,
+          "Height": 0.497048556804657,
+          "Left": 0.8223702311515808,
+          "Top": 0.15111033618450165
+        }
+      }
+    ]
+  },
+  {
+    "label": "Computer Keyboard",
+    "confidence": 86.2950668334961,
+    "timestamp_ms": 161066,
+    "parents": [
+      "Computer",
+      "Computer Hardware",
+      "Electronics",
+      "Hardware"
+    ],
+    "instances": [
+      {
+        "confidence": 99.92461395263672,
+        "boundingBox": {
+          "Width": 0.6214160323143005,
+          "Height": 0.22267410159111023,
+          "Left": 0.0005750948912464082,
+          "Top": 0.7723323106765747
+        }
+      },
+      {
+        "confidence": 92.94473266601562,
+        "boundingBox": {
+          "Width": 0.11108506470918655,
+          "Height": 0.18081817030906677,
+          "Left": 0.8882805705070496,
+          "Top": 0.7691513895988464
+        }
+      }
+    ]
+  },
+  {
+    "label": "Monitor",
+    "confidence": 84.88378143310547,
+    "timestamp_ms": 161066,
+    "parents": [
+      "Computer Hardware",
+      "Electronics",
+      "Hardware",
+      "Screen"
+    ],
+    "instances": [
+      {
+        "confidence": 98.1906967163086,
+        "boundingBox": {
+          "Width": 0.47125712037086487,
+          "Height": 0.5938482880592346,
+          "Left": 0.1742987036705017,
+          "Top": 0.02976471185684204
+        }
+      },
+      {
+        "confidence": 95.88304138183594,
+        "boundingBox": {
+          "Width": 0.18420632183551788,
+          "Height": 0.5000249147415161,
+          "Left": 0.8157936930656433,
+          "Top": 0.14433375000953674
+        }
+      }
+    ]
+  },
+  {
+    "label": "Ketchup",
+    "confidence": 76.65565490722656,
+    "timestamp_ms": 166566,
+    "parents": [
+      "Food"
+    ],
+    "instances": [
+      {
+        "confidence": 80.79657745361328,
+        "boundingBox": {
+          "Width": 0.6638613343238831,
+          "Height": 0.6326898336410522,
+          "Left": 0.21938100457191467,
+          "Top": 0.29617100954055786
+        }
+      }
+    ]
+  },
+  {
+    "label": "Ketchup",
+    "confidence": 78.7398910522461,
+    "timestamp_ms": 167066,
+    "parents": [
+      "Food"
+    ],
+    "instances": [
+      {
+        "confidence": 80.76712799072266,
+        "boundingBox": {
+          "Width": 0.6435563564300537,
+          "Height": 0.6285120248794556,
+          "Left": 0.23489421606063843,
+          "Top": 0.2947648763656616
+        }
+      }
+    ]
+  },
+  {
+    "label": "Orange",
+    "confidence": 87.97648620605469,
+    "timestamp_ms": 167066,
+    "parents": [
+      "Citrus Fruit",
+      "Food",
+      "Fruit",
+      "Plant",
+      "Produce"
+    ],
+    "instances": [
+      {
+        "confidence": 84.59680938720703,
+        "boundingBox": {
+          "Width": 0.23546171188354492,
+          "Height": 0.4245648682117462,
+          "Left": 0.3790390193462372,
+          "Top": 0.4187805950641632
+        }
+      }
+    ]
+  },
+  {
+    "label": "Ketchup",
+    "confidence": 73.69709014892578,
+    "timestamp_ms": 167566,
+    "parents": [
+      "Food"
+    ],
+    "instances": [
+      {
+        "confidence": 78.4192886352539,
+        "boundingBox": {
+          "Width": 0.5695223212242126,
+          "Height": 0.6129957437515259,
+          "Left": 0.3047873377799988,
+          "Top": 0.2993836998939514
+        }
+      }
+    ]
+  },
+  {
+    "label": "Orange",
+    "confidence": 70.8823471069336,
+    "timestamp_ms": 167566,
+    "parents": [
+      "Citrus Fruit",
+      "Food",
+      "Fruit",
+      "Plant",
+      "Produce"
+    ],
+    "instances": [
+      {
+        "confidence": 71.615478515625,
+        "boundingBox": {
+          "Width": 0.23210042715072632,
+          "Height": 0.4225688874721527,
+          "Left": 0.3811332583427429,
+          "Top": 0.41938215494155884
+        }
+      }
+    ]
+  },
+  {
+    "label": "Shorts",
+    "confidence": 71.06565856933594,
+    "timestamp_ms": 189633,
+    "parents": [
+      "Clothing"
+    ],
+    "instances": [
+      {
+        "confidence": 82.07230377197266,
+        "boundingBox": {
+          "Width": 0.3122078478336334,
+          "Height": 0.4444125294685364,
+          "Left": 0.25913679599761963,
+          "Top": 0.11986499279737473
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 87.64656066894531,
+    "timestamp_ms": 196633,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 94.25820922851562,
+        "boundingBox": {
+          "Width": 0.18999262154102325,
+          "Height": 0.07681313902139664,
+          "Left": 0.0703253373503685,
+          "Top": 0.8100646138191223
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 91.34446716308594,
+    "timestamp_ms": 197133,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 92.76246643066406,
+        "boundingBox": {
+          "Width": 0.19032630324363708,
+          "Height": 0.07733267545700073,
+          "Left": 0.0702972561120987,
+          "Top": 0.8095600008964539
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 94.12400817871094,
+    "timestamp_ms": 197633,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 94.28438568115234,
+        "boundingBox": {
+          "Width": 0.19106239080429077,
+          "Height": 0.07809391617774963,
+          "Left": 0.07000607997179031,
+          "Top": 0.8097296953201294
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 94.89208221435547,
+    "timestamp_ms": 197733,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 95.279541015625,
+        "boundingBox": {
+          "Width": 0.19126667082309723,
+          "Height": 0.07721992582082748,
+          "Left": 0.07012323290109634,
+          "Top": 0.8104832172393799
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 89.96244812011719,
+    "timestamp_ms": 198133,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 91.83573150634766,
+        "boundingBox": {
+          "Width": 0.1903993934392929,
+          "Height": 0.07740037888288498,
+          "Left": 0.07034042477607727,
+          "Top": 0.8100966215133667
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 87.22482299804688,
+    "timestamp_ms": 198233,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 98.1505126953125,
+        "boundingBox": {
+          "Width": 0.19132055342197418,
+          "Height": 0.07721976190805435,
+          "Left": 0.07016971707344055,
+          "Top": 0.8104989528656006
+        }
+      }
+    ]
+  },
+  {
+    "label": "Glove",
+    "confidence": 79.41414642333984,
+    "timestamp_ms": 198633,
+    "parents": [
+      "Clothing"
+    ],
+    "instances": [
+      {
+        "confidence": 95.40974426269531,
+        "boundingBox": {
+          "Width": 0.11106805503368378,
+          "Height": 0.2557327151298523,
+          "Left": 0.2594796419143677,
+          "Top": 0.1517902910709381
+        }
+      }
+    ]
+  },
+  {
+    "label": "Glove",
+    "confidence": 70.91480255126953,
+    "timestamp_ms": 198733,
+    "parents": [
+      "Clothing"
+    ],
+    "instances": [
+      {
+        "confidence": 74.67868041992188,
+        "boundingBox": {
+          "Width": 0.10565436631441116,
+          "Height": 0.2660440504550934,
+          "Left": 0.2646327018737793,
+          "Top": 0.13246777653694153
+        }
+      }
+    ]
+  },
+  {
+    "label": "Handbag",
+    "confidence": 95.81800842285156,
+    "timestamp_ms": 201733,
+    "parents": [
+      "Accessories",
+      "Bag"
+    ],
+    "instances": [
+      {
+        "confidence": 90.16485595703125,
+        "boundingBox": {
+          "Width": 0.32873645424842834,
+          "Height": 0.8093072175979614,
+          "Left": 0.2648402750492096,
+          "Top": 0.001307942788116634
+        }
+      }
+    ]
+  },
+  {
+    "label": "Glove",
+    "confidence": 81.79222106933594,
+    "timestamp_ms": 203733,
+    "parents": [
+      "Clothing"
+    ],
+    "instances": [
+      {
+        "confidence": 99.97797393798828,
+        "boundingBox": {
+          "Width": 0.13334451615810394,
+          "Height": 0.2785613238811493,
+          "Left": 0.28945794701576233,
+          "Top": 0.0016654256032779813
+        }
+      }
+    ]
+  },
+  {
+    "label": "Glove",
+    "confidence": 81.72409057617188,
+    "timestamp_ms": 204233,
+    "parents": [
+      "Clothing"
+    ],
+    "instances": [
+      {
+        "confidence": 99.87291717529297,
+        "boundingBox": {
+          "Width": 0.14872099459171295,
+          "Height": 0.19276680052280426,
+          "Left": 0.2661091089248657,
+          "Top": 0.1003696545958519
+        }
+      }
+    ]
+  },
+  {
+    "label": "Handbag",
+    "confidence": 99.9678726196289,
+    "timestamp_ms": 204233,
+    "parents": [
+      "Accessories",
+      "Bag"
+    ],
+    "instances": [
+      {
+        "confidence": 89.71142578125,
+        "boundingBox": {
+          "Width": 0.2724812924861908,
+          "Height": 0.656499445438385,
+          "Left": 0.2810174226760864,
+          "Top": 0.12348789721727371
+        }
+      }
+    ]
+  },
+  {
+    "label": "Coat",
+    "confidence": 72.70770263671875,
+    "timestamp_ms": 219233,
+    "parents": [
+      "Clothing"
+    ],
+    "instances": [
+      {
+        "confidence": 82.80804443359375,
+        "boundingBox": {
+          "Width": 0.5541946291923523,
+          "Height": 0.9980890154838562,
+          "Left": 0.003379529807716608,
+          "Top": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 76.34042358398438,
+    "timestamp_ms": 234533,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 83.5002212524414,
+        "boundingBox": {
+          "Width": 0.17894579470157623,
+          "Height": 0.5018525123596191,
+          "Left": 0.366757333278656,
+          "Top": 0.3832901418209076
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 84.76466369628906,
+    "timestamp_ms": 235033,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 89.46105194091797,
+        "boundingBox": {
+          "Width": 0.23036740720272064,
+          "Height": 0.5435763597488403,
+          "Left": 0.3668317198753357,
+          "Top": 0.3403140902519226
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 75.70414733886719,
+    "timestamp_ms": 235466,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 79.59552764892578,
+        "boundingBox": {
+          "Width": 0.25572577118873596,
+          "Height": 0.5436385273933411,
+          "Left": 0.36448031663894653,
+          "Top": 0.3417322039604187
+        }
+      }
+    ]
+  },
+  {
+    "label": "Glove",
+    "confidence": 70.68500518798828,
+    "timestamp_ms": 299200,
+    "parents": [
+      "Clothing"
+    ],
+    "instances": [
+      {
+        "confidence": 92.04510498046875,
+        "boundingBox": {
+          "Width": 0.19032859802246094,
+          "Height": 0.13622614741325378,
+          "Left": 0.0011959205148741603,
+          "Top": 0.4356542229652405
+        }
+      }
+    ]
+  },
+  {
+    "label": "High Heel",
+    "confidence": 80.56399536132812,
+    "timestamp_ms": 312200,
+    "parents": [
+      "Clothing",
+      "Footwear",
+      "Shoe"
+    ],
+    "instances": [
+      {
+        "confidence": 86.8828353881836,
+        "boundingBox": {
+          "Width": 0.06657447665929794,
+          "Height": 0.1580595225095749,
+          "Left": 0.6464059352874756,
+          "Top": 0.7398885488510132
+        }
+      }
+    ]
+  },
+  {
+    "label": "High Heel",
+    "confidence": 74.67570495605469,
+    "timestamp_ms": 312700,
+    "parents": [
+      "Clothing",
+      "Footwear",
+      "Shoe"
+    ],
+    "instances": [
+      {
+        "confidence": 77.81111907958984,
+        "boundingBox": {
+          "Width": 0.06892357021570206,
+          "Height": 0.1688932627439499,
+          "Left": 0.6659725904464722,
+          "Top": 0.7759968638420105
+        }
+      }
+    ]
+  },
+  {
+    "label": "Handbag",
+    "confidence": 74.04553985595703,
+    "timestamp_ms": 313200,
+    "parents": [
+      "Accessories",
+      "Bag"
+    ],
+    "instances": [
+      {
+        "confidence": 77.94544982910156,
+        "boundingBox": {
+          "Width": 0.16619879007339478,
+          "Height": 0.7509814500808716,
+          "Left": 0.3452509939670563,
+          "Top": 0.24580179154872894
+        }
+      }
+    ]
+  },
+  {
+    "label": "Handbag",
+    "confidence": 76.91859436035156,
+    "timestamp_ms": 313700,
+    "parents": [
+      "Accessories",
+      "Bag"
+    ],
+    "instances": [
+      {
+        "confidence": 75.62201690673828,
+        "boundingBox": {
+          "Width": 0.16894353926181793,
+          "Height": 0.5411025285720825,
+          "Left": 0.3633723855018616,
+          "Top": 0.2191060185432434
+        }
+      }
+    ]
+  },
+  {
+    "label": "Handbag",
+    "confidence": 89.03005981445312,
+    "timestamp_ms": 314200,
+    "parents": [
+      "Accessories",
+      "Bag"
+    ],
+    "instances": [
+      {
+        "confidence": 94.23221588134766,
+        "boundingBox": {
+          "Width": 0.18803590536117554,
+          "Height": 0.8240463137626648,
+          "Left": 0.36753323674201965,
+          "Top": 0.16739532351493835
+        }
+      }
+    ]
+  },
+  {
+    "label": "Handbag",
+    "confidence": 81.89866638183594,
+    "timestamp_ms": 314700,
+    "parents": [
+      "Accessories",
+      "Bag"
+    ],
+    "instances": [
+      {
+        "confidence": 91.18093872070312,
+        "boundingBox": {
+          "Width": 0.1877886801958084,
+          "Height": 0.8394683003425598,
+          "Left": 0.3678538203239441,
+          "Top": 0.14820988476276398
+        }
+      }
+    ]
+  },
+  {
+    "label": "Handbag",
+    "confidence": 70.51238250732422,
+    "timestamp_ms": 317200,
+    "parents": [
+      "Accessories",
+      "Bag"
+    ],
+    "instances": [
+      {
+        "confidence": 77.89684295654297,
+        "boundingBox": {
+          "Width": 0.2583742141723633,
+          "Height": 0.6949054598808289,
+          "Left": 0.30548763275146484,
+          "Top": 0.20952893793582916
+        }
+      }
+    ]
+  },
+  {
+    "label": "Jeans",
+    "confidence": 72.458740234375,
+    "timestamp_ms": 323066,
+    "parents": [
+      "Clothing",
+      "Pants"
+    ],
+    "instances": [
+      {
+        "confidence": 90.56340026855469,
+        "boundingBox": {
+          "Width": 0.1305973082780838,
+          "Height": 0.41181668639183044,
+          "Left": 0.8690071702003479,
+          "Top": 0.5880754590034485
+        }
+      }
+    ]
+  },
+  {
+    "label": "Jeans",
+    "confidence": 83.91319274902344,
+    "timestamp_ms": 333566,
+    "parents": [
+      "Clothing",
+      "Pants"
+    ],
+    "instances": [
+      {
+        "confidence": 98.84109497070312,
+        "boundingBox": {
+          "Width": 0.2575281262397766,
+          "Height": 0.9037949442863464,
+          "Left": 0.5799244046211243,
+          "Top": 0.09317676723003387
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 83.88235473632812,
+    "timestamp_ms": 418800,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 97.11964416503906,
+        "boundingBox": {
+          "Width": 0.04822279512882233,
+          "Height": 0.2947993576526642,
+          "Left": 0.5169057846069336,
+          "Top": 0.6518778204917908
+        }
+      },
+      {
+        "confidence": 96.86219787597656,
+        "boundingBox": {
+          "Width": 0.038160961121320724,
+          "Height": 0.2584700882434845,
+          "Left": 0.4738854169845581,
+          "Top": 0.5498596429824829
+        }
+      },
+      {
+        "confidence": 93.36114501953125,
+        "boundingBox": {
+          "Width": 0.035687319934368134,
+          "Height": 0.2541963458061218,
+          "Left": 0.4253881573677063,
+          "Top": 0.548740804195404
+        }
+      },
+      {
+        "confidence": 90.48664093017578,
+        "boundingBox": {
+          "Width": 0.05135873332619667,
+          "Height": 0.2083619236946106,
+          "Left": 0.3606303632259369,
+          "Top": 0.551696240901947
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 92.67826080322266,
+    "timestamp_ms": 418833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 97.10008239746094,
+        "boundingBox": {
+          "Width": 0.038182638585567474,
+          "Height": 0.25857681035995483,
+          "Left": 0.47387731075286865,
+          "Top": 0.5496224164962769
+        }
+      },
+      {
+        "confidence": 96.88912963867188,
+        "boundingBox": {
+          "Width": 0.04849332198500633,
+          "Height": 0.2949078679084778,
+          "Left": 0.5165709853172302,
+          "Top": 0.6527677178382874
+        }
+      },
+      {
+        "confidence": 93.54166412353516,
+        "boundingBox": {
+          "Width": 0.03566907346248627,
+          "Height": 0.25436368584632874,
+          "Left": 0.42538759112358093,
+          "Top": 0.5487064719200134
+        }
+      },
+      {
+        "confidence": 91.1451187133789,
+        "boundingBox": {
+          "Width": 0.051309458911418915,
+          "Height": 0.20837537944316864,
+          "Left": 0.36065593361854553,
+          "Top": 0.5516592860221863
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 96.9900131225586,
+    "timestamp_ms": 419300,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 97.29730224609375,
+        "boundingBox": {
+          "Width": 0.0379067100584507,
+          "Height": 0.2579730451107025,
+          "Left": 0.47436583042144775,
+          "Top": 0.5496408939361572
+        }
+      },
+      {
+        "confidence": 90.87141418457031,
+        "boundingBox": {
+          "Width": 0.03581403195858002,
+          "Height": 0.2542734742164612,
+          "Left": 0.42530184984207153,
+          "Top": 0.5484564304351807
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 96.23146057128906,
+    "timestamp_ms": 419333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 96.4865493774414,
+        "boundingBox": {
+          "Width": 0.037805620580911636,
+          "Height": 0.25791898369789124,
+          "Left": 0.47443169355392456,
+          "Top": 0.5496790409088135
+        }
+      },
+      {
+        "confidence": 91.43306732177734,
+        "boundingBox": {
+          "Width": 0.03586769104003906,
+          "Height": 0.25456589460372925,
+          "Left": 0.42526543140411377,
+          "Top": 0.5485163331031799
+        }
+      },
+      {
+        "confidence": 79.02404022216797,
+        "boundingBox": {
+          "Width": 0.051073234528303146,
+          "Height": 0.2076103538274765,
+          "Left": 0.3609030544757843,
+          "Top": 0.5513632893562317
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 93.72949981689453,
+    "timestamp_ms": 419800,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.73052215576172,
+        "boundingBox": {
+          "Width": 0.037669721990823746,
+          "Height": 0.25888484716415405,
+          "Left": 0.4745975136756897,
+          "Top": 0.5496112704277039
+        }
+      },
+      {
+        "confidence": 87.43547821044922,
+        "boundingBox": {
+          "Width": 0.05159985274076462,
+          "Height": 0.20750455558300018,
+          "Left": 0.3605327308177948,
+          "Top": 0.5514137148857117
+        }
+      },
+      {
+        "confidence": 87.20278930664062,
+        "boundingBox": {
+          "Width": 0.035369906574487686,
+          "Height": 0.2545732855796814,
+          "Left": 0.42552298307418823,
+          "Top": 0.5490256547927856
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 95.85176849365234,
+    "timestamp_ms": 419833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 96.1515884399414,
+        "boundingBox": {
+          "Width": 0.0375983864068985,
+          "Height": 0.2573198676109314,
+          "Left": 0.4748557507991791,
+          "Top": 0.5496355295181274
+        }
+      },
+      {
+        "confidence": 91.99130249023438,
+        "boundingBox": {
+          "Width": 0.035425473004579544,
+          "Height": 0.2547958791255951,
+          "Left": 0.42555978894233704,
+          "Top": 0.5489158630371094
+        }
+      },
+      {
+        "confidence": 87.52651977539062,
+        "boundingBox": {
+          "Width": 0.05153363570570946,
+          "Height": 0.20758847892284393,
+          "Left": 0.360599547624588,
+          "Top": 0.5513654947280884
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 95.6448745727539,
+    "timestamp_ms": 420333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 95.78706359863281,
+        "boundingBox": {
+          "Width": 0.038130536675453186,
+          "Height": 0.2580762505531311,
+          "Left": 0.47405001521110535,
+          "Top": 0.5498659014701843
+        }
+      },
+      {
+        "confidence": 87.47879791259766,
+        "boundingBox": {
+          "Width": 0.035760752856731415,
+          "Height": 0.2549077272415161,
+          "Left": 0.42511996626853943,
+          "Top": 0.5486094951629639
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 96.10858917236328,
+    "timestamp_ms": 420833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 96.79169464111328,
+        "boundingBox": {
+          "Width": 0.03767487034201622,
+          "Height": 0.25798237323760986,
+          "Left": 0.4744017720222473,
+          "Top": 0.5500233173370361
+        }
+      },
+      {
+        "confidence": 90.59315490722656,
+        "boundingBox": {
+          "Width": 0.03596366196870804,
+          "Height": 0.254616916179657,
+          "Left": 0.42508479952812195,
+          "Top": 0.5494520664215088
+        }
+      },
+      {
+        "confidence": 70.28296661376953,
+        "boundingBox": {
+          "Width": 0.051909543573856354,
+          "Height": 0.20631086826324463,
+          "Left": 0.35994407534599304,
+          "Top": 0.5515457987785339
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 93.65442657470703,
+    "timestamp_ms": 421333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.97712707519531,
+        "boundingBox": {
+          "Width": 0.03815857693552971,
+          "Height": 0.25869718194007874,
+          "Left": 0.47418278455734253,
+          "Top": 0.5505120754241943
+        }
+      },
+      {
+        "confidence": 89.9140625,
+        "boundingBox": {
+          "Width": 0.035826683044433594,
+          "Height": 0.25535666942596436,
+          "Left": 0.42510491609573364,
+          "Top": 0.5494700074195862
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 93.35603332519531,
+    "timestamp_ms": 421833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.04193115234375,
+        "boundingBox": {
+          "Width": 0.03568767011165619,
+          "Height": 0.25474119186401367,
+          "Left": 0.4253215789794922,
+          "Top": 0.5498315691947937
+        }
+      },
+      {
+        "confidence": 91.90807342529297,
+        "boundingBox": {
+          "Width": 0.03833208233118057,
+          "Height": 0.25886598229408264,
+          "Left": 0.4740994870662689,
+          "Top": 0.5503576397895813
+        }
+      },
+      {
+        "confidence": 80.68930053710938,
+        "boundingBox": {
+          "Width": 0.051960818469524384,
+          "Height": 0.20743216574192047,
+          "Left": 0.3599909245967865,
+          "Top": 0.5524567365646362
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 98.37966918945312,
+    "timestamp_ms": 422333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 93.4853286743164,
+        "boundingBox": {
+          "Width": 0.03583170473575592,
+          "Height": 0.2545514702796936,
+          "Left": 0.4251464009284973,
+          "Top": 0.5501822233200073
+        }
+      },
+      {
+        "confidence": 88.80332946777344,
+        "boundingBox": {
+          "Width": 0.03803475573658943,
+          "Height": 0.25874847173690796,
+          "Left": 0.47432178258895874,
+          "Top": 0.5507229566574097
+        }
+      },
+      {
+        "confidence": 78.27686309814453,
+        "boundingBox": {
+          "Width": 0.05168100818991661,
+          "Height": 0.20683972537517548,
+          "Left": 0.3602462708950043,
+          "Top": 0.5529647469520569
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 99.25995635986328,
+    "timestamp_ms": 422833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 88.69696807861328,
+        "boundingBox": {
+          "Width": 0.03582283481955528,
+          "Height": 0.25420498847961426,
+          "Left": 0.42502859234809875,
+          "Top": 0.5504324436187744
+        }
+      },
+      {
+        "confidence": 83.90359497070312,
+        "boundingBox": {
+          "Width": 0.03796796873211861,
+          "Height": 0.25873905420303345,
+          "Left": 0.4741545617580414,
+          "Top": 0.5507097244262695
+        }
+      },
+      {
+        "confidence": 72.79702758789062,
+        "boundingBox": {
+          "Width": 0.051327452063560486,
+          "Height": 0.20659756660461426,
+          "Left": 0.36012962460517883,
+          "Top": 0.5531232357025146
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 98.90896606445312,
+    "timestamp_ms": 423333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 88.21504211425781,
+        "boundingBox": {
+          "Width": 0.03511549532413483,
+          "Height": 0.2543262541294098,
+          "Left": 0.42558082938194275,
+          "Top": 0.550204873085022
+        }
+      },
+      {
+        "confidence": 79.76996612548828,
+        "boundingBox": {
+          "Width": 0.05170033872127533,
+          "Height": 0.20652008056640625,
+          "Left": 0.35991793870925903,
+          "Top": 0.5533945560455322
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 98.01632690429688,
+    "timestamp_ms": 423833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 88.93025207519531,
+        "boundingBox": {
+          "Width": 0.03530314937233925,
+          "Height": 0.25414523482322693,
+          "Left": 0.42538347840309143,
+          "Top": 0.5503378510475159
+        }
+      },
+      {
+        "confidence": 73.59364318847656,
+        "boundingBox": {
+          "Width": 0.051535192877054214,
+          "Height": 0.2057507485151291,
+          "Left": 0.35990646481513977,
+          "Top": 0.5529549717903137
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 96.9551773071289,
+    "timestamp_ms": 424333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 91.38954162597656,
+        "boundingBox": {
+          "Width": 0.03545093536376953,
+          "Height": 0.2538856267929077,
+          "Left": 0.4252355694770813,
+          "Top": 0.5504393577575684
+        }
+      },
+      {
+        "confidence": 76.68895721435547,
+        "boundingBox": {
+          "Width": 0.03779121860861778,
+          "Height": 0.2575445771217346,
+          "Left": 0.474162757396698,
+          "Top": 0.5506957173347473
+        }
+      },
+      {
+        "confidence": 71.01741790771484,
+        "boundingBox": {
+          "Width": 0.05158720165491104,
+          "Height": 0.20513927936553955,
+          "Left": 0.35997286438941956,
+          "Top": 0.5529923439025879
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 83.37509155273438,
+    "timestamp_ms": 424833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 79.49838256835938,
+        "boundingBox": {
+          "Width": 0.05403836444020271,
+          "Height": 0.3412626385688782,
+          "Left": 0.5728043913841248,
+          "Top": 0.29709869623184204
+        }
+      },
+      {
+        "confidence": 73.41059112548828,
+        "boundingBox": {
+          "Width": 0.03767722472548485,
+          "Height": 0.2579590976238251,
+          "Left": 0.4746834933757782,
+          "Top": 0.5509325265884399
+        }
+      },
+      {
+        "confidence": 70.84037017822266,
+        "boundingBox": {
+          "Width": 0.03522949293255806,
+          "Height": 0.25402912497520447,
+          "Left": 0.42615753412246704,
+          "Top": 0.5502665042877197
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 85.02348327636719,
+    "timestamp_ms": 425333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 86.04646301269531,
+        "boundingBox": {
+          "Width": 0.035613950341939926,
+          "Height": 0.2539519667625427,
+          "Left": 0.4267438054084778,
+          "Top": 0.5506229996681213
+        }
+      },
+      {
+        "confidence": 84.86727905273438,
+        "boundingBox": {
+          "Width": 0.03549842908978462,
+          "Height": 0.17556586861610413,
+          "Left": 0.36097267270088196,
+          "Top": 0.5535010099411011
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 87.64653015136719,
+    "timestamp_ms": 425833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.44192504882812,
+        "boundingBox": {
+          "Width": 0.036084748804569244,
+          "Height": 0.25467100739479065,
+          "Left": 0.42633888125419617,
+          "Top": 0.5504323244094849
+        }
+      },
+      {
+        "confidence": 87.89891052246094,
+        "boundingBox": {
+          "Width": 0.11164359748363495,
+          "Height": 0.30773845314979553,
+          "Left": 0.33599159121513367,
+          "Top": 0.5522611737251282
+        }
+      },
+      {
+        "confidence": 78.9815444946289,
+        "boundingBox": {
+          "Width": 0.037364959716796875,
+          "Height": 0.2594076693058014,
+          "Left": 0.4749848246574402,
+          "Top": 0.5499777793884277
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 76.99872589111328,
+    "timestamp_ms": 425833,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 79.28376770019531,
+        "boundingBox": {
+          "Width": 0.04988508298993111,
+          "Height": 0.3666309416294098,
+          "Left": 0.4616848826408386,
+          "Top": 0.16722248494625092
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 94.16598510742188,
+    "timestamp_ms": 426333,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 99.18152618408203,
+        "boundingBox": {
+          "Width": 0.1536235213279724,
+          "Height": 0.39593973755836487,
+          "Left": 0.33602234721183777,
+          "Top": 0.5525628328323364
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 90.15446472167969,
+    "timestamp_ms": 426833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 96.7317123413086,
+        "boundingBox": {
+          "Width": 0.036019228398799896,
+          "Height": 0.2662881314754486,
+          "Left": 0.36183053255081177,
+          "Top": 0.5524530410766602
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 92.94990539550781,
+    "timestamp_ms": 426833,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.5450668334961,
+        "boundingBox": {
+          "Width": 0.23185208439826965,
+          "Height": 0.3959696590900421,
+          "Left": 0.40015730261802673,
+          "Top": 0.6036940813064575
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 87.6198959350586,
+    "timestamp_ms": 427333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 95.29906463623047,
+        "boundingBox": {
+          "Width": 0.03518419340252876,
+          "Height": 0.26448696851730347,
+          "Left": 0.36204513907432556,
+          "Top": 0.5542008280754089
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 93.89697265625,
+    "timestamp_ms": 427333,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 97.04054260253906,
+        "boundingBox": {
+          "Width": 0.1521884948015213,
+          "Height": 0.3761555850505829,
+          "Left": 0.414665162563324,
+          "Top": 0.6238178610801697
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 86.30343627929688,
+    "timestamp_ms": 427833,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.448974609375,
+        "boundingBox": {
+          "Width": 0.24041900038719177,
+          "Height": 0.4003400504589081,
+          "Left": 0.39400890469551086,
+          "Top": 0.5996599793434143
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 74.64999389648438,
+    "timestamp_ms": 429333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 77.27054595947266,
+        "boundingBox": {
+          "Width": 0.03546393662691116,
+          "Height": 0.2629363536834717,
+          "Left": 0.36192992329597473,
+          "Top": 0.5540735125541687
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 76.68940734863281,
+    "timestamp_ms": 429833,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 88.5654067993164,
+        "boundingBox": {
+          "Width": 0.17781922221183777,
+          "Height": 0.3186943233013153,
+          "Left": 0.4357893168926239,
+          "Top": 0.5245595574378967
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 87.56841278076172,
+    "timestamp_ms": 430833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 71.55018615722656,
+        "boundingBox": {
+          "Width": 0.03483877331018448,
+          "Height": 0.26205015182495117,
+          "Left": 0.36174920201301575,
+          "Top": 0.5550360679626465
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 80.4231948852539,
+    "timestamp_ms": 433833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 88.03946685791016,
+        "boundingBox": {
+          "Width": 0.03524068370461464,
+          "Height": 0.25723996758461,
+          "Left": 0.36168038845062256,
+          "Top": 0.5597996711730957
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 88.05644226074219,
+    "timestamp_ms": 434533,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.90707397460938,
+        "boundingBox": {
+          "Width": 0.06062431260943413,
+          "Height": 0.38792458176612854,
+          "Left": 0.8421786427497864,
+          "Top": 0.2505488097667694
+        }
+      },
+      {
+        "confidence": 82.74467468261719,
+        "boundingBox": {
+          "Width": 0.03771495819091797,
+          "Height": 0.25494301319122314,
+          "Left": 0.4742237329483032,
+          "Top": 0.5518652200698853
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 93.9433822631836,
+    "timestamp_ms": 434833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 96.26115417480469,
+        "boundingBox": {
+          "Width": 0.05859902873635292,
+          "Height": 0.3702189326286316,
+          "Left": 0.8492007851600647,
+          "Top": 0.2674042582511902
+        }
+      },
+      {
+        "confidence": 90.68218994140625,
+        "boundingBox": {
+          "Width": 0.03811724856495857,
+          "Height": 0.2557159960269928,
+          "Left": 0.47408148646354675,
+          "Top": 0.5514891147613525
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 96.32884979248047,
+    "timestamp_ms": 435033,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 97.4012222290039,
+        "boundingBox": {
+          "Width": 0.058373767882585526,
+          "Height": 0.37235549092292786,
+          "Left": 0.8424698710441589,
+          "Top": 0.26275578141212463
+        }
+      },
+      {
+        "confidence": 90.90641784667969,
+        "boundingBox": {
+          "Width": 0.038249872624874115,
+          "Height": 0.2555449306964874,
+          "Left": 0.4740453362464905,
+          "Top": 0.551591694355011
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 92.8204345703125,
+    "timestamp_ms": 435333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.14500427246094,
+        "boundingBox": {
+          "Width": 0.03836123272776604,
+          "Height": 0.2555035650730133,
+          "Left": 0.4739786684513092,
+          "Top": 0.5516369938850403
+        }
+      },
+      {
+        "confidence": 83.01082611083984,
+        "boundingBox": {
+          "Width": 0.05990003049373627,
+          "Height": 0.3395426571369171,
+          "Left": 0.84353107213974,
+          "Top": 0.31170299649238586
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 91.9024658203125,
+    "timestamp_ms": 435533,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 91.0958251953125,
+        "boundingBox": {
+          "Width": 0.03835570067167282,
+          "Height": 0.2556219696998596,
+          "Left": 0.4739598333835602,
+          "Top": 0.5516723394393921
+        }
+      },
+      {
+        "confidence": 88.70587921142578,
+        "boundingBox": {
+          "Width": 0.06493555754423141,
+          "Height": 0.35091692209243774,
+          "Left": 0.8441551327705383,
+          "Top": 0.2852768898010254
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 94.10464477539062,
+    "timestamp_ms": 435833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 94.47431945800781,
+        "boundingBox": {
+          "Width": 0.061194103211164474,
+          "Height": 0.34690558910369873,
+          "Left": 0.8424714803695679,
+          "Top": 0.3012327253818512
+        }
+      },
+      {
+        "confidence": 90.7936019897461,
+        "boundingBox": {
+          "Width": 0.038097284734249115,
+          "Height": 0.255747526884079,
+          "Left": 0.47413167357444763,
+          "Top": 0.551679790019989
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 94.0954818725586,
+    "timestamp_ms": 436033,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 93.68111419677734,
+        "boundingBox": {
+          "Width": 0.0593644455075264,
+          "Height": 0.31926897168159485,
+          "Left": 0.8448477983474731,
+          "Top": 0.33637407422065735
+        }
+      },
+      {
+        "confidence": 91.0619125366211,
+        "boundingBox": {
+          "Width": 0.03822704777121544,
+          "Height": 0.2554992735385895,
+          "Left": 0.4739742875099182,
+          "Top": 0.5517053604125977
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 96.5752944946289,
+    "timestamp_ms": 436333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 97.01420593261719,
+        "boundingBox": {
+          "Width": 0.05965512618422508,
+          "Height": 0.34709715843200684,
+          "Left": 0.84827721118927,
+          "Top": 0.2942291796207428
+        }
+      },
+      {
+        "confidence": 91.50444793701172,
+        "boundingBox": {
+          "Width": 0.03832073137164116,
+          "Height": 0.2555616497993469,
+          "Left": 0.4739934206008911,
+          "Top": 0.5516132712364197
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 96.92044067382812,
+    "timestamp_ms": 436533,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 97.12995147705078,
+        "boundingBox": {
+          "Width": 0.06022326275706291,
+          "Height": 0.3265792429447174,
+          "Left": 0.8512821793556213,
+          "Top": 0.30886489152908325
+        }
+      },
+      {
+        "confidence": 91.5859146118164,
+        "boundingBox": {
+          "Width": 0.03831580653786659,
+          "Height": 0.2553107440471649,
+          "Left": 0.47394102811813354,
+          "Top": 0.5517204403877258
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 96.48577117919922,
+    "timestamp_ms": 436833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 96.3326644897461,
+        "boundingBox": {
+          "Width": 0.06058858335018158,
+          "Height": 0.3243963122367859,
+          "Left": 0.8590482473373413,
+          "Top": 0.30394789576530457
+        }
+      },
+      {
+        "confidence": 91.87612915039062,
+        "boundingBox": {
+          "Width": 0.03809928894042969,
+          "Height": 0.25517788529396057,
+          "Left": 0.4740840494632721,
+          "Top": 0.5516812801361084
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 97.30088806152344,
+    "timestamp_ms": 437033,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 97.79560852050781,
+        "boundingBox": {
+          "Width": 0.06238536909222603,
+          "Height": 0.3482970595359802,
+          "Left": 0.8554760813713074,
+          "Top": 0.26764053106307983
+        }
+      },
+      {
+        "confidence": 89.700927734375,
+        "boundingBox": {
+          "Width": 0.03840405121445656,
+          "Height": 0.25607311725616455,
+          "Left": 0.47394317388534546,
+          "Top": 0.5513479113578796
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 95.20880126953125,
+    "timestamp_ms": 437333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 94.49894714355469,
+        "boundingBox": {
+          "Width": 0.06037578731775284,
+          "Height": 0.31863999366760254,
+          "Left": 0.8461604714393616,
+          "Top": 0.31784602999687195
+        }
+      },
+      {
+        "confidence": 91.36351013183594,
+        "boundingBox": {
+          "Width": 0.03831011429429054,
+          "Height": 0.2561037838459015,
+          "Left": 0.47397419810295105,
+          "Top": 0.5513522624969482
+        }
+      },
+      {
+        "confidence": 70.11354064941406,
+        "boundingBox": {
+          "Width": 0.03493032604455948,
+          "Height": 0.25578415393829346,
+          "Left": 0.42550382018089294,
+          "Top": 0.549491286277771
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 96.57862854003906,
+    "timestamp_ms": 437533,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 97.09667205810547,
+        "boundingBox": {
+          "Width": 0.06307709962129593,
+          "Height": 0.34192797541618347,
+          "Left": 0.8504690527915955,
+          "Top": 0.2655029892921448
+        }
+      },
+      {
+        "confidence": 93.0279769897461,
+        "boundingBox": {
+          "Width": 0.038237858563661575,
+          "Height": 0.2562255263328552,
+          "Left": 0.47404029965400696,
+          "Top": 0.5513244867324829
+        }
+      },
+      {
+        "confidence": 70.48284149169922,
+        "boundingBox": {
+          "Width": 0.03496430814266205,
+          "Height": 0.25574159622192383,
+          "Left": 0.42550790309906006,
+          "Top": 0.5496022701263428
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 95.87699127197266,
+    "timestamp_ms": 437833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 96.49322509765625,
+        "boundingBox": {
+          "Width": 0.061194103211164474,
+          "Height": 0.3450785279273987,
+          "Left": 0.8476374745368958,
+          "Top": 0.2540585696697235
+        }
+      },
+      {
+        "confidence": 90.72714233398438,
+        "boundingBox": {
+          "Width": 0.0380578376352787,
+          "Height": 0.25552669167518616,
+          "Left": 0.4741692543029785,
+          "Top": 0.5513986945152283
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 92.41893005371094,
+    "timestamp_ms": 438033,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 91.40309143066406,
+        "boundingBox": {
+          "Width": 0.03797686845064163,
+          "Height": 0.25543999671936035,
+          "Left": 0.4742647111415863,
+          "Top": 0.5515109300613403
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 93.82051086425781,
+    "timestamp_ms": 438333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 93.90380096435547,
+        "boundingBox": {
+          "Width": 0.058426856994628906,
+          "Height": 0.3152613937854767,
+          "Left": 0.8308791518211365,
+          "Top": 0.3352174460887909
+        }
+      },
+      {
+        "confidence": 89.85187530517578,
+        "boundingBox": {
+          "Width": 0.03818044811487198,
+          "Height": 0.25582367181777954,
+          "Left": 0.4741082489490509,
+          "Top": 0.5514075756072998
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 93.4811782836914,
+    "timestamp_ms": 438533,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.87635040283203,
+        "boundingBox": {
+          "Width": 0.05547396466135979,
+          "Height": 0.3383788764476776,
+          "Left": 0.8131523728370667,
+          "Top": 0.30765920877456665
+        }
+      },
+      {
+        "confidence": 90.36080169677734,
+        "boundingBox": {
+          "Width": 0.038080789148807526,
+          "Height": 0.2556595504283905,
+          "Left": 0.4741917848587036,
+          "Top": 0.5515101552009583
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 96.25736999511719,
+    "timestamp_ms": 438833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 96.35424041748047,
+        "boundingBox": {
+          "Width": 0.05536282807588577,
+          "Height": 0.3170102536678314,
+          "Left": 0.7934798002243042,
+          "Top": 0.32726189494132996
+        }
+      },
+      {
+        "confidence": 89.49190521240234,
+        "boundingBox": {
+          "Width": 0.03818448260426521,
+          "Height": 0.255901038646698,
+          "Left": 0.4741029143333435,
+          "Top": 0.5513696670532227
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 97.74354553222656,
+    "timestamp_ms": 439033,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 98.00177764892578,
+        "boundingBox": {
+          "Width": 0.057771556079387665,
+          "Height": 0.3223077058792114,
+          "Left": 0.8010187149047852,
+          "Top": 0.32469236850738525
+        }
+      },
+      {
+        "confidence": 89.11101531982422,
+        "boundingBox": {
+          "Width": 0.03814582899212837,
+          "Height": 0.256275475025177,
+          "Left": 0.4741620123386383,
+          "Top": 0.5513550043106079
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 97.04057312011719,
+    "timestamp_ms": 439333,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 96.8391342163086,
+        "boundingBox": {
+          "Width": 0.060032907873392105,
+          "Height": 0.34274473786354065,
+          "Left": 0.8020767569541931,
+          "Top": 0.2939123511314392
+        }
+      },
+      {
+        "confidence": 90.89269256591797,
+        "boundingBox": {
+          "Width": 0.03814627230167389,
+          "Height": 0.25599709153175354,
+          "Left": 0.4741610288619995,
+          "Top": 0.5514031648635864
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 97.7229995727539,
+    "timestamp_ms": 439533,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.01019287109375,
+        "boundingBox": {
+          "Width": 0.03808511048555374,
+          "Height": 0.2558651268482208,
+          "Left": 0.4742107093334198,
+          "Top": 0.5513821244239807
+        }
+      },
+      {
+        "confidence": 85.30935668945312,
+        "boundingBox": {
+          "Width": 0.05534534528851509,
+          "Height": 0.3083125054836273,
+          "Left": 0.7940893769264221,
+          "Top": 0.35302630066871643
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 93.47410583496094,
+    "timestamp_ms": 439833,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 93.05209350585938,
+        "boundingBox": {
+          "Width": 0.038043372333049774,
+          "Height": 0.25599873065948486,
+          "Left": 0.4742497503757477,
+          "Top": 0.5514212846755981
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 89.7354965209961,
+    "timestamp_ms": 440033,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 93.68009948730469,
+        "boundingBox": {
+          "Width": 0.03820737078785896,
+          "Height": 0.25597792863845825,
+          "Left": 0.474124014377594,
+          "Top": 0.5513870716094971
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 89.5019760131836,
+    "timestamp_ms": 441033,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 99.3254623413086,
+        "boundingBox": {
+          "Width": 0.17093582451343536,
+          "Height": 0.3289280831813812,
+          "Left": 0.4969697892665863,
+          "Top": 0.3338775932788849
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 85.04413604736328,
+    "timestamp_ms": 441033,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 91.66795349121094,
+        "boundingBox": {
+          "Width": 0.17638464272022247,
+          "Height": 0.6118304133415222,
+          "Left": 0.10088319331407547,
+          "Top": 0.38244858384132385
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 89.756591796875,
+    "timestamp_ms": 441533,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 91.75860595703125,
+        "boundingBox": {
+          "Width": 0.17676740884780884,
+          "Height": 0.6107594966888428,
+          "Left": 0.10145754367113113,
+          "Top": 0.3853679299354553
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 86.37545776367188,
+    "timestamp_ms": 442033,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 96.40913391113281,
+        "boundingBox": {
+          "Width": 0.17994002997875214,
+          "Height": 0.3416721522808075,
+          "Left": 0.5876682996749878,
+          "Top": 0.4395368695259094
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 93.60197448730469,
+    "timestamp_ms": 442033,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 94.04647064208984,
+        "boundingBox": {
+          "Width": 0.17706677317619324,
+          "Height": 0.6126066446304321,
+          "Left": 0.10011564940214157,
+          "Top": 0.38229331374168396
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 93.41210174560547,
+    "timestamp_ms": 442533,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 93.44831848144531,
+        "boundingBox": {
+          "Width": 0.17908629775047302,
+          "Height": 0.6168993711471558,
+          "Left": 0.10051635652780533,
+          "Top": 0.37652871012687683
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 92.49150085449219,
+    "timestamp_ms": 443033,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.41816711425781,
+        "boundingBox": {
+          "Width": 0.17703524231910706,
+          "Height": 0.6173810362815857,
+          "Left": 0.10701598972082138,
+          "Top": 0.3767106235027313
+        }
+      },
+      {
+        "confidence": 90.59969329833984,
+        "boundingBox": {
+          "Width": 0.17691408097743988,
+          "Height": 0.3149488568305969,
+          "Left": 0.5461620688438416,
+          "Top": 0.5078664422035217
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 92.66873168945312,
+    "timestamp_ms": 443533,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 95.20521545410156,
+        "boundingBox": {
+          "Width": 0.1770821213722229,
+          "Height": 0.6188803315162659,
+          "Left": 0.11314623802900314,
+          "Top": 0.37483543157577515
+        }
+      },
+      {
+        "confidence": 74.30744171142578,
+        "boundingBox": {
+          "Width": 0.14277289807796478,
+          "Height": 0.2494206726551056,
+          "Left": 0.269033282995224,
+          "Top": 0.48282673954963684
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 83.99532318115234,
+    "timestamp_ms": 444033,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 84.7687759399414,
+        "boundingBox": {
+          "Width": 0.11067312210798264,
+          "Height": 0.6114538311958313,
+          "Left": 0.14121398329734802,
+          "Top": 0.38577091693878174
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 76.25359344482422,
+    "timestamp_ms": 445033,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 73.55520629882812,
+        "boundingBox": {
+          "Width": 0.1316496729850769,
+          "Height": 0.5988941192626953,
+          "Left": 0.12847687304019928,
+          "Top": 0.39848417043685913
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 90.90559387207031,
+    "timestamp_ms": 445533,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 94.42578125,
+        "boundingBox": {
+          "Width": 0.17169521749019623,
+          "Height": 0.5968261957168579,
+          "Left": 0.12488369643688202,
+          "Top": 0.4031738042831421
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 89.06029510498047,
+    "timestamp_ms": 446033,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 91.86258697509766,
+        "boundingBox": {
+          "Width": 0.17088301479816437,
+          "Height": 0.5938214063644409,
+          "Left": 0.12602512538433075,
+          "Top": 0.4061785936355591
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 86.19603729248047,
+    "timestamp_ms": 446533,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 90.6685791015625,
+        "boundingBox": {
+          "Width": 0.16878731548786163,
+          "Height": 0.5841440558433533,
+          "Left": 0.13070516288280487,
+          "Top": 0.41581830382347107
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 75.62774658203125,
+    "timestamp_ms": 447533,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 75.90238189697266,
+        "boundingBox": {
+          "Width": 0.1315946877002716,
+          "Height": 0.2565903961658478,
+          "Left": 0.09695234894752502,
+          "Top": 0.49078136682510376
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 86.38001251220703,
+    "timestamp_ms": 448033,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 90.03401184082031,
+        "boundingBox": {
+          "Width": 0.18337644636631012,
+          "Height": 0.27771222591400146,
+          "Left": 0.11166537553071976,
+          "Top": 0.4682007431983948
+        }
+      },
+      {
+        "confidence": 89.32215881347656,
+        "boundingBox": {
+          "Width": 0.12740746140480042,
+          "Height": 0.5250293612480164,
+          "Left": 0.11153682321310043,
+          "Top": 0.4714890420436859
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 86.85731506347656,
+    "timestamp_ms": 448533,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 87.07349395751953,
+        "boundingBox": {
+          "Width": 0.11527998745441437,
+          "Height": 0.26609063148498535,
+          "Left": 0.1297226846218109,
+          "Top": 0.4959108233451843
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 88.32652282714844,
+    "timestamp_ms": 449033,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 88.08319091796875,
+        "boundingBox": {
+          "Width": 0.12155035883188248,
+          "Height": 0.5000590085983276,
+          "Left": 0.12366100400686264,
+          "Top": 0.4897736608982086
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 85.18502807617188,
+    "timestamp_ms": 449533,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 85.54820251464844,
+        "boundingBox": {
+          "Width": 0.11618877947330475,
+          "Height": 0.2598993480205536,
+          "Left": 0.1336141675710678,
+          "Top": 0.5022943019866943
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 91.76620483398438,
+    "timestamp_ms": 450033,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 98.57504272460938,
+        "boundingBox": {
+          "Width": 0.16000798344612122,
+          "Height": 0.48560258746147156,
+          "Left": 0.13235025107860565,
+          "Top": 0.514397382736206
+        }
+      },
+      {
+        "confidence": 86.71162414550781,
+        "boundingBox": {
+          "Width": 0.16919353604316711,
+          "Height": 0.30786195397377014,
+          "Left": 0.1682145595550537,
+          "Top": 0.5177688002586365
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 84.94993591308594,
+    "timestamp_ms": 451033,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.65743255615234,
+        "boundingBox": {
+          "Width": 0.16128434240818024,
+          "Height": 0.4227839708328247,
+          "Left": 0.15688303112983704,
+          "Top": 0.5740994811058044
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 72.92137145996094,
+    "timestamp_ms": 451533,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 77.70069122314453,
+        "boundingBox": {
+          "Width": 0.17147718369960785,
+          "Height": 0.3090851902961731,
+          "Left": 0.17790807783603668,
+          "Top": 0.6883280277252197
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 84.07266998291016,
+    "timestamp_ms": 452533,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 96.58993530273438,
+        "boundingBox": {
+          "Width": 0.14634495973587036,
+          "Height": 0.4167960584163666,
+          "Left": 0.19452789425849915,
+          "Top": 0.13898171484470367
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 74.80599212646484,
+    "timestamp_ms": 455033,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 77.6469497680664,
+        "boundingBox": {
+          "Width": 0.17751604318618774,
+          "Height": 0.6462238430976868,
+          "Left": 0.20947504043579102,
+          "Top": 0.2165711224079132
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 76.00580596923828,
+    "timestamp_ms": 458033,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 79.91939544677734,
+        "boundingBox": {
+          "Width": 0.18115562200546265,
+          "Height": 0.8511172533035278,
+          "Left": 0.2719314694404602,
+          "Top": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 77.65068817138672,
+    "timestamp_ms": 458400,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 82.41027069091797,
+        "boundingBox": {
+          "Width": 0.18011493980884552,
+          "Height": 0.8624688386917114,
+          "Left": 0.28745749592781067,
+          "Top": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 73.888427734375,
+    "timestamp_ms": 458533,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 85.25236511230469,
+        "boundingBox": {
+          "Width": 0.18171854317188263,
+          "Height": 0.8622422218322754,
+          "Left": 0.28625360131263733,
+          "Top": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 82.66712188720703,
+    "timestamp_ms": 459033,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 88.67730712890625,
+        "boundingBox": {
+          "Width": 0.1858033537864685,
+          "Height": 0.9908097982406616,
+          "Left": 0.2706418037414551,
+          "Top": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 81.22518157958984,
+    "timestamp_ms": 459400,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 83.67667388916016,
+        "boundingBox": {
+          "Width": 0.17033761739730835,
+          "Height": 0.9825503826141357,
+          "Left": 0.32589441537857056,
+          "Top": 0.017139770090579987
+        }
+      }
+    ]
+  },
+  {
+    "label": "Lipstick",
+    "confidence": 84.16558074951172,
+    "timestamp_ms": 459900,
+    "parents": [
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 94.41615295410156,
+        "boundingBox": {
+          "Width": 0.09233973920345306,
+          "Height": 0.605896532535553,
+          "Left": 0.34771960973739624,
+          "Top": 0.10456223785877228
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 73.68151092529297,
+    "timestamp_ms": 461400,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 78.10359954833984,
+        "boundingBox": {
+          "Width": 0.12902775406837463,
+          "Height": 0.38087987899780273,
+          "Left": 0.15183515846729279,
+          "Top": 0.5974569320678711
+        }
+      }
+    ]
+  },
+  {
+    "label": "Perfume",
+    "confidence": 82.88525390625,
+    "timestamp_ms": 461900,
+    "parents": [
+      "Bottle",
+      "Cosmetics"
+    ],
+    "instances": [
+      {
+        "confidence": 92.72920989990234,
+        "boundingBox": {
+          "Width": 0.13146860897541046,
+          "Height": 0.37064310908317566,
+          "Left": 0.0848294347524643,
+          "Top": 0.5646445155143738
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 93.52993774414062,
+    "timestamp_ms": 463900,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.21951293945312,
+        "boundingBox": {
+          "Width": 0.35681354999542236,
+          "Height": 0.7165323495864868,
+          "Left": 0.28392112255096436,
+          "Top": 0.282999724149704
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 97.75175476074219,
+    "timestamp_ms": 464400,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.66256713867188,
+        "boundingBox": {
+          "Width": 0.3578394055366516,
+          "Height": 0.724047839641571,
+          "Left": 0.27941086888313293,
+          "Top": 0.2759460210800171
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99986267089844,
+    "timestamp_ms": 464900,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.62065124511719,
+        "boundingBox": {
+          "Width": 0.3520374596118927,
+          "Height": 0.7235649228096008,
+          "Left": 0.2861050069332123,
+          "Top": 0.27636271715164185
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99976348876953,
+    "timestamp_ms": 465400,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 98.10826873779297,
+        "boundingBox": {
+          "Width": 0.3486042320728302,
+          "Height": 0.7241312265396118,
+          "Left": 0.29311928153038025,
+          "Top": 0.2740541100502014
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99939727783203,
+    "timestamp_ms": 465900,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 98.95745086669922,
+        "boundingBox": {
+          "Width": 0.3612353205680847,
+          "Height": 0.7207897305488586,
+          "Left": 0.27943360805511475,
+          "Top": 0.27921026945114136
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99932861328125,
+    "timestamp_ms": 466400,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 98.97393798828125,
+        "boundingBox": {
+          "Width": 0.31351128220558167,
+          "Height": 0.5283944010734558,
+          "Left": 0.2366923689842224,
+          "Top": 0.38414430618286133
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99983215332031,
+    "timestamp_ms": 466900,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 93.04143524169922,
+        "boundingBox": {
+          "Width": 0.26138755679130554,
+          "Height": 0.5147210955619812,
+          "Left": 0.25031349062919617,
+          "Top": 0.39752793312072754
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99989318847656,
+    "timestamp_ms": 467900,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.90799713134766,
+        "boundingBox": {
+          "Width": 0.3166543245315552,
+          "Height": 0.8631282448768616,
+          "Left": 0.3176341950893402,
+          "Top": 0.06793481856584549
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99993896484375,
+    "timestamp_ms": 468400,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.9664077758789,
+        "boundingBox": {
+          "Width": 0.3363356292247772,
+          "Height": 0.947335958480835,
+          "Left": 0.35202756524086,
+          "Top": 0.03797997906804085
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99994659423828,
+    "timestamp_ms": 468900,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.9320297241211,
+        "boundingBox": {
+          "Width": 0.3312191367149353,
+          "Height": 0.9490706920623779,
+          "Left": 0.35420116782188416,
+          "Top": 0.04050040617585182
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99108123779297,
+    "timestamp_ms": 469400,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.90306091308594,
+        "boundingBox": {
+          "Width": 0.3216569125652313,
+          "Height": 0.9647995829582214,
+          "Left": 0.36519303917884827,
+          "Top": 0.03052343800663948
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.97234344482422,
+    "timestamp_ms": 469900,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.9839096069336,
+        "boundingBox": {
+          "Width": 0.321981817483902,
+          "Height": 0.971595048904419,
+          "Left": 0.3653489351272583,
+          "Top": 0.019387736916542053
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 95.31878662109375,
+    "timestamp_ms": 489333,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 80.64759063720703,
+        "boundingBox": {
+          "Width": 0.42038971185684204,
+          "Height": 0.6156982779502869,
+          "Left": 0.11062292009592056,
+          "Top": 0.38430169224739075
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 97.54240417480469,
+    "timestamp_ms": 497700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 97.4183578491211,
+        "boundingBox": {
+          "Width": 0.2706107199192047,
+          "Height": 0.6447939276695251,
+          "Left": 0.0008476583170704544,
+          "Top": 0.22333532571792603
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.9925308227539,
+    "timestamp_ms": 497833,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 94.49432373046875,
+        "boundingBox": {
+          "Width": 0.27858617901802063,
+          "Height": 0.6390730142593384,
+          "Left": 0.0007452768040820956,
+          "Top": 0.24078857898712158
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.98162841796875,
+    "timestamp_ms": 498200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 92.10994720458984,
+        "boundingBox": {
+          "Width": 0.28676605224609375,
+          "Height": 0.6209858059883118,
+          "Left": 0.00016354261606466025,
+          "Top": 0.24739551544189453
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99158477783203,
+    "timestamp_ms": 498333,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 91.12335205078125,
+        "boundingBox": {
+          "Width": 0.2926061749458313,
+          "Height": 0.6236554384231567,
+          "Left": 0.0,
+          "Top": 0.24784182012081146
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99447631835938,
+    "timestamp_ms": 498700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 95.18582916259766,
+        "boundingBox": {
+          "Width": 0.2827088534832001,
+          "Height": 0.6648898720741272,
+          "Left": 0.0009813930373638868,
+          "Top": 0.255205363035202
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.98912811279297,
+    "timestamp_ms": 498833,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 96.0810317993164,
+        "boundingBox": {
+          "Width": 0.2808994948863983,
+          "Height": 0.6706957817077637,
+          "Left": 0.0009653673623688519,
+          "Top": 0.26260828971862793
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99761962890625,
+    "timestamp_ms": 499200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 98.32498168945312,
+        "boundingBox": {
+          "Width": 0.29971054196357727,
+          "Height": 0.6006025671958923,
+          "Left": 0.00012268844875507057,
+          "Top": 0.26009461283683777
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99588012695312,
+    "timestamp_ms": 499333,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 78.3653564453125,
+        "boundingBox": {
+          "Width": 0.3072274625301361,
+          "Height": 0.5519421696662903,
+          "Left": 0.0001962694659596309,
+          "Top": 0.23480306565761566
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.9994888305664,
+    "timestamp_ms": 499700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.68658447265625,
+        "boundingBox": {
+          "Width": 0.4209672212600708,
+          "Height": 0.7755263447761536,
+          "Left": 0.15113063156604767,
+          "Top": 0.22447368502616882
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99968719482422,
+    "timestamp_ms": 499833,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 95.22882080078125,
+        "boundingBox": {
+          "Width": 0.4140814244747162,
+          "Height": 0.8089935183525085,
+          "Left": 0.17760896682739258,
+          "Top": 0.19100643694400787
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99980926513672,
+    "timestamp_ms": 500200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.72539520263672,
+        "boundingBox": {
+          "Width": 0.38893991708755493,
+          "Height": 0.850197434425354,
+          "Left": 0.16245248913764954,
+          "Top": 0.1498025357723236
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99873352050781,
+    "timestamp_ms": 500700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.79557800292969,
+        "boundingBox": {
+          "Width": 0.45769456028938293,
+          "Height": 0.8923312425613403,
+          "Left": 0.1132228896021843,
+          "Top": 0.10766874998807907
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.9988021850586,
+    "timestamp_ms": 501200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.68673706054688,
+        "boundingBox": {
+          "Width": 0.5018824934959412,
+          "Height": 0.9632390737533569,
+          "Left": 0.07901792973279953,
+          "Top": 0.03676086664199829
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99571990966797,
+    "timestamp_ms": 501700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.91024780273438,
+        "boundingBox": {
+          "Width": 0.4684615731239319,
+          "Height": 0.9055060744285583,
+          "Left": 0.1183527335524559,
+          "Top": 0.09449394047260284
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99774169921875,
+    "timestamp_ms": 502200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.96078491210938,
+        "boundingBox": {
+          "Width": 0.40820983052253723,
+          "Height": 0.8278489708900452,
+          "Left": 0.1708908975124359,
+          "Top": 0.17212837934494019
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.9967269897461,
+    "timestamp_ms": 502700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.90267944335938,
+        "boundingBox": {
+          "Width": 0.38160210847854614,
+          "Height": 0.7677040696144104,
+          "Left": 0.18972112238407135,
+          "Top": 0.2322956621646881
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.7742919921875,
+    "timestamp_ms": 503200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.92782592773438,
+        "boundingBox": {
+          "Width": 0.3683720529079437,
+          "Height": 0.7254841923713684,
+          "Left": 0.19644276797771454,
+          "Top": 0.2745157480239868
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.54646301269531,
+    "timestamp_ms": 503700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.85465240478516,
+        "boundingBox": {
+          "Width": 0.37139156460762024,
+          "Height": 0.7296915650367737,
+          "Left": 0.20041312277317047,
+          "Top": 0.27030840516090393
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 97.9177017211914,
+    "timestamp_ms": 507200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 95.54549407958984,
+        "boundingBox": {
+          "Width": 0.45877209305763245,
+          "Height": 0.7660460472106934,
+          "Left": 0.19356530904769897,
+          "Top": 0.23395398259162903
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99942779541016,
+    "timestamp_ms": 507700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 90.67672729492188,
+        "boundingBox": {
+          "Width": 0.4528881013393402,
+          "Height": 0.744703471660614,
+          "Left": 0.21117383241653442,
+          "Top": 0.25344109535217285
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99955749511719,
+    "timestamp_ms": 508200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 96.47645568847656,
+        "boundingBox": {
+          "Width": 0.43510255217552185,
+          "Height": 0.7299323081970215,
+          "Left": 0.22451911866664886,
+          "Top": 0.26943495869636536
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.9995346069336,
+    "timestamp_ms": 508700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 95.5463638305664,
+        "boundingBox": {
+          "Width": 0.4036046862602234,
+          "Height": 0.776016354560852,
+          "Left": 0.23147501051425934,
+          "Top": 0.22293531894683838
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.998779296875,
+    "timestamp_ms": 509200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.68016052246094,
+        "boundingBox": {
+          "Width": 0.3383275270462036,
+          "Height": 0.7640106081962585,
+          "Left": 0.2344822734594345,
+          "Top": 0.23597900569438934
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99928283691406,
+    "timestamp_ms": 509700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.12657165527344,
+        "boundingBox": {
+          "Width": 0.3955620229244232,
+          "Height": 0.7380680441856384,
+          "Left": 0.22619281709194183,
+          "Top": 0.26193198561668396
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.9993667602539,
+    "timestamp_ms": 510200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 96.40018463134766,
+        "boundingBox": {
+          "Width": 0.3762279450893402,
+          "Height": 0.7864487171173096,
+          "Left": 0.23183010518550873,
+          "Top": 0.21182304620742798
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99885559082031,
+    "timestamp_ms": 510700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 98.00737762451172,
+        "boundingBox": {
+          "Width": 0.3467821478843689,
+          "Height": 0.7750120162963867,
+          "Left": 0.24869222939014435,
+          "Top": 0.2249632179737091
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99901580810547,
+    "timestamp_ms": 511200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 95.92467498779297,
+        "boundingBox": {
+          "Width": 0.43106669187545776,
+          "Height": 0.7697992324829102,
+          "Left": 0.23367585241794586,
+          "Top": 0.23020073771476746
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99870300292969,
+    "timestamp_ms": 511700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.43663787841797,
+        "boundingBox": {
+          "Width": 0.368289053440094,
+          "Height": 0.7576297521591187,
+          "Left": 0.24554933607578278,
+          "Top": 0.24232032895088196
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99646759033203,
+    "timestamp_ms": 512200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 95.59436798095703,
+        "boundingBox": {
+          "Width": 0.339570552110672,
+          "Height": 0.7568163275718689,
+          "Left": 0.2458917498588562,
+          "Top": 0.2431836724281311
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99942016601562,
+    "timestamp_ms": 512700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.90762329101562,
+        "boundingBox": {
+          "Width": 0.34309136867523193,
+          "Height": 0.7725022435188293,
+          "Left": 0.2500093877315521,
+          "Top": 0.22749777138233185
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99948120117188,
+    "timestamp_ms": 513200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.90140533447266,
+        "boundingBox": {
+          "Width": 0.36990097165107727,
+          "Height": 0.8064809441566467,
+          "Left": 0.22196459770202637,
+          "Top": 0.1935190111398697
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 99.99980926513672,
+    "timestamp_ms": 513700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.94541931152344,
+        "boundingBox": {
+          "Width": 0.40200984477996826,
+          "Height": 0.8381706476211548,
+          "Left": 0.1989683210849762,
+          "Top": 0.1590416431427002
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 95.45431518554688,
+    "timestamp_ms": 514200,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.77870178222656,
+        "boundingBox": {
+          "Width": 0.4354860186576843,
+          "Height": 0.8998095393180847,
+          "Left": 0.18245448172092438,
+          "Top": 0.10011418163776398
+        }
+      }
+    ]
+  },
+  {
+    "label": "Mobile Phone",
+    "confidence": 86.36322784423828,
+    "timestamp_ms": 514700,
+    "parents": [
+      "Electronics",
+      "Phone"
+    ],
+    "instances": [
+      {
+        "confidence": 99.30603790283203,
+        "boundingBox": {
+          "Width": 0.4704209566116333,
+          "Height": 0.9420878291130066,
+          "Left": 0.15122975409030914,
+          "Top": 0.0578562468290329
+        }
+      }
+    ]
+  },
+  {
+    "label": "Hoodie",
+    "confidence": 71.63337707519531,
+    "timestamp_ms": 515200,
+    "parents": [
+      "Clothing",
+      "Knitwear",
+      "Sweater",
+      "Sweatshirt"
+    ],
+    "instances": [
+      {
+        "confidence": 86.98082733154297,
+        "boundingBox": {
+          "Width": 0.09654385596513748,
+          "Height": 0.23136785626411438,
+          "Left": 0.4638881981372833,
+          "Top": 0.3061267137527466
+        }
+      }
+    ]
+  },
+  {
+    "label": "Hoodie",
+    "confidence": 78.13505554199219,
+    "timestamp_ms": 516200,
+    "parents": [
+      "Clothing",
+      "Knitwear",
+      "Sweater",
+      "Sweatshirt"
+    ],
+    "instances": [
+      {
+        "confidence": 93.89210510253906,
+        "boundingBox": {
+          "Width": 0.06865040212869644,
+          "Height": 0.1770024299621582,
+          "Left": 0.38745126128196716,
+          "Top": 0.26126518845558167
+        }
+      }
+    ]
+  },
+  {
+    "label": "Shorts",
+    "confidence": 79.65336608886719,
+    "timestamp_ms": 523700,
+    "parents": [
+      "Clothing"
+    ],
+    "instances": [
+      {
+        "confidence": 89.99493408203125,
+        "boundingBox": {
+          "Width": 0.09690148383378983,
+          "Height": 0.1905478537082672,
+          "Left": 0.36337316036224365,
+          "Top": 0.7742021679878235
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" style="background:#0d1521;font-family:'Inter','Helvetica Neue',Arial,sans-serif;">
+  <defs>
+    <style><![CDATA[
+      .title { fill:#ffffff; font-size:28px; font-weight:700; }
+      .subtitle { fill:#9fb4ff; font-size:14px; }
+      .lane { fill:#182235; stroke:#31405c; stroke-width:2; }
+      .lane-title { fill:#bcd0ff; font-size:18px; font-weight:600; }
+      .card { fill:#24314a; stroke:#3c4d6d; stroke-width:1.5; }
+      .card-text { fill:#f1f4ff; font-size:15px; font-weight:600; text-anchor:middle; }
+      .card-sub { fill:#9fb4ff; font-size:12px; text-anchor:middle; }
+      .arrow { stroke:#8ab4ff; stroke-width:3; marker-end:url(#arrowHead); }
+    ]]></style>
+    <marker id="arrowHead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 z" fill="#8ab4ff"/>
+    </marker>
+  </defs>
+
+  <text x="500" y="60" class="title" text-anchor="middle">AI Trailer Generation on AWS</text>
+  <text x="500" y="90" class="subtitle" text-anchor="middle">High-level flow from ingest to delivery</text>
+
+  <!-- swimlanes -->
+  <rect class="lane" x="60" y="120" width="260" height="420" rx="18" opacity="0.8"/>
+  <text class="lane-title" x="190" y="155" text-anchor="middle">Ingest &amp; Control</text>
+
+  <rect class="lane" x="370" y="120" width="260" height="420" rx="18" opacity="0.8"/>
+  <text class="lane-title" x="500" y="155" text-anchor="middle">AI Processing</text>
+
+  <rect class="lane" x="680" y="120" width="260" height="420" rx="18" opacity="0.8"/>
+  <text class="lane-title" x="810" y="155" text-anchor="middle">Render &amp; Deliver</text>
+
+  <!-- cards -->
+  <g transform="translate(190,240)">
+    <rect class="card" x="-100" y="-60" width="200" height="120" rx="16"/>
+    <text class="card-text" x="0" y="-15">Amazon S3</text>
+    <text class="card-sub" x="0" y="10">Source footage, audio, scripts</text>
+    <text class="card-sub" x="0" y="35">Upload via API Gateway + Lambda</text>
+  </g>
+
+  <g transform="translate(190,380)">
+    <rect class="card" x="-100" y="-60" width="200" height="120" rx="16"/>
+    <text class="card-text" x="0" y="-15">AWS Step Functions</text>
+    <text class="card-sub" x="0" y="10">Pipeline orchestration</text>
+    <text class="card-sub" x="0" y="35">Events via EventBridge</text>
+  </g>
+
+  <g transform="translate(500,240)">
+    <rect class="card" x="-100" y="-60" width="200" height="120" rx="16"/>
+    <text class="card-text" x="0" y="-15">Media Intelligence</text>
+    <text class="card-sub" x="0" y="10">Rekognition, Transcribe</text>
+    <text class="card-sub" x="0" y="35">Extract scenes, dialogue</text>
+  </g>
+
+  <g transform="translate(500,380)">
+    <rect class="card" x="-100" y="-60" width="200" height="120" rx="16"/>
+    <text class="card-text" x="0" y="-15">Personalization Brain</text>
+    <text class="card-sub" x="0" y="10">Bedrock + Personalize</text>
+    <text class="card-sub" x="0" y="35">Craft storyline, target cuts</text>
+  </g>
+
+  <g transform="translate(810,240)">
+    <rect class="card" x="-100" y="-60" width="200" height="120" rx="16"/>
+    <text class="card-text" x="0" y="-15">AWS Elemental MediaConvert</text>
+    <text class="card-sub" x="0" y="10">Assemble trailer timeline</text>
+    <text class="card-sub" x="0" y="35">Applies brand templates</text>
+  </g>
+
+  <g transform="translate(810,380)">
+    <rect class="card" x="-100" y="-60" width="200" height="120" rx="16"/>
+    <text class="card-text" x="0" y="-15">Amazon S3</text>
+    <text class="card-sub" x="0" y="10">Final trailer storage</text>
+    <text class="card-sub" x="0" y="35">Metadata in DynamoDB</text>
+  </g>
+
+  <g transform="translate(810,500)">
+    <rect class="card" x="-100" y="-50" width="200" height="100" rx="16"/>
+    <text class="card-text" x="0" y="-10">Amazon CloudFront</text>
+    <text class="card-sub" x="0" y="15">Global delivery + analytics (CloudWatch)</text>
+  </g>
+
+  <!-- arrows -->
+  <path class="arrow" d="M290 240 H400"/>
+  <path class="arrow" d="M290 380 H400"/>
+  <path class="arrow" d="M600 240 H710"/>
+  <path class="arrow" d="M600 380 H710"/>
+  <path class="arrow" d="M500 300 V320"/>
+  <path class="arrow" d="M810 300 V320"/>
+  <path class="arrow" d="M810 440 V470"/>
+
+  <!-- legend -->
+  <g transform="translate(500,520)">
+    <text class="subtitle" x="0" y="0" text-anchor="middle">Support services: Cognito for auth, SNS for alerts, SQS for batch jobs</text>
+  </g>
+</svg>

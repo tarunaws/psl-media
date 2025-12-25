@@ -1,0 +1,411 @@
+"""
+Video Generation Service using Amazon Nova Reel
+Generates videos from text prompts and stores them in S3
+"""
+
+import os
+import json
+import uuid
+import logging
+import traceback
+from datetime import datetime
+from typing import Any
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+import boto3
+from botocore.exceptions import ClientError
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+
+app = Flask(__name__)
+CORS(app)
+
+# AWS Configuration
+AWS_REGION = os.getenv('AWS_REGION')
+if not AWS_REGION:
+    raise RuntimeError("Set AWS_REGION before starting video generation service")
+
+DEFAULT_MEDIA_BUCKET = os.getenv('MEDIA_S3_BUCKET')
+S3_BUCKET = os.getenv('VIDEO_GEN_S3_BUCKET', DEFAULT_MEDIA_BUCKET)
+
+if not S3_BUCKET:
+    raise RuntimeError("Set VIDEO_GEN_S3_BUCKET or MEDIA_S3_BUCKET before starting video generation service")
+
+# Initialize AWS clients
+bedrock_runtime = boto3.client('bedrock-runtime', region_name=AWS_REGION)
+s3_client = boto3.client('s3', region_name=AWS_REGION)
+
+# In-memory storage for generation history
+GENERATION_HISTORY = []
+
+
+def ensure_s3_bucket():
+    """Ensure S3 bucket exists, create if not."""
+    try:
+        s3_client.head_bucket(Bucket=S3_BUCKET)
+        app.logger.info(f"S3 bucket {S3_BUCKET} exists")
+    except ClientError as e:
+        error_code = e.response['Error']['Code']
+        if error_code == '404':
+            try:
+                if AWS_REGION == 'us-east-1':
+                    s3_client.create_bucket(Bucket=S3_BUCKET)
+                else:
+                    s3_client.create_bucket(
+                        Bucket=S3_BUCKET,
+                        CreateBucketConfiguration={'LocationConstraint': AWS_REGION}
+                    )
+                app.logger.info(f"Created S3 bucket: {S3_BUCKET}")
+            except Exception as create_error:
+                app.logger.error(f"Failed to create S3 bucket: {create_error}")
+        else:
+            app.logger.error(f"Error checking S3 bucket: {e}")
+
+
+@app.route("/health", methods=["GET"])
+def health_check() -> Any:
+    """Health check endpoint."""
+    return jsonify({
+        "status": "ok",
+        "service": "video-generation",
+        "region": AWS_REGION,
+        "s3_bucket": S3_BUCKET
+    }), 200
+
+
+@app.route("/generate-video", methods=["POST"])
+def generate_video() -> Any:
+    """Generate video from text prompt using Amazon Nova Reel (async job)."""
+    try:
+        data = request.get_json()
+        prompt = data.get('prompt', '').strip()
+        
+        if not prompt:
+            return jsonify({"error": "Prompt is required"}), 400
+        
+        # Generate unique ID for this generation
+        generation_id = str(uuid.uuid4())
+        timestamp = datetime.utcnow().isoformat()
+        
+        app.logger.info(f"Starting async video generation for prompt: {prompt}")
+        
+        # Generate random seed for unique results
+        import random
+        seed = random.randint(0, 2147483646)
+        
+        # Prepare request body for Nova Reel (async API)
+        model_input = {
+            "taskType": "TEXT_VIDEO",
+            "textToVideoParams": {"text": prompt},
+            "videoGenerationConfig": {
+                "fps": 24,
+                "durationSeconds": 6,
+                "dimension": "1280x720",
+                "seed": seed
+            }
+        }
+        
+        # S3 output location
+        s3_output_uri = f"s3://{S3_BUCKET}/generated-videos/{generation_id}/"
+        output_config = {
+            "s3OutputDataConfig": {
+                "s3Uri": s3_output_uri
+            }
+        }
+        
+        app.logger.info(f"Invoking Amazon Nova Reel model asynchronously...")
+        
+        # Start async invocation
+        response = bedrock_runtime.start_async_invoke(
+            modelId='amazon.nova-reel-v1:0',
+            modelInput=model_input,
+            outputDataConfig=output_config
+        )
+        
+        invocation_arn = response['invocationArn']
+        
+        app.logger.info(f"Async job started with ARN: {invocation_arn}")
+        
+        # Store the pending job in history with "pending" status
+        pending_entry = {
+            "id": generation_id,
+            "prompt": prompt,
+            "status": "pending",
+            "invocation_arn": invocation_arn,
+            "timestamp": timestamp,
+            "duration": 6,
+            "resolution": "1280x720"
+        }
+        GENERATION_HISTORY.insert(0, pending_entry)
+        
+        # Return immediately with job ID for frontend polling
+        return jsonify({
+            "success": True,
+            "id": generation_id,
+            "status": "pending",
+            "message": "Video generation started. Please wait 1-2 minutes.",
+            "invocation_arn": invocation_arn
+        }), 202  # 202 Accepted
+        
+    except ClientError as e:
+        error_code = e.response['Error']['Code']
+        error_message = e.response['Error']['Message']
+        app.logger.error(f"AWS Error: {error_code} - {error_message}")
+        app.logger.error(traceback.format_exc())
+        return jsonify({
+            
+            if status == "Completed":
+                # Get the actual S3 key from the response
+                output_data = job_status.get('outputDataConfig', {})
+                s3_uri = output_data.get('s3OutputDataConfig', {}).get('s3Uri', '')
+                
+                app.logger.info(f"Job completed. Output URI: {s3_uri}")
+                
+                # List files in the S3 prefix to find the actual video file
+                prefix = f"generated-videos/{generation_id}/"
+                try:
+                    response_list = s3_client.list_objects_v2(Bucket=S3_BUCKET, Prefix=prefix)
+                    if 'Contents' in response_list:
+                        # Get the first video file
+                        video_s3_key = response_list['Contents'][0]['Key']
+                        app.logger.info(f"Found video at: {video_s3_key}")
+                    else:
+                        app.logger.error(f"No files found in S3 prefix: {prefix}")
+                        return jsonify({"error": "Video file not found in S3"}), 500
+                except Exception as e:
+                    app.logger.error(f"Error listing S3 files: {e}")
+                    return jsonify({"error": f"Failed to locate video: {str(e)}"}), 500
+                
+                # Generate presigned URL with proper content type
+                video_url = s3_client.generate_presigned_url(
+                    'get_object',
+                    Params={
+                        'Bucket': S3_BUCKET, 
+                        'Key': video_s3_key,
+                        'ResponseContentType': 'video/mp4'
+                    },
+                    ExpiresIn=3600 * 24 * 7  # 7 days
+                )
+                
+                # Add to history
+                history_entry = {
+                    "id": generation_id,
+                    "prompt": prompt,
+                    "video_url": video_url,
+                    "s3_key": video_s3_key,
+                    "timestamp": timestamp,
+                    "duration": 6,
+                    "resolution": "1280x720",
+                    "invocation_arn": invocation_arn
+                }
+                
+                GENERATION_HISTORY.insert(0, history_entry)
+                
+                app.logger.info(f"Video generation completed: {generation_id}")
+                
+                return jsonify({
+                    "success": True,
+                    "id": generation_id,
+                    "generation_id": generation_id,  # Keep for backwards compatibility
+                    "prompt": prompt,
+                    "video_url": video_url,
+                    "s3_key": video_s3_key,
+                    "timestamp": timestamp,
+                    "invocation_arn": invocation_arn,
+                    "duration": 6,
+                    "resolution": "1280x720"
+                }), 200
+                
+            elif status == "Failed":
+                failure_message = job_status.get('failureMessage', 'Unknown error')
+                app.logger.error(f"Video generation failed: {failure_message}")
+                return jsonify({
+                    "error": f"Video generation failed: {failure_message}",
+                    "invocation_arn": invocation_arn
+                }), 500
+            
+        return jsonify({
+            "error": f"AWS Error: {error_message}",
+            "code": error_code
+        }), 500
+        
+    except Exception as e:
+        app.logger.error(f"Video generation failed: {str(e)}")
+        app.logger.error(traceback.format_exc())
+        return jsonify({"error": f"Video generation failed: {str(e)}"}), 500
+
+
+@app.route("/check-status/<generation_id>", methods=["GET"])
+def check_status(generation_id):
+    """Check the status of a video generation job."""
+    try:
+        # Find the entry in history
+        entry = None
+        entry_idx = None
+        for idx, item in enumerate(GENERATION_HISTORY):
+            if item['id'] == generation_id:
+                entry = item
+                entry_idx = idx
+                break
+        
+        if not entry:
+            return jsonify({"error": "Generation not found"}), 404
+        
+        # If already completed, return the entry
+        if entry.get('status') != 'pending':
+            return jsonify(entry), 200
+        
+        # Check job status with AWS
+        invocation_arn = entry['invocation_arn']
+        job_status = bedrock_runtime.get_async_invoke(invocationArn=invocation_arn)
+        status = job_status['status']
+        
+        app.logger.info(f"Job {generation_id} status: {status}")
+        
+        if status == "Completed":
+            # Get the actual S3 key from the response
+            output_data = job_status.get('outputDataConfig', {})
+            s3_uri = output_data.get('s3OutputDataConfig', {}).get('s3Uri', '')
+            
+            app.logger.info(f"Job completed. Output URI: {s3_uri}")
+            
+            # List files in the S3 prefix to find the actual video file
+            prefix = f"generated-videos/{generation_id}/"
+            try:
+                response_list = s3_client.list_objects_v2(Bucket=S3_BUCKET, Prefix=prefix)
+                if 'Contents' in response_list:
+                    # Get the first video file
+                    video_s3_key = response_list['Contents'][0]['Key']
+                    app.logger.info(f"Found video at: {video_s3_key}")
+                else:
+                    app.logger.error(f"No files found in S3 prefix: {prefix}")
+                    return jsonify({"error": "Video file not found in S3", "status": "failed"}), 500
+            except Exception as e:
+                app.logger.error(f"Error listing S3 files: {e}")
+                return jsonify({"error": f"Failed to locate video: {str(e)}", "status": "failed"}), 500
+            
+            # Generate presigned URL
+            video_url = s3_client.generate_presigned_url(
+                'get_object',
+                Params={
+                    'Bucket': S3_BUCKET, 
+                    'Key': video_s3_key,
+                    'ResponseContentType': 'video/mp4'
+                },
+                ExpiresIn=3600 * 24 * 7  # 7 days
+            )
+            
+            # Update history entry
+            entry['status'] = 'completed'
+            entry['video_url'] = video_url
+            entry['s3_key'] = video_s3_key
+            GENERATION_HISTORY[entry_idx] = entry
+            
+            return jsonify(entry), 200
+            
+        elif status == "Failed":
+            failure_message = job_status.get('failureMessage', 'Unknown error')
+            app.logger.error(f"Video generation failed: {failure_message}")
+            
+            # Update history
+            entry['status'] = 'failed'
+            entry['error'] = failure_message
+            GENERATION_HISTORY[entry_idx] = entry
+            
+            return jsonify(entry), 200
+        
+        # Still in progress
+        entry['status'] = 'pending'
+        return jsonify(entry), 200
+        
+    except Exception as e:
+        app.logger.error(f"Error checking status: {e}")
+        app.logger.error(traceback.format_exc())
+        return jsonify({"error": str(e), "status": "error"}), 500
+
+
+@app.route("/history", methods=["GET"])
+def get_history() -> Any:
+    """Get generation history."""
+    return jsonify({
+        "history": GENERATION_HISTORY,
+        "total": len(GENERATION_HISTORY)
+    }), 200
+
+
+@app.route("/history/<generation_id>", methods=["DELETE"])
+def delete_from_history(generation_id: str) -> Any:
+    """Delete a generation from history (optionally delete from S3)."""
+    global GENERATION_HISTORY
+    
+    # Find the entry
+    entry_idx = None
+    for idx, entry in enumerate(GENERATION_HISTORY):
+        if entry['id'] == generation_id:
+            entry_idx = idx
+            break
+    
+    if entry_idx is None:
+        return jsonify({"error": "Generation not found"}), 404
+    
+    entry = GENERATION_HISTORY.pop(entry_idx)
+    
+    # Optionally delete from S3
+    delete_from_s3 = request.args.get('delete_s3', 'false').lower() == 'true'
+    if delete_from_s3:
+        try:
+            s3_client.delete_object(Bucket=S3_BUCKET, Key=entry['s3_key'])
+            app.logger.info(f"Deleted from S3: {entry['s3_key']}")
+        except Exception as e:
+            app.logger.error(f"Failed to delete from S3: {e}")
+    
+    return jsonify({
+        "message": "Generation deleted from history",
+        "deleted_from_s3": delete_from_s3
+    }), 200
+
+
+@app.route('/video/<generation_id>', methods=['GET'])
+def stream_video(generation_id):
+    """Proxy endpoint to stream video from S3 with proper headers"""
+    try:
+        # Find the video in history
+        entry = None
+        for item in GENERATION_HISTORY:
+            if item['id'] == generation_id:
+                entry = item
+                break
+        
+        if not entry:
+            return jsonify({"error": "Video not found"}), 404
+        
+        # Get video from S3
+        s3_key = entry['s3_key']
+        response = s3_client.get_object(Bucket=S3_BUCKET, Key=s3_key)
+        
+        # Return video with proper headers
+        from flask import Response
+        return Response(
+            response['Body'].read(),
+            mimetype='video/mp4',
+            headers={
+                'Accept-Ranges': 'bytes',
+                'Content-Type': 'video/mp4',
+                'Access-Control-Allow-Origin': '*'
+            }
+        )
+    except Exception as e:
+        app.logger.error(f"Error streaming video: {e}")
+        return jsonify({"error": str(e)}), 500
+
+
+if __name__ == "__main__":
+    app.logger.info("Starting Video Generation Service...")
+    app.logger.info(f"AWS Region: {AWS_REGION}")
+    app.logger.info(f"S3 Bucket: {S3_BUCKET}")
+    
+    # Ensure S3 bucket exists
+    ensure_s3_bucket()
+    
+    app.run(host="0.0.0.0", port=5009, debug=True)

@@ -1,0 +1,40 @@
+{
+  "transfer_session": "2025-09-08-ING-045",
+  "source_system": "GlacierVault-SIN01",
+  "delivery_channel": "AWS Direct Connect",
+  "content_group": "Starlight Chronicles Season 2",
+  "assets": [
+    {
+      "asset_id": "OTT-TRAILER-STARLIGHT-005",
+      "title": "Episode 5 Recap Trailer",
+      "duration_seconds": 126,
+      "frames_per_second": 23.976,
+      "resolution": "3840x2160",
+      "hdr_profile": "PQ P3",
+      "audio_profile": "5.1 + stereo",
+      "checksum": "b3d42cfa4f82c6de996af657e4f1b99a",
+      "components": [
+        {
+          "type": "video",
+          "codec": "ProRes 422 HQ",
+          "bitrate_mbps": 122
+        },
+        {
+          "type": "audio",
+          "codec": "PCM 24-bit",
+          "channels": "L R C Lfe Ls Rs"
+        }
+      ],
+      "compliance_targets": [
+        "Netflix OTT Promo",
+        "Internal YouTube Preview"
+      ]
+    }
+  ],
+  "automated_checks": [
+    "MD5 checksum",
+    "HDR metadata present",
+    "Audio peak/phase"
+  ],
+  "notes": "Demo manifest used for Media Supply Chain orchestration runs."
+}

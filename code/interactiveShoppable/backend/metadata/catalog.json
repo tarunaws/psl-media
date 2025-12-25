@@ -1,0 +1,1588 @@
+[
+  {
+    "id": "lipstick-rose-velvet",
+    "label": "Lipstick",
+    "name": "Rose Velvet Lipstick Duo",
+    "price": 0,
+    "currency": "USD",
+    "description": "Hydrating satin-finish lipstick inspired by the influencer segment in the demo clip.",
+    "image": "http://localhost:5002/history/1764268208/original.png",
+    "startMs": 0,
+    "endMs": 12000,
+    "timestampMs": 3500,
+    "boundingBox": {
+      "Width": 0.03766873851418495,
+      "Height": 0.25800514221191406,
+      "Left": 0.47438544034957886,
+      "Top": 0.5500394105911255
+    },
+    "ctaText": "Add Lipstick",
+    "aiCopy": {
+      "tagline": "Velvet lips, every day",
+      "elevatorPitch": "Indulge in our hydrating satin-finish lipstick, inspired by the influencer segment. Experience the perfect blend of comfort and style.",
+      "bulletPoints": [
+        "Long-lasting hydration",
+        "Rose-inspired shade",
+        "Perfect for everyday wear"
+      ],
+      "socialCaption": "Elevate your everyday look with our Rose Velvet Lipstick Duo \ud83d\udc84",
+      "keywords": [
+        "hydrating lipstick",
+        "satin finish",
+        "everyday wear",
+        "rose shade"
+      ]
+    }
+  },
+  {
+    "id": "precision-screwdriver-kit",
+    "label": "Screw Driver",
+    "name": "Precision Creator Screwdriver Kit",
+    "price": 0,
+    "currency": "USD",
+    "description": "Toolkit cameo during the DIY desk setup.",
+    "image": "http://localhost:5002/history/1764268219/original.png",
+    "startMs": 1500,
+    "endMs": 13500,
+    "timestampMs": 5500,
+    "boundingBox": {
+      "Width": 0.11854889988899231,
+      "Height": 0.3310976028442383,
+      "Left": 0.5836851000785828,
+      "Top": 0.4014880955219269
+    },
+    "ctaText": "Add Screw Driver",
+    "aiCopy": {
+      "tagline": "Elevate Your DIY Experience",
+      "elevatorPitch": "Unlock precision and control with our expertly crafted screwdriver kit, designed to make your DIY projects a success. From furniture assembly to electronics repair, our kit has got you covered.",
+      "bulletPoints": [
+        "Precise control for intricate tasks",
+        "High-quality, rust-resistant steel",
+        "Perfect for DIY enthusiasts and professionals"
+      ],
+      "socialCaption": "Take your DIY skills to the next level with our Precision Creator Screwdriver Kit \ud83d\udcaa\ud83d\udd27",
+      "keywords": [
+        "DIY toolkit",
+        "screwdriver kit",
+        "precision screwdriver",
+        "DIY enthusiasts",
+        "professionals"
+      ]
+    }
+  },
+  {
+    "id": "studio-monitor-uhd",
+    "label": "Monitor",
+    "name": "Studio Monitor UHD 32\"",
+    "price": 0,
+    "currency": "USD",
+    "description": "Color-accurate monitor from the desktop productivity scene.",
+    "image": "http://localhost:5002/history/1764268227/original.png",
+    "startMs": 4000,
+    "endMs": 20000,
+    "timestampMs": 6000,
+    "boundingBox": {
+      "Width": 0.4614158570766449,
+      "Height": 0.548830509185791,
+      "Left": 0.2063789814710617,
+      "Top": 0.1068754717707634
+    },
+    "ctaText": "Add Monitor",
+    "aiCopy": {
+      "tagline": "Unparalleled Color Accuracy for Creators",
+      "elevatorPitch": "Elevate your workflow with a monitor that delivers precise color representation, ensuring your vision is brought to life. Perfect for graphic designers, photographers, and videographers.",
+      "bulletPoints": [
+        "Accurate Color Reproduction",
+        "IPS Panel with 4K UHD Resolution",
+        "Ideal for Graphic Design, Photography, and Video Editing"
+      ],
+      "socialCaption": "Take your creative projects to the next level with our Studio Monitor UHD 32\" \ud83c\udfa8\ud83d\udcbb",
+      "keywords": [
+        "Color Accurate Monitor",
+        "Desktop Productivity",
+        "Graphic Design",
+        "Photography",
+        "Video Editing"
+      ]
+    }
+  },
+  {
+    "id": "mechanical-desk-kit",
+    "label": "Computer Keyboard",
+    "name": "Mechanical Desk Creator Kit",
+    "price": 0,
+    "currency": "USD",
+    "description": "Low-latency keyboard + desk mat bundle from the workstation sequence.",
+    "image": "http://localhost:5002/history/1764268235/original.png",
+    "startMs": 4000,
+    "endMs": 20000,
+    "timestampMs": 6000,
+    "boundingBox": {
+      "Width": 0.6083961129188538,
+      "Height": 0.17749854922294617,
+      "Left": 0.028932197019457817,
+      "Top": 0.822180449962616
+    },
+    "ctaText": "Add Desk Kit",
+    "aiCopy": {
+      "tagline": "Elevate Your Workflow Experience",
+      "elevatorPitch": "Unlock seamless productivity with our Mechanical Desk Creator Kit, designed to streamline your workflow. This expertly curated bundle combines a low-latency keyboard with a premium desk mat, empowering you to create with precision and ease.",
+      "bulletPoints": [
+        "Seamless workflow integration",
+        "Premium desk mat for reduced noise and improved ergonomics",
+        "Ideal for coders, writers, and creatives"
+      ],
+      "socialCaption": "Take your workspace to the next level with our Mechanical Desk Creator Kit \ud83d\udcbb\ud83d\udcc8",
+      "keywords": [
+        "mechanical keyboard",
+        "desk mat",
+        "productivity bundle",
+        "workstation accessories"
+      ]
+    }
+  },
+  {
+    "id": "precision-creator-mouse",
+    "label": "Computer Mouse",
+    "name": "Precision Creator Mouse",
+    "price": 0,
+    "currency": "USD",
+    "description": "Ergonomic mouse from the desk productivity setup.",
+    "image": "http://localhost:5002/history/1764268243/original.png",
+    "startMs": 1800,
+    "endMs": 14800,
+    "timestampMs": 6800,
+    "boundingBox": {
+      "Left": 0.6501174926757812,
+      "Top": 0.824127197265625,
+      "Width": 0.07687435150146485,
+      "Height": 0.13350796169704862
+    },
+    "ctaText": "Add Mouse",
+    "aiCopy": {
+      "tagline": "Elevate Your Workflow Experience",
+      "elevatorPitch": "Experience the ultimate in ergonomic design and precision control. Boost your productivity with a mouse that fits your hand like a glove.",
+      "bulletPoints": [
+        "Ergonomic design for comfort",
+        "High-precision optical sensor",
+        "Ideal for graphic designers and gamers"
+      ],
+      "socialCaption": "Upgrade your workflow game with our Precision Creator Mouse \ud83d\udcbb\ud83d\udc4d",
+      "keywords": [
+        "ergonomic mouse",
+        "productivity",
+        "precision control",
+        "graphic design",
+        "gaming"
+      ]
+    }
+  },
+  {
+    "id": "artisan-kitchen-ketchup",
+    "label": "Ketchup",
+    "name": "Artisan Kitchen Ketchup",
+    "price": 0,
+    "currency": "USD",
+    "description": "Gourmet condiment from the studio cooking insert.",
+    "image": "http://localhost:5002/history/1764268250/original.png",
+    "startMs": 4500,
+    "endMs": 17500,
+    "timestampMs": 9500,
+    "boundingBox": {
+      "Width": 0.27322298288345337,
+      "Height": 0.424824982881546,
+      "Left": 0.589641809463501,
+      "Top": 0.4833580255508423
+    },
+    "ctaText": "Add Ketchup",
+    "aiCopy": {
+      "tagline": "Elevate Your Plate with Artisanal Flavor",
+      "elevatorPitch": "Indulge in the rich, velvety taste of our gourmet ketchup, carefully crafted in small batches to elevate your favorite dishes. Perfect for foodies and culinary enthusiasts alike.",
+      "bulletPoints": [
+        "Rich, Velvety Texture",
+        "Small-Batch, Artisanal Recipe",
+        "Elevate Burgers, Fries, and More"
+      ],
+      "socialCaption": "Add a dash of sophistication to your meals with our artisanal ketchup \ud83c\udf74\ud83d\udc68\u200d\ud83c\udf73",
+      "keywords": [
+        "gourmet ketchup",
+        "artisanal condiment",
+        "small-batch recipe"
+      ]
+    }
+  },
+  {
+    "id": "noir-stemware-duo",
+    "label": "Wine Glass",
+    "name": "Noir Stemware Duo",
+    "price": 0,
+    "currency": "USD",
+    "description": "Modern wine glasses from the moody lifestyle scene.",
+    "image": "http://localhost:5002/history/1764268258/original.png",
+    "startMs": 5800,
+    "endMs": 18800,
+    "timestampMs": 10800,
+    "boundingBox": {
+      "Left": 0.14841041564941407,
+      "Top": 0.002764129638671875,
+      "Width": 0.696319580078125,
+      "Height": 0.9819959569860388
+    },
+    "ctaText": "Add Stemware",
+    "aiCopy": {
+      "tagline": "Elevate Your Wine Nights",
+      "elevatorPitch": "Experience the art of wine tasting with our sleek, modern stemware. Perfect for a sophisticated evening in.",
+      "bulletPoints": [
+        "Sophisticated design for a refined wine experience",
+        "Crafted from high-quality, lead-free glass",
+        "Ideal for wine and cheese nights or dinner parties"
+      ],
+      "socialCaption": "Raise a glass to elegance with our Noir Stemware Duo \ud83c\udf77",
+      "keywords": [
+        "wine glasses",
+        "modern stemware",
+        "sophisticated wine experience"
+      ]
+    }
+  },
+  {
+    "id": "runway-lux-coat",
+    "label": "Coat",
+    "name": "Runway Lux Coat",
+    "description": "Tailored outerwear piece that appears in the studio fashion walk sequence.",
+    "image": "http://localhost:5002/history/1764268265/original.png",
+    "timestampMs": 14500,
+    "startMs": 9500,
+    "endMs": 22500,
+    "boundingBox": {
+      "Width": 0.3337313234806061,
+      "Height": 0.7260258197784424,
+      "Left": 0.28717631101608276,
+      "Top": 0.002284383401274681
+    },
+    "ctaText": "Add Coat",
+    "price": 0,
+    "currency": "USD",
+    "aiCopy": {
+      "tagline": "Step into the spotlight with Runway Lux",
+      "elevatorPitch": "Elevate your style with our tailored outerwear piece, designed to make a statement on the catwalk or in everyday life. Perfect for fashion enthusiasts and trendsetters alike.",
+      "bulletPoints": [
+        "Statement-making design",
+        "Luxurious fabric blend",
+        "Perfect for fashion events or daily wear"
+      ],
+      "socialCaption": "Make a fashion statement with Runway Lux Coat \ud83d\udc83\ud83d\udd25",
+      "keywords": [
+        "luxury outerwear",
+        "fashion statement piece",
+        "catwalk style"
+      ]
+    }
+  },
+  {
+    "id": "creator-mobile-pro",
+    "label": "Mobile Phone",
+    "name": "Creator Mobile Pro",
+    "price": 0,
+    "currency": "USD",
+    "description": "6.8\" AMOLED creator phone showcased when the host films b-roll.",
+    "image": "http://localhost:5002/history/1764268272/original.png",
+    "startMs": 15000,
+    "endMs": 40000,
+    "timestampMs": 18366,
+    "boundingBox": {
+      "Width": 0.22009724378585815,
+      "Height": 0.1477101594209671,
+      "Left": 0.04898542910814285,
+      "Top": 0.8052334189414978
+    },
+    "ctaText": "Add Phone",
+    "aiCopy": {
+      "tagline": "Unleash Your Creative Vision",
+      "elevatorPitch": "Capture life's precious moments with stunning clarity and precision. Elevate your mobile filmmaking experience with our Creator Mobile Pro.",
+      "bulletPoints": [
+        "Pro-grade camera system",
+        "6.8\" AMOLED display",
+        "Film cinematic b-roll on-the-go"
+      ],
+      "socialCaption": "Take your mobile filmmaking to the next level with Creator Mobile Pro \ud83d\udcf8\ud83c\udfa5",
+      "keywords": [
+        "mobile filmmaking",
+        "creator phone",
+        "AMOLED display"
+      ]
+    }
+  },
+  {
+    "id": "studio-short-set",
+    "label": "Shorts",
+    "name": "Studio Cargo Shorts Set",
+    "price": 0,
+    "currency": "USD",
+    "description": "Lightweight shorts from the lifestyle cutaway sequence.",
+    "image": "http://localhost:5002/history/1764268280/original.png",
+    "startMs": 13366,
+    "endMs": 26366,
+    "timestampMs": 18366,
+    "boundingBox": {
+      "Width": 0.3126240372657776,
+      "Height": 0.4441900849342346,
+      "Left": 0.26365700364112854,
+      "Top": 0.1138712614774704
+    },
+    "ctaText": "Add Shorts",
+    "aiCopy": {
+      "tagline": "Effortless Style for Any Adventure",
+      "elevatorPitch": "Elevate your everyday look with our lightweight cargo shorts, designed for comfort and versatility. Perfect for casual outings or outdoor activities.",
+      "bulletPoints": [
+        "Breathable fabric for all-day comfort",
+        "Multiple pockets for storage",
+        "Ideal for hiking, biking, or just lounging"
+      ],
+      "socialCaption": "Take your style on the go with our versatile cargo shorts \ud83d\udc56",
+      "keywords": [
+        "lightweight cargo shorts",
+        "comfortable outdoor wear",
+        "versatile fashion essentials"
+      ]
+    }
+  },
+  {
+    "id": "creator-tablet-notes",
+    "label": "Tablet Computer",
+    "name": "Creator Tablet Notes",
+    "price": 0,
+    "currency": "USD",
+    "description": "Dual-screen tablet highlighted during the productivity montage.",
+    "image": "http://localhost:5002/history/1764268287/original.png",
+    "startMs": 13500,
+    "endMs": 26500,
+    "timestampMs": 18500,
+    "boundingBox": {
+      "Width": 0.23422227799892426,
+      "Height": 0.20330160856246948,
+      "Left": 0.6936570405960083,
+      "Top": 0.765812337398529
+    },
+    "ctaText": "Add Tablet",
+    "aiCopy": {
+      "tagline": "Unleash Your Creative Flow",
+      "elevatorPitch": "Take your ideas to the next level with the Creator Tablet Notes, featuring dual screens for seamless multitasking and effortless creativity. Perfect for artists, writers, and visionaries alike.",
+      "bulletPoints": [
+        "Dual screens for seamless multitasking",
+        "Stylish and durable design",
+        "Ideal for digital art, writing, and brainstorming"
+      ],
+      "socialCaption": "Double your creativity with the Creator Tablet Notes \ud83d\udcdd\ud83c\udfa8",
+      "keywords": [
+        "dual screen tablet",
+        "productivity tool",
+        "creative workflow",
+        "artistic expression"
+      ]
+    }
+  },
+  {
+    "id": "studio-soft-tissue-pack",
+    "label": "Tissue Paper",
+    "name": "Studio Soft Tissue Pack",
+    "price": 0,
+    "currency": "USD",
+    "description": "Ultra-soft facial tissue props that appear in the vanity montage.",
+    "image": "http://localhost:5002/history/1764268295/original.png",
+    "startMs": 28000,
+    "endMs": 40000,
+    "timestampMs": 32000,
+    "boundingBox": {
+      "Left": 0.12,
+      "Top": 0.18,
+      "Width": 0.22,
+      "Height": 0.32
+    },
+    "ctaText": "Add Tissue Paper",
+    "aiCopy": {
+      "tagline": "Elevate Your Vanity Montage",
+      "elevatorPitch": "Transform your skincare routine with ultra-soft, realistic facial tissue props. Perfect for creating a stunning vanity montage.",
+      "bulletPoints": [
+        "Ultra-soft texture for realistic look",
+        "Durable and reusable",
+        "Ideal for skincare tutorials and beauty content"
+      ],
+      "socialCaption": "Get ready for a flawless vanity montage with our ultra-soft facial tissue props \ud83d\udc84\ud83d\udcf8",
+      "keywords": [
+        "facial tissue props",
+        "vanity montage",
+        "skincare routine",
+        "beauty content",
+        "realistic look"
+      ]
+    }
+  },
+  {
+    "id": "dual-action-toothbrush",
+    "label": "Toothbrush",
+    "name": "Dual Action Toothbrush Set",
+    "price": 0,
+    "currency": "USD",
+    "description": "Bathroom vanity b-roll showcasing toothbrush props.",
+    "image": "http://localhost:5002/history/1764268302/original.png",
+    "startMs": 32866,
+    "endMs": 44866,
+    "timestampMs": 36866,
+    "boundingBox": {
+      "Width": 0.05490592494606972,
+      "Height": 0.3072846531867981,
+      "Left": 0.49480491876602173,
+      "Top": 0.06695255637168884
+    },
+    "ctaText": "Add Toothbrush",
+    "aiCopy": {
+      "tagline": "Clean Smiles, Every Time",
+      "elevatorPitch": "Experience the ultimate oral care duo, designed for a deeper clean and a healthier smile. Our dual-action toothbrush set makes brushing teeth a breeze.",
+      "bulletPoints": [
+        "Effective plaque removal",
+        "Soft Bristles with GentleFlex Technology",
+        "Perfect for daily use"
+      ],
+      "socialCaption": "Get ready to flash a healthy, happy smile with our Dual Action Toothbrush Set \ud83d\udcab\ud83e\uddb7",
+      "keywords": [
+        "oral care",
+        "dual action toothbrush",
+        "healthy smile"
+      ]
+    }
+  },
+  {
+    "id": "travel-toothbrush-holder",
+    "label": "Toothbrush Holder",
+    "name": "Travel Toothbrush Holder",
+    "price": 0,
+    "currency": "USD",
+    "description": "Portable holder paired with the oral-care cutaway.",
+    "image": "http://localhost:5002/history/1764268310/original.png",
+    "startMs": 34000,
+    "endMs": 46000,
+    "timestampMs": 38000,
+    "boundingBox": {
+      "Left": 0.32,
+      "Top": 0.2,
+      "Width": 0.3,
+      "Height": 0.4
+    },
+    "ctaText": "Add Toothbrush Holder",
+    "aiCopy": {
+      "tagline": "Clean teeth on-the-go, stylishly.",
+      "elevatorPitch": "Stay fresh anywhere with our sleek travel toothbrush holder, designed to keep your oral care essentials within reach. Pair it with the oral-care cutaway for a complete travel set.",
+      "bulletPoints": [
+        "Compact design for effortless travel",
+        "Durable material withstands daily use",
+        "Perfect for backpacks, purses, or luggage"
+      ],
+      "socialCaption": "Take your oral care routine on the road with our chic travel toothbrush holder! \ud83d\udcab\ud83e\uddf3",
+      "keywords": [
+        "travel accessories",
+        "oral care",
+        "portable toothbrush holder"
+      ]
+    }
+  },
+  {
+    "id": "corner-organizer-rack",
+    "label": "Organizer Rack",
+    "name": "Nordic Corner Organizer Rack",
+    "price": 0,
+    "currency": "USD",
+    "description": "Five-tier corner organizer rack that frames the lifestyle vignette around the 00:40 mark.",
+    "image": "http://localhost:5002/history/1764268317/original.png",
+    "startMs": 38000,
+    "endMs": 52000,
+    "timestampMs": 42000,
+    "boundingBox": {
+      "Left": 1.4841556549072266e-05,
+      "Top": 0.10993177625868056,
+      "Width": 0.17896239360173544,
+      "Height": 0.8399058024088542
+    },
+    "ctaText": "Add Organizer Rack",
+    "aiCopy": {
+      "tagline": "Maximize your corner space",
+      "elevatorPitch": "Elevate your home organization with our Nordic Corner Organizer Rack, featuring five tiers of storage for a clutter-free lifestyle.",
+      "bulletPoints": [
+        "Five-tier corner organizer rack",
+        "Maximizes corner space",
+        "Easy to assemble"
+      ],
+      "socialCaption": "Get the most out of your corner space with our Nordic Corner Organizer Rack! #organizationgoals #homedecor",
+      "keywords": [
+        "corner organizer",
+        "storage rack",
+        "home organization",
+        "decluttering"
+      ]
+    }
+  },
+  {
+    "id": "bathroom-stacking-organizer",
+    "label": "Bathroom Organizer",
+    "name": "Cascade Bathroom Organizer",
+    "price": 0,
+    "currency": "USD",
+    "description": "Stackable bathroom organizer highlighted near the skincare segment.",
+    "image": "http://localhost:5002/history/1764268325/original.png",
+    "startMs": 42000,
+    "endMs": 54000,
+    "timestampMs": 46000,
+    "boundingBox": {
+      "Left": 0.55,
+      "Top": 0.25,
+      "Width": 0.25,
+      "Height": 0.35
+    },
+    "ctaText": "Add Bathroom Organizer",
+    "aiCopy": {
+      "tagline": "Elevate Your Bathroom Experience",
+      "elevatorPitch": "Say goodbye to cluttered countertops and hello to a serene bathroom oasis. Our Cascade Bathroom Organizer keeps all your essentials within easy reach.",
+      "bulletPoints": [
+        "Optimize bathroom storage",
+        "Durable, water-resistant design",
+        "Perfect for skincare enthusiasts"
+      ],
+      "socialCaption": "Get ready to glow up your bathroom routine with our Cascade Organizer! \ud83d\udc86\u200d\u2640\ufe0f",
+      "keywords": [
+        "bathroom storage solutions",
+        "skincare organization",
+        "bathroom decor ideas"
+      ]
+    }
+  },
+  {
+    "id": "minimal-wall-clock",
+    "label": "Clock",
+    "name": "Minimal Wall Clock",
+    "price": 0,
+    "currency": "USD",
+    "description": "Wall clock used to emphasize the productivity theme.",
+    "image": "http://localhost:5002/history/1764268332/original.png",
+    "startMs": 51800,
+    "endMs": 64800,
+    "timestampMs": 56800,
+    "boundingBox": {
+      "Left": 0.18260679244995118,
+      "Top": 0.1484868367513021,
+      "Width": 0.533649222056071,
+      "Height": 0.8308715255172164
+    },
+    "ctaText": "Add Clock",
+    "aiCopy": {
+      "tagline": "Elevate Your Productivity Space",
+      "elevatorPitch": "Transform your workspace into a hub of efficiency with our sleek Minimal Wall Clock. Its understated design ensures a distraction-free environment, helping you stay focused on what matters.",
+      "bulletPoints": [
+        "Optimize your workflow",
+        "Durable aluminum frame",
+        "Perfect for modern offices"
+      ],
+      "socialCaption": "Time to boost your productivity game \u23f0\ud83d\udcbc",
+      "keywords": [
+        "modern wall clock",
+        "aluminum frame",
+        "productivity decor"
+      ]
+    }
+  },
+  {
+    "id": "pro-cable-ties-pack",
+    "label": "Cable Ties",
+    "name": "Pro Cable Ties Pack",
+    "price": 0,
+    "currency": "USD",
+    "description": "Desk setup sequence featuring tidy cable management.",
+    "image": "http://localhost:5002/history/1764268340/original.png",
+    "startMs": 78000,
+    "endMs": 90000,
+    "timestampMs": 82000,
+    "boundingBox": {
+      "Left": 0.12,
+      "Top": 0.18,
+      "Width": 0.22,
+      "Height": 0.32
+    },
+    "ctaText": "Add Cable Ties",
+    "aiCopy": {
+      "tagline": "Effortless Cable Organization Made Easy",
+      "elevatorPitch": "Say goodbye to tangled cords and lost productivity. Our Pro Cable Ties Pack keeps your workspace tidy and organized, so you can focus on what matters.",
+      "bulletPoints": [
+        "Easy cable management",
+        "Durable nylon material",
+        "Perfect for home offices and workstations"
+      ],
+      "socialCaption": "Get your workspace in order with our Pro Cable Ties Pack! \ud83d\udcbb\ud83d\udcaa",
+      "keywords": [
+        "cable management",
+        "workspace organization",
+        "productivity tools"
+      ]
+    }
+  },
+  {
+    "id": "adventure-bagpack",
+    "label": "Bagpack",
+    "name": "Adventure City Bagpack",
+    "price": 0,
+    "currency": "USD",
+    "description": "Everyday backpack featured during the commute transition.",
+    "image": "http://localhost:5002/history/1764268350/original.png",
+    "startMs": 124000,
+    "endMs": 136000,
+    "timestampMs": 128000,
+    "boundingBox": {
+      "Left": 0.44545736312866213,
+      "Top": 0.5717606155960648,
+      "Width": 0.14825340906778972,
+      "Height": 0.2702943589952257
+    },
+    "ctaText": "Add Bagpack",
+    "aiCopy": {
+      "tagline": "Commuter's Best Friend",
+      "elevatorPitch": "Adventure City Bagpack is designed to make your daily commute a breeze, with a spacious interior and durable materials to withstand the rigors of city living. Whether you're heading to the office or a weekend getaway, this backpack has got you covered.",
+      "bulletPoints": [
+        "Spacious interior for laptops and essentials",
+        "Durable polyester and nylon construction",
+        "Perfect for daily commutes and weekend adventures"
+      ],
+      "socialCaption": "Gear up for your daily grind with the Adventure City Bagpack \ud83d\udcbc\ud83d\udeb6\u200d\u2642\ufe0f",
+      "keywords": [
+        "commuter backpack",
+        "durable bagpack",
+        "city living essentials"
+      ]
+    }
+  },
+  {
+    "id": "studio-ceramic-cup-set",
+    "label": "Cup",
+    "name": "Studio Ceramic Cup Set",
+    "price": 0,
+    "currency": "USD",
+    "description": "Matte ceramic cups used in the coffee tasting b-roll.",
+    "image": "http://localhost:5002/history/1764268358/original.png",
+    "startMs": 131800,
+    "endMs": 144800,
+    "timestampMs": 136800,
+    "boundingBox": {
+      "Left": 0.001094818115234375,
+      "Top": 0.006135898166232639,
+      "Width": 0.5253289222717286,
+      "Height": 0.9018846299913195
+    },
+    "ctaText": "Add Cups",
+    "aiCopy": {
+      "tagline": "Elevate Your Coffee Experience",
+      "elevatorPitch": "Savor the flavor with our premium ceramic cups, designed to enhance your coffee tasting experience. Perfect for coffee connoisseurs and aficionados alike.",
+      "bulletPoints": [
+        "Enhances coffee flavor",
+        "Matte ceramic material",
+        "Ideal for coffee tastings"
+      ],
+      "socialCaption": "Upgrade your coffee game with our premium ceramic cups \u2615\ufe0f",
+      "keywords": [
+        "ceramic cups",
+        "coffee tasting",
+        "coffee experience"
+      ]
+    }
+  },
+  {
+    "id": "editorial-inspo-book",
+    "label": "Book",
+    "name": "Editorial Inspo Book Stack",
+    "price": 0,
+    "currency": "USD",
+    "description": "Coffee table book stack used for prop styling.",
+    "image": "http://localhost:5002/history/1764268365/original.png",
+    "startMs": 140200,
+    "endMs": 153200,
+    "timestampMs": 145200,
+    "boundingBox": {
+      "Left": 0.09478654861450195,
+      "Top": 0.0018433464898003472,
+      "Width": 0.5656794548034668,
+      "Height": 0.5718935648600261
+    },
+    "ctaText": "Add Books",
+    "aiCopy": {
+      "tagline": "Elevate Your Space with Editorial Style",
+      "elevatorPitch": "Transform your coffee table into a stylish focal point with our expertly curated book stack. Perfect for prop styling and adding a touch of sophistication to any room.",
+      "bulletPoints": [
+        "Adds a touch of sophistication to any room",
+        "Curated selection of high-quality books",
+        "Perfect for prop styling and coffee table decor"
+      ],
+      "socialCaption": "Take your coffee table decor to the next level with our Editorial Inspo Book Stack \ud83d\udcda\ud83d\udca1",
+      "keywords": [
+        "coffee table decor",
+        "prop styling",
+        "editorial style",
+        "book stack",
+        "home decor inspiration"
+      ]
+    }
+  },
+  {
+    "id": "stainless-bag-clip",
+    "label": "Bag Clip",
+    "name": "Stainless Pantry Bag Clip",
+    "price": 0,
+    "currency": "USD",
+    "description": "Kitchen close-up showing resealable stainless clips for storage.",
+    "image": "http://localhost:5002/history/1764268373/original.png",
+    "startMs": 148000,
+    "endMs": 160000,
+    "timestampMs": 152000,
+    "boundingBox": {
+      "Left": 0.18,
+      "Top": 0.5,
+      "Width": 0.2,
+      "Height": 0.3
+    },
+    "ctaText": "Add Bag Clip",
+    "aiCopy": {
+      "tagline": "Seal Freshness with Ease",
+      "elevatorPitch": "Say goodbye to stale food and hello to a more organized kitchen with our Stainless Pantry Bag Clip. Perfect for storing snacks, coffee, and more.",
+      "bulletPoints": [
+        "Airtight seal for freshness",
+        "Durable stainless steel",
+        "Perfect for snacks, coffee, and more"
+      ],
+      "socialCaption": "Keep your pantry fresh and organized with our Stainless Pantry Bag Clip! \ud83d\udca1\ud83d\udc4d",
+      "keywords": [
+        "stainless steel",
+        "resealable clips",
+        "kitchen storage"
+      ]
+    }
+  },
+  {
+    "id": "studio-lounge-chair",
+    "label": "Chair",
+    "name": "Studio Lounge Chair",
+    "price": 0,
+    "currency": "USD",
+    "description": "Accent chair highlighted near the coffee corner.",
+    "image": "http://localhost:5002/history/1764268381/original.png",
+    "startMs": 151000,
+    "endMs": 164000,
+    "timestampMs": 156000,
+    "boundingBox": {
+      "Left": 0.16519056955973307,
+      "Top": 0.4094469706217448,
+      "Width": 0.060120344161987305,
+      "Height": 0.17198076601381654
+    },
+    "ctaText": "Add Chair",
+    "aiCopy": {
+      "tagline": "Elevate Your Coffee Corner",
+      "elevatorPitch": "Transform your living room with our Studio Lounge Chair, designed to bring comfort and style to your daily coffee ritual. Perfect for relaxing and socializing, its sleek design makes a statement in any room.",
+      "bulletPoints": [
+        "Premium comfort for lounging",
+        "Durable, easy-to-clean upholstery",
+        "Ideal for coffee corners or reading nooks"
+      ],
+      "socialCaption": "Cozy up in style with our Studio Lounge Chair \u2615\ufe0f\ud83d\udc4c",
+      "keywords": [
+        "living room furniture",
+        "accent chairs",
+        "coffee corner decor"
+      ]
+    }
+  },
+  {
+    "id": "chef-market-orange-pack",
+    "label": "Orange",
+    "name": "Chef Market Citrus Pack",
+    "description": "Bright oranges featured in the kitchen vignette for food+CPG storytelling.",
+    "image": "http://localhost:5002/history/1764268388/original.png",
+    "timestampMs": 167066,
+    "startMs": 162066,
+    "endMs": 175066,
+    "boundingBox": {
+      "Width": 0.23546171188354492,
+      "Height": 0.4245648682117462,
+      "Left": 0.3790390193462372,
+      "Top": 0.4187805950641632
+    },
+    "ctaText": "Add Citrus",
+    "price": 0,
+    "currency": "USD",
+    "aiCopy": {
+      "tagline": "Squeeze Freshness into Your Recipes",
+      "elevatorPitch": "Elevate your cooking with our vibrant oranges, perfectly ripened for maximum flavor. Add a burst of citrus to your favorite dishes.",
+      "bulletPoints": [
+        "Vibrant oranges for maximum flavor",
+        "Perfectly ripened for peak freshness",
+        "Add a burst of citrus to salads, marinades, and more"
+      ],
+      "socialCaption": "Get ready to elevate your cooking game with our fresh, juicy oranges! \ud83c\udf4a\ud83d\udc68\u200d\ud83c\udf73",
+      "keywords": [
+        "fresh citrus",
+        "cooking essentials",
+        "kitchen staples"
+      ]
+    }
+  },
+  {
+    "id": "chefstone-serving-bowl",
+    "label": "Bowl",
+    "name": "Chefstone Serving Bowl",
+    "price": 0,
+    "currency": "USD",
+    "description": "Ceramic bowl highlighted during the kitchen prep montage.",
+    "image": "http://localhost:5002/history/1764268395/original.png",
+    "startMs": 170600,
+    "endMs": 183600,
+    "timestampMs": 175600,
+    "boundingBox": {
+      "Left": 0.16594915390014647,
+      "Top": 0.15877583821614583,
+      "Width": 0.7251591682434082,
+      "Height": 0.8280988905164931
+    },
+    "ctaText": "Add Bowl",
+    "aiCopy": {
+      "tagline": "Elevate Your Table Setting",
+      "elevatorPitch": "Transform your dinner parties with our stunning Chefstone Serving Bowl, expertly crafted to add a touch of elegance to any meal. Its premium ceramic material ensures durability and ease of cleaning.",
+      "bulletPoints": [
+        "Durable ceramic material",
+        "Easy to clean",
+        "Perfect for dinner parties"
+      ],
+      "socialCaption": "Take your dinner parties to the next level with our stunning Chefstone Serving Bowl! \ud83c\udf74\ud83d\udc68\u200d\ud83c\udf73",
+      "keywords": [
+        "ceramic serving bowl",
+        "dinner party essentials",
+        "elegant table setting"
+      ]
+    }
+  },
+  {
+    "id": "atelier-oak-desk",
+    "label": "Table",
+    "name": "Atelier Oak Collaboration Table",
+    "price": 0,
+    "currency": "USD",
+    "description": "Large format table framing the creative collaboration scene.",
+    "image": "http://localhost:5002/history/1764268403/original.png",
+    "startMs": 183400,
+    "endMs": 196400,
+    "timestampMs": 188400,
+    "boundingBox": {
+      "Left": 0.016598320007324217,
+      "Top": 0.32965477837456597,
+      "Width": 0.9813322067260742,
+      "Height": 0.6534930759006077
+    },
+    "ctaText": "Add Table",
+    "aiCopy": {
+      "tagline": "Elevate Your Creative Collaboration",
+      "elevatorPitch": "Atelier Oak Collaboration Table is where ideas come alive. Designed to spark creativity and foster teamwork, this large format table sets the stage for innovative thinking.",
+      "bulletPoints": [
+        "Fosters open communication and collaboration",
+        "Crafted from premium solid oak",
+        "Ideal for brainstorming sessions and meetings"
+      ],
+      "socialCaption": "Gather 'round and watch creativity unfold at the Atelier Oak Collaboration Table \ud83d\udcdd\ud83d\udca1",
+      "keywords": [
+        "collaboration furniture",
+        "oak conference table",
+        "creative workspace design"
+      ]
+    }
+  },
+  {
+    "id": "creator-max-laptop",
+    "label": "Laptop",
+    "name": "Creator Max Laptop",
+    "price": 0,
+    "currency": "USD",
+    "description": "Ultra-thin laptop when the host edits b-roll.",
+    "image": "http://localhost:5002/history/1764268411/original.png",
+    "startMs": 184600,
+    "endMs": 197600,
+    "timestampMs": 189600,
+    "boundingBox": {
+      "Left": 0.7048696517944336,
+      "Top": 0.7740146778247975,
+      "Width": 0.2157369613647461,
+      "Height": 0.1951482137044271
+    },
+    "ctaText": "Add Laptop",
+    "aiCopy": {
+      "tagline": "Unleash Your Creative Vision",
+      "elevatorPitch": "Introducing the Creator Max Laptop, designed to bring your most ambitious projects to life. With an ultra-thin profile and cutting-edge performance, you can edit, create, and inspire anywhere.",
+      "bulletPoints": [
+        "Effortless video editing",
+        "Up to 16 hours of battery life",
+        "Perfect for on-location shoots"
+      ],
+      "socialCaption": "Take your creative vision to new heights with the Creator Max Laptop \ud83d\udcbb\u2708\ufe0f",
+      "keywords": [
+        "laptop for video editing",
+        "portable workstation",
+        "creator laptop"
+      ]
+    }
+  },
+  {
+    "id": "runway-carryon-case",
+    "label": "Suitcase",
+    "name": "Runway Carry-On Case",
+    "price": 0,
+    "currency": "USD",
+    "description": "Hard-shell luggage used in the travel transition.",
+    "image": "http://localhost:5002/history/1764268418/original.png",
+    "startMs": 191000,
+    "endMs": 204000,
+    "timestampMs": 196000,
+    "boundingBox": {
+      "Left": 0.12421073913574218,
+      "Top": 0.2822553846571181,
+      "Width": 0.46127567291259763,
+      "Height": 0.5201878865559896
+    },
+    "ctaText": "Add Suitcase",
+    "aiCopy": {
+      "tagline": "Effortless Travel, Elevated Style",
+      "elevatorPitch": "Experience the perfect blend of durability and sophistication with our Runway Carry-On Case. Designed for the modern traveler, it ensures a seamless journey from takeoff to touchdown.",
+      "bulletPoints": [
+        "Durable hard-shell construction",
+        "Sleek, aerodynamic design",
+        "Perfect for short trips and weekend getaways"
+      ],
+      "socialCaption": "Take your travels to new heights with our stylish and practical Runway Carry-On Case \u2708\ufe0f",
+      "keywords": [
+        "hard-shell luggage",
+        "carry-on suitcase",
+        "travel accessories"
+      ]
+    }
+  },
+  {
+    "id": "runway-driver-gloves",
+    "label": "Glove",
+    "name": "Runway Driver Gloves",
+    "price": 0,
+    "currency": "USD",
+    "description": "Premium leather gloves showcased in the accessories macro shot.",
+    "image": "http://localhost:5002/history/1764268425/original.png",
+    "startMs": 193633,
+    "endMs": 206633,
+    "timestampMs": 198633,
+    "boundingBox": {
+      "Width": 0.11106805503368378,
+      "Height": 0.2557327151298523,
+      "Left": 0.2594796419143677,
+      "Top": 0.1517902910709381
+    },
+    "ctaText": "Add Gloves",
+    "aiCopy": {
+      "tagline": "Elevate Your Drive with Premium Leather",
+      "elevatorPitch": "Experience the thrill of the open road with our premium leather gloves, designed to provide exceptional grip and control. Perfect for the discerning driver who demands the best.",
+      "bulletPoints": [
+        "Enhanced grip and control",
+        "Supple premium leather construction",
+        "Ideal for luxury car owners and driving enthusiasts"
+      ],
+      "socialCaption": "Take your driving experience to the next level with our premium leather gloves \ud83d\ude97\ud83d\udca8",
+      "keywords": [
+        "luxury driving gloves",
+        "premium leather accessories",
+        "driving enthusiasts"
+      ]
+    }
+  },
+  {
+    "id": "atelier-handbag",
+    "label": "Handbag",
+    "name": "Atelier Convertible Handbag",
+    "price": 0,
+    "currency": "USD",
+    "description": "Statement bag that appears during the fashion montage.",
+    "image": "http://localhost:5002/history/1764268433/original.png",
+    "startMs": 180000,
+    "endMs": 210000,
+    "timestampMs": 201733,
+    "boundingBox": {
+      "Width": 0.32873645424842834,
+      "Height": 0.8093072175979614,
+      "Left": 0.2648402750492096,
+      "Top": 0.001307942788116634
+    },
+    "ctaText": "Add Handbag",
+    "aiCopy": {
+      "tagline": "Elevate Your Style with Versatility",
+      "elevatorPitch": "Meet the Atelier Convertible Handbag, where fashion meets function. Effortlessly transition from day to night with this stylish and versatile accessory.",
+      "bulletPoints": [
+        "Convertible design for multiple carry options",
+        "Crafted with premium materials for durability",
+        "Perfect for work, travel, or a night out"
+      ],
+      "socialCaption": "Upgrade your accessory game with our convertible handbag \ud83d\udcbc\ud83d\udc5c",
+      "keywords": [
+        "convertible handbag",
+        "fashion accessory",
+        "premium materials",
+        "versatile design"
+      ]
+    }
+  },
+  {
+    "id": "urban-garbage-bag-roll",
+    "label": "Garbage Bag",
+    "name": "Urban Drawstring Garbage Bag Roll",
+    "price": 0,
+    "currency": "USD",
+    "description": "Utility segment featuring cleanup essentials.",
+    "image": "http://localhost:5002/history/1764268440/original.png",
+    "startMs": 201000,
+    "endMs": 213000,
+    "timestampMs": 205000,
+    "boundingBox": {
+      "Left": 0.62,
+      "Top": 0.55,
+      "Width": 0.18,
+      "Height": 0.28
+    },
+    "ctaText": "Add Garbage Bag",
+    "aiCopy": {
+      "tagline": "Effortless Cleanup Essentials",
+      "elevatorPitch": "Introducing the Urban Drawstring Garbage Bag Roll, designed for easy cleanup and disposal. Perfect for home, office, or outdoor use.",
+      "bulletPoints": [
+        "Convenient drawstring closure",
+        "Durable material for heavy-duty use",
+        "Ideal for pet owners, gardeners, and outdoor enthusiasts"
+      ],
+      "socialCaption": "Clean up your act with our Urban Drawstring Garbage Bag Roll! \ud83d\udcaa",
+      "keywords": [
+        "garbage bag roll",
+        "drawstring closure",
+        "heavy-duty cleanup"
+      ]
+    }
+  },
+  {
+    "id": "noir-parfum",
+    "label": "Perfume",
+    "name": "Noir Parfum",
+    "price": 0,
+    "currency": "USD",
+    "description": "Luxury fragrance featured in the close-up beauty shots.",
+    "image": "http://localhost:5002/history/1764268448/original.png",
+    "startMs": 220000,
+    "endMs": 260000,
+    "timestampMs": 234533,
+    "boundingBox": {
+      "Width": 0.17894579470157623,
+      "Height": 0.5018525123596191,
+      "Left": 0.366757333278656,
+      "Top": 0.3832901418209076
+    },
+    "ctaText": "Add Perfume",
+    "aiCopy": {
+      "tagline": "Unveil the essence of luxury",
+      "elevatorPitch": "Indulge in the rich, velvety scent of Noir Parfum, a sophisticated blend of dark florals and spices. Elevate your beauty routine with this opulent fragrance.",
+      "bulletPoints": [
+        "Long-lasting fragrance",
+        "Dark florals and spices",
+        "Perfect for evening wear"
+      ],
+      "socialCaption": "Make a statement with Noir Parfum, the ultimate luxury fragrance \ud83d\udc83",
+      "keywords": [
+        "luxury perfume",
+        "dark florals",
+        "evening wear fragrance"
+      ]
+    }
+  },
+  {
+    "id": "atelier-perfume-bottles",
+    "label": "Perfume Bottles",
+    "name": "Atelier Perfume Bottle Collection",
+    "price": 0,
+    "currency": "USD",
+    "description": "Perfume bottle cluster highlighted in the fashion vignette.",
+    "image": "http://localhost:5002/history/1764268455/original.png",
+    "startMs": 230533,
+    "endMs": 242533,
+    "timestampMs": 234533,
+    "boundingBox": {
+      "Width": 0.17894579470157623,
+      "Height": 0.5018525123596191,
+      "Left": 0.366757333278656,
+      "Top": 0.3832901418209076
+    },
+    "ctaText": "Add Perfume Bottles",
+    "aiCopy": {
+      "tagline": "Elegant vessels for the art of fragrance",
+      "elevatorPitch": "Elevate your perfume collection with our exquisite Atelier Perfume Bottle Collection, designed to showcase your favorite scents in style. Each vessel is a masterpiece of craftsmanship and elegance.",
+      "bulletPoints": [
+        "Handcrafted with precision and care",
+        "Luxurious glass and metal materials",
+        "Perfect for displaying on a vanity or dresser"
+      ],
+      "socialCaption": "Add a touch of sophistication to your beauty routine with our stunning perfume bottles \ud83d\udc8e\u2728",
+      "keywords": [
+        "luxury perfume bottles",
+        "perfume display",
+        "fragrance vessels"
+      ]
+    }
+  },
+  {
+    "id": "culinary-duo-utensils",
+    "label": "Utensil",
+    "name": "Culinary Duo Utensil Set",
+    "price": 0,
+    "currency": "USD",
+    "description": "Polished utensils from the kitchen storyline.",
+    "image": "http://localhost:5002/history/1764268463/original.png",
+    "startMs": 233400,
+    "endMs": 246400,
+    "timestampMs": 238400,
+    "boundingBox": {
+      "Left": 0.4626773198445638,
+      "Top": 0.025624767939249674,
+      "Width": 0.14564634958902994,
+      "Height": 0.1654753737979465
+    },
+    "ctaText": "Add Utensils",
+    "aiCopy": {
+      "tagline": "Elevate Cooking with Precision",
+      "elevatorPitch": "Meet the perfect pair to master any recipe. From saut\u00e9ing to serving, our Culinary Duo Utensil Set is designed to make cooking a breeze.",
+      "bulletPoints": [
+        "Ergonomic design for comfortable grip",
+        "Durable stainless steel construction",
+        "Perfect for cooking, serving, and presenting"
+      ],
+      "socialCaption": "Level up your cooking game with our precision utensils! \ud83c\udf74\ud83d\udc68\u200d\ud83c\udf73",
+      "keywords": [
+        "cooking utensils",
+        "stainless steel",
+        "kitchen essentials"
+      ]
+    }
+  },
+  {
+    "id": "camera-quick-clip-kit",
+    "label": "Camera Clip",
+    "name": "Camera Quick Clip Kit",
+    "price": 0,
+    "currency": "USD",
+    "description": "Behind-the-scenes rig showcasing camera quick clips.",
+    "image": "http://localhost:5002/history/1764268471/original.png",
+    "startMs": 244000,
+    "endMs": 256000,
+    "timestampMs": 248000,
+    "boundingBox": {
+      "Left": 0.55,
+      "Top": 0.25,
+      "Width": 0.25,
+      "Height": 0.35
+    },
+    "ctaText": "Add Camera Clip",
+    "aiCopy": {
+      "tagline": "Effortless camera rigging made easy",
+      "elevatorPitch": "Transform your filmmaking experience with our innovative Camera Quick Clip Kit, designed to streamline your behind-the-scenes setup. Say goodbye to tedious rigging and hello to more creative freedom.",
+      "bulletPoints": [
+        "Instant camera attachment",
+        "Durable, high-quality aluminum construction",
+        "Perfect for vloggers, indie filmmakers, and content creators"
+      ],
+      "socialCaption": "Take your filmmaking to the next level with our game-changing Camera Quick Clip Kit! \ud83c\udfa5\ud83d\udcbb",
+      "keywords": [
+        "camera rigging",
+        "quick clip kit",
+        "filmmaking accessories"
+      ]
+    }
+  },
+  {
+    "id": "atrium-wood-bench",
+    "label": "Bench",
+    "name": "Atrium Wood Bench",
+    "price": 0,
+    "currency": "USD",
+    "description": "Entryway bench captured in the fashion walk-through.",
+    "image": "http://localhost:5002/history/1764268478/original.png",
+    "startMs": 287800,
+    "endMs": 300800,
+    "timestampMs": 292800,
+    "boundingBox": {
+      "Left": 0.01637296676635742,
+      "Top": 0.0026468065049913194,
+      "Width": 0.9836270332336425,
+      "Height": 0.961891993769893
+    },
+    "ctaText": "Add Bench",
+    "aiCopy": {
+      "tagline": "Elevate Your Entryway Style",
+      "elevatorPitch": "Transform your entryway into a chic, inviting space with our Atrium Wood Bench. Its sleek design and sturdy construction make it the perfect addition to any home.",
+      "bulletPoints": [
+        "Sleek, modern design",
+        "Sturdy wood construction",
+        "Perfect for entryways, mudrooms, and more"
+      ],
+      "socialCaption": "Step up your entryway game with our Atrium Wood Bench \ud83d\udcbc\ud83c\udfe0",
+      "keywords": [
+        "entryway bench",
+        "wood bench",
+        "modern home decor"
+      ]
+    }
+  },
+  {
+    "id": "greenroom-desktop-plant",
+    "label": "Plant",
+    "name": "Greenroom Desktop Plant",
+    "price": 0,
+    "currency": "USD",
+    "description": "Biophilic touch featured near the monitor close-ups.",
+    "image": "http://localhost:5002/history/1764268485/original.png",
+    "startMs": 295800,
+    "endMs": 308800,
+    "timestampMs": 300800,
+    "boundingBox": {
+      "Left": 0.1819722811381022,
+      "Top": 0.30384337813765916,
+      "Width": 0.17591880162556967,
+      "Height": 0.24338087858977142
+    },
+    "ctaText": "Add Plant",
+    "aiCopy": {
+      "tagline": "Bring Nature Closer to Your Workspace",
+      "elevatorPitch": "Introduce a touch of greenery to your desktop with our Greenroom Plant, designed to thrive in indoor conditions. Perfect for boosting productivity and air quality.",
+      "bulletPoints": [
+        "Air-purifying benefits",
+        "Low-maintenance, adaptive foliage",
+        "Elevate your workspace ambiance"
+      ],
+      "socialCaption": "Get ready to bloom with our Greenroom Desktop Plant! \ud83c\udf31\ud83d\udcbc",
+      "keywords": [
+        "indoor plants",
+        "desktop greenery",
+        "biophilic decor"
+      ]
+    }
+  },
+  {
+    "id": "smart-countertop-oven",
+    "label": "Appliance",
+    "name": "Smart Countertop Oven",
+    "price": 0,
+    "currency": "USD",
+    "description": "Compact appliance seen in the culinary insert.",
+    "image": "http://localhost:5002/history/1764268493/original.png",
+    "startMs": 297000,
+    "endMs": 310000,
+    "timestampMs": 302000,
+    "boundingBox": {
+      "Left": 0.0022047758102416992,
+      "Top": 0.0048128975762261285,
+      "Width": 0.25410060087839764,
+      "Height": 0.20832445356580948
+    },
+    "ctaText": "Add Appliance",
+    "aiCopy": {
+      "tagline": "Elevate Cooking with Precision and Ease",
+      "elevatorPitch": "Introducing the Smart Countertop Oven, where advanced technology meets culinary creativity. Perfectly cook a variety of dishes with precision temperature control and smart cooking algorithms.",
+      "bulletPoints": [
+        "Precise temperature control for perfect cooking results",
+        "Stainless steel interior and exterior for durability",
+        "Ideal for cooking, reheating, and proofing"
+      ],
+      "socialCaption": "Experience the art of cooking with precision and ease \ud83c\udf74\ud83d\udc68\u200d\ud83c\udf73",
+      "keywords": [
+        "smart oven",
+        "countertop appliance",
+        "precision cooking",
+        "stainless steel interior",
+        "culinary creativity"
+      ]
+    }
+  },
+  {
+    "id": "chef-station-sink",
+    "label": "Kitchen Sink",
+    "name": "Chef Station Sink",
+    "price": 0,
+    "currency": "USD",
+    "description": "Matte black sink from the kitchen storyline.",
+    "image": "http://localhost:5002/history/1764268500/original.png",
+    "startMs": 300600,
+    "endMs": 313600,
+    "timestampMs": 305600,
+    "boundingBox": {
+      "Left": 0.0,
+      "Top": 0.5996238425925926,
+      "Width": 0.10872302850087484,
+      "Height": 0.07393137613932292
+    },
+    "ctaText": "Add Sink",
+    "aiCopy": {
+      "tagline": "Elevate Your Kitchen's Focal Point",
+      "elevatorPitch": "Transform your kitchen with our Chef Station Sink, designed to be the centerpiece of your culinary space. Matte black finish adds sophistication and durability.",
+      "bulletPoints": [
+        "Durable matte black finish",
+        "Stainless steel construction",
+        "Perfect for food prep and cleanup"
+      ],
+      "socialCaption": "Upgrade your kitchen game with our sleek Chef Station Sink! \ud83d\udca7\ud83d\udd25",
+      "keywords": [
+        "kitchen sink",
+        "matte black",
+        "stainless steel",
+        "culinary design"
+      ]
+    }
+  },
+  {
+    "id": "studio-fit-ball",
+    "label": "Sports Ball",
+    "name": "Studio Fit Training Ball",
+    "price": 0,
+    "currency": "USD",
+    "description": "Fitness prop surfaced during the energetic beat.",
+    "image": "http://localhost:5002/history/1764268508/original.png",
+    "startMs": 304200,
+    "endMs": 317200,
+    "timestampMs": 309200,
+    "boundingBox": {
+      "Left": 0.6193794250488281,
+      "Top": 0.5682614361798322,
+      "Width": 0.13172264099121095,
+      "Height": 0.38186221652560765
+    },
+    "ctaText": "Add Fitness Gear",
+    "aiCopy": {
+      "tagline": "Unleash Your Fitness Potential",
+      "elevatorPitch": "Elevate your workout routine with our Studio Fit Training Ball, designed to challenge and engage. Perfect for dynamic exercises and high-intensity training.",
+      "bulletPoints": [
+        "Improves balance and coordination",
+        "Durable rubber construction",
+        "Ideal for plyometric exercises"
+      ],
+      "socialCaption": "Get fit, stay fierce with our Studio Fit Training Ball \ud83d\udcaa\ud83c\udffc",
+      "keywords": [
+        "fitness training",
+        "exercise ball",
+        "workout gear"
+      ]
+    }
+  },
+  {
+    "id": "midnight-heel-set",
+    "label": "High Heel",
+    "name": "Midnight Heel Set",
+    "price": 0,
+    "currency": "USD",
+    "description": "Strappy heels spotted in the runway-inspired scene.",
+    "image": "http://localhost:5002/history/1764268515/original.png",
+    "startMs": 307200,
+    "endMs": 320200,
+    "timestampMs": 312200,
+    "boundingBox": {
+      "Width": 0.06657447665929794,
+      "Height": 0.1580595225095749,
+      "Left": 0.6464059352874756,
+      "Top": 0.7398885488510132
+    },
+    "ctaText": "Add Heels",
+    "aiCopy": {
+      "tagline": "Elevate Your Style with Midnight Heels",
+      "elevatorPitch": "Step into the spotlight with our Midnight Heel Set, featuring strappy heels that exude confidence and glamour. Perfect for making a statement at your next big event.",
+      "bulletPoints": [
+        "Runway-inspired design",
+        "Strap detail for added glamour",
+        "Perfect for formal events"
+      ],
+      "socialCaption": "Take your style to new heights with our Midnight Heel Set \ud83d\udc83",
+      "keywords": [
+        "high heels",
+        "runway-inspired",
+        "formal events",
+        "strappy heels"
+      ]
+    }
+  },
+  {
+    "id": "artisan-glass-bottle",
+    "label": "Bottle",
+    "name": "Artisan Glass Hydration Bottle",
+    "price": 0,
+    "currency": "USD",
+    "description": "Reusable glass bottle from the workstation hydration shot.",
+    "image": "http://localhost:5002/history/1764268523/original.png",
+    "startMs": 307400,
+    "endMs": 320400,
+    "timestampMs": 312400,
+    "boundingBox": {
+      "Left": 0.33582162857055664,
+      "Top": 0.38747406005859375,
+      "Width": 0.13877639770507813,
+      "Height": 0.5938537032515915
+    },
+    "ctaText": "Add Bottle",
+    "aiCopy": {
+      "tagline": "Elevate Your Hydration Ritual",
+      "elevatorPitch": "Experience the artisanal touch of our handcrafted glass hydration bottle, designed to nourish both body and soul. Perfect for those seeking a more mindful approach to staying hydrated.",
+      "bulletPoints": [
+        "Non-toxic and eco-friendly",
+        "Thermal shock-resistant borosilicate glass",
+        "Ideal for hot yoga or outdoor adventures"
+      ],
+      "socialCaption": "Stay hydrated in style with our artisanal glass bottle \ud83d\udca7\u2728",
+      "keywords": [
+        "glass hydration bottle",
+        "handcrafted",
+        "eco-friendly",
+        "mindful hydration"
+      ]
+    }
+  },
+  {
+    "id": "atelier-denim-jeans",
+    "label": "Jeans",
+    "name": "Atelier Denim Flare Jeans",
+    "price": 0,
+    "currency": "USD",
+    "description": "High-rise denim that appears in the streetwear beat drop.",
+    "image": "http://localhost:5002/history/1764268530/original.png",
+    "startMs": 318066,
+    "endMs": 331066,
+    "timestampMs": 323066,
+    "boundingBox": {
+      "Width": 0.1305973082780838,
+      "Height": 0.41181668639183044,
+      "Left": 0.8690071702003479,
+      "Top": 0.5880754590034485
+    },
+    "ctaText": "Add Jeans",
+    "aiCopy": {
+      "tagline": "Streetwear denim that drops jaws",
+      "elevatorPitch": "Atelier Denim Flare Jeans are designed to make a statement. Pairing high-rise comfort with bold, streetwear-inspired style, these jeans are the perfect fusion of fashion and function.",
+      "bulletPoints": [
+        "High-rise comfort",
+        "Bold, streetwear-inspired design",
+        "Perfect for casual outings"
+      ],
+      "socialCaption": "Level up your denim game with our Atelier Denim Flare Jeans \ud83d\udc56",
+      "keywords": [
+        "streetwear denim",
+        "high-rise jeans",
+        "fashionable comfort"
+      ]
+    }
+  },
+  {
+    "id": "cityproof-travel-umbrella",
+    "label": "Umbrella",
+    "name": "Cityproof Travel Umbrella",
+    "price": 0,
+    "currency": "USD",
+    "description": "Compact umbrella appearing in the streetwear cutaway.",
+    "image": "http://localhost:5002/history/1764268538/original.png",
+    "startMs": 328200,
+    "endMs": 341200,
+    "timestampMs": 333200,
+    "boundingBox": {
+      "Left": 0.4101924260457357,
+      "Top": 0.20170141149450233,
+      "Width": 0.2729723612467448,
+      "Height": 0.5240515814887152
+    },
+    "ctaText": "Add Umbrella",
+    "aiCopy": {
+      "tagline": "Street-smart protection for urban explorers",
+      "elevatorPitch": "Stay dry and stylish in the city with our compact travel umbrella, designed for the modern urbanite. Perfect for sudden rain showers and windy days.",
+      "bulletPoints": [
+        "Windproof and water-resistant canopy",
+        "Durable fiberglass ribs",
+        "Compact and lightweight for easy carrying"
+      ],
+      "socialCaption": "Rain or shine, stay ready with our Cityproof Travel Umbrella \u2614\ufe0f",
+      "keywords": [
+        "travel umbrella",
+        "windproof",
+        "water-resistant",
+        "compact",
+        "urban accessories"
+      ]
+    }
+  },
+  {
+    "id": "urban-commuter-pack",
+    "label": "Backpack",
+    "name": "Urban Commuter Pack",
+    "price": 0,
+    "currency": "USD",
+    "description": "Technical backpack spotted in the transit montage.",
+    "image": "http://localhost:5002/history/1764268545/original.png",
+    "startMs": 509799,
+    "endMs": 522799,
+    "timestampMs": 514799,
+    "boundingBox": {
+      "Left": 0.37454306284586586,
+      "Top": 0.3015454327618634,
+      "Width": 0.08286631902058919,
+      "Height": 0.24484897189670138
+    },
+    "ctaText": "Add Backpack",
+    "aiCopy": {
+      "tagline": "Carry your urban edge",
+      "elevatorPitch": "Built for the daily grind, this technical backpack keeps your gear secure and organized. Inspired by the city streets, it's designed to move with you.",
+      "bulletPoints": [
+        "Water-resistant pockets",
+        "Durable nylon fabric",
+        "Laptop sleeve and multiple compartments"
+      ],
+      "socialCaption": "Get ready to take on the urban jungle with our sleek commuter pack \ud83d\udcbc\ud83d\udeb6\u200d\u2642\ufe0f",
+      "keywords": [
+        "urban backpack",
+        "commuter gear",
+        "technical pack"
+      ]
+    }
+  },
+  {
+    "id": "cityline-tech-hoodie",
+    "label": "Hoodie",
+    "name": "Cityline Tech Hoodie",
+    "price": 0,
+    "currency": "USD",
+    "description": "Performance hoodie worn in the night-city transition.",
+    "image": "http://localhost:5002/history/1764268553/original.png",
+    "startMs": 510200,
+    "endMs": 523200,
+    "timestampMs": 515200,
+    "boundingBox": {
+      "Width": 0.09654385596513748,
+      "Height": 0.23136785626411438,
+      "Left": 0.4638881981372833,
+      "Top": 0.3061267137527466
+    },
+    "ctaText": "Add Hoodie",
+    "aiCopy": {
+      "tagline": "Elevate Your Nighttime Style",
+      "elevatorPitch": "Experience the fusion of fashion and technology with our Cityline Tech Hoodie, designed for the modern urbanite. Its cutting-edge features ensure you stay comfortable and stylish in the city's vibrant nightlife.",
+      "bulletPoints": [
+        "Moisture-wicking fabric for optimal comfort",
+        "Reflective strips for increased visibility",
+        "Perfect for jogging or casual nights out"
+      ],
+      "socialCaption": "Level up your nighttime style with our Cityline Tech Hoodie \ud83d\udca1\ud83d\udc55",
+      "keywords": [
+        "performance hoodie",
+        "nighttime fashion",
+        "urban techwear"
+      ]
+    }
+  }
+]

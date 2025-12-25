@@ -1,0 +1,35 @@
+{
+  "narrative": "Rhea turns a power outage into an advantage, inviting viewers to witness the heist-level precision of the crew.",
+  "localization_tracks": [
+    {
+      "locale": "es-ES",
+      "voice": "Lucia",
+      "delivery_style": "heroic",
+      "eta_minutes": 14
+    },
+    {
+      "locale": "pt-BR",
+      "voice": "Isabel",
+      "delivery_style": "high_energy",
+      "eta_minutes": 16
+    }
+  ],
+  "personalization_recipes": [
+    {
+      "name": "Action Enthusiasts",
+      "cta": "Stream the tactical drop now",
+      "primary_focus": "heist planning"
+    },
+    {
+      "name": "Drama Seekers",
+      "cta": "Feel the fallout of betrayal",
+      "primary_focus": "emotional stakes"
+    }
+  ],
+  "cta_script": "Power is down, but the mission isn't. Tap in before the blackout lifts.",
+  "tooling": {
+    "metadata_agent": "semantic-search",
+    "voice_agent": "synthetic-voiceover",
+    "image_agent": "image-creation"
+  }
+}

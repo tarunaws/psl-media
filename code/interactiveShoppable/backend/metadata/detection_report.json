@@ -1,0 +1,4442 @@
+{
+  "summary": {
+    "generatedAt": "2025-11-27T10:31:49.126369+00:00",
+    "rekognition": {
+      "framesAnalyzed": 5753,
+      "uniqueLabels": 263,
+      "totalInstanceDetections": 2043
+    },
+    "yolo": {
+      "detections": 989,
+      "uniqueLabels": 23
+    }
+  },
+  "labels": [
+    {
+      "label": "Accessories",
+      "rekognition": {
+        "frames": 84,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 100.0,
+        "timestampsMs": [
+          0,
+          500,
+          1000,
+          1500,
+          2000
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Adapter",
+      "rekognition": {
+        "frames": 5,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 92.99288177490234,
+        "timestampsMs": [
+          137233,
+          139633,
+          139733,
+          140133,
+          141133
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Adult",
+      "rekognition": {
+        "frames": 171,
+        "detections": 204,
+        "framesWithBoxes": 169,
+        "maxConfidence": 99.03351593017578,
+        "timestampsMs": [
+          1000,
+          15000,
+          15500,
+          18366,
+          18500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Aluminium",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 81.78926849365234,
+        "timestampsMs": [
+          260766
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Ammunition",
+      "rekognition": {
+        "frames": 4,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 94.91670989990234,
+        "timestampsMs": [
+          60666,
+          61166,
+          61666,
+          62166
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Animal",
+      "rekognition": {
+        "frames": 11,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 91.53935241699219,
+        "timestampsMs": [
+          91033,
+          91533,
+          92033,
+          92533,
+          277066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Appliance",
+      "rekognition": {
+        "frames": 11,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 94.62140655517578,
+        "timestampsMs": [
+          409300,
+          409800,
+          410300,
+          410800,
+          411300
+        ]
+      },
+      "yolo": {
+        "detections": 5,
+        "maxConfidence": 0.5863702297210693,
+        "timestampsMs": [
+          67600,
+          300800,
+          302000,
+          309200,
+          403200
+        ]
+      }
+    },
+    {
+      "label": "Arm",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 77.04113006591797,
+        "timestampsMs": [
+          298066,
+          298200,
+          338566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Art",
+      "rekognition": {
+        "frames": 6,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 91.63761901855469,
+        "timestampsMs": [
+          42033,
+          42533,
+          43033,
+          165566,
+          208233
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Baby",
+      "rekognition": {
+        "frames": 139,
+        "detections": 174,
+        "framesWithBoxes": 136,
+        "maxConfidence": 94.17131042480469,
+        "timestampsMs": [
+          2500,
+          3500,
+          10500,
+          11000,
+          11500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Backpack",
+      "rekognition": {
+        "frames": 10,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 92.40304565429688,
+        "timestampsMs": [
+          132733,
+          133233,
+          200733,
+          201233,
+          220533
+        ]
+      },
+      "yolo": {
+        "detections": 14,
+        "maxConfidence": 0.5226612687110901,
+        "timestampsMs": [
+          128000,
+          128800,
+          132400,
+          132800,
+          133200
+        ]
+      }
+    },
+    {
+      "label": "Backpacking",
+      "rekognition": {
+        "frames": 7,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 90.65154266357422,
+        "timestampsMs": [
+          132733,
+          133233,
+          225533,
+          226033,
+          515200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Bag",
+      "rekognition": {
+        "frames": 139,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 100.0,
+        "timestampsMs": [
+          0,
+          18866,
+          19000,
+          19366,
+          19500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Baggage",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 77.08586120605469,
+        "timestampsMs": [
+          414800
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Ball",
+      "rekognition": {
+        "frames": 4,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 87.4329833984375,
+        "timestampsMs": [
+          117433,
+          117733,
+          194133,
+          413300
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Baseball",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 89.81845092773438,
+        "timestampsMs": [
+          117433,
+          117733,
+          413300
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Baseball (Ball)",
+      "rekognition": {
+        "frames": 2,
+        "detections": 2,
+        "framesWithBoxes": 2,
+        "maxConfidence": 81.79121398925781,
+        "timestampsMs": [
+          117433,
+          117733
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Bench",
+      "rekognition": null,
+      "yolo": {
+        "detections": 2,
+        "maxConfidence": 0.31928661465644836,
+        "timestampsMs": [
+          292800,
+          293600
+        ]
+      }
+    },
+    {
+      "label": "Beverage",
+      "rekognition": {
+        "frames": 13,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 83.75540924072266,
+        "timestampsMs": [
+          13500,
+          14000,
+          79666,
+          80033,
+          107933
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Bird",
+      "rekognition": {
+        "frames": 4,
+        "detections": 4,
+        "framesWithBoxes": 4,
+        "maxConfidence": 91.37718963623047,
+        "timestampsMs": [
+          91033,
+          91533,
+          92033,
+          92533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Blade",
+      "rekognition": {
+        "frames": 9,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 84.74164581298828,
+        "timestampsMs": [
+          37866,
+          103933,
+          236966,
+          237033,
+          267266
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Blending Ingredients",
+      "rekognition": {
+        "frames": 4,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 78.85492706298828,
+        "timestampsMs": [
+          305200,
+          305700,
+          306200,
+          312200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Blouse",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 73.23773956298828,
+        "timestampsMs": [
+          120233
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Body Part",
+      "rekognition": {
+        "frames": 130,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.91831970214844,
+        "timestampsMs": [
+          12000,
+          12500,
+          14500,
+          15000,
+          15500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Boiling",
+      "rekognition": {
+        "frames": 4,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 73.75184631347656,
+        "timestampsMs": [
+          79666,
+          170566,
+          171066,
+          186633
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Bomb",
+      "rekognition": {
+        "frames": 4,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 94.91670989990234,
+        "timestampsMs": [
+          60666,
+          61166,
+          61666,
+          62166
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Book",
+      "rekognition": {
+        "frames": 2,
+        "detections": 1,
+        "framesWithBoxes": 1,
+        "maxConfidence": 83.58599090576172,
+        "timestampsMs": [
+          383533,
+          385033
+        ]
+      },
+      "yolo": {
+        "detections": 20,
+        "maxConfidence": 0.4277809262275696,
+        "timestampsMs": [
+          19200,
+          96400,
+          145200,
+          190000,
+          318400
+        ]
+      }
+    },
+    {
+      "label": "Bottle",
+      "rekognition": {
+        "frames": 36,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 94.16598510742188,
+        "timestampsMs": [
+          234533,
+          235033,
+          235466,
+          373400,
+          378900
+        ]
+      },
+      "yolo": {
+        "detections": 97,
+        "maxConfidence": 0.8799205422401428,
+        "timestampsMs": [
+          42000,
+          42800,
+          43600,
+          60800,
+          61200
+        ]
+      }
+    },
+    {
+      "label": "Bowl",
+      "rekognition": {
+        "frames": 8,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 91.81919860839844,
+        "timestampsMs": [
+          164566,
+          165066,
+          165566,
+          170066,
+          170566
+        ]
+      },
+      "yolo": {
+        "detections": 51,
+        "maxConfidence": 0.8748246431350708,
+        "timestampsMs": [
+          7200,
+          7600,
+          8000,
+          9600,
+          10000
+        ]
+      }
+    },
+    {
+      "label": "Box",
+      "rekognition": {
+        "frames": 16,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 95.0353775024414,
+        "timestampsMs": [
+          19866,
+          190133,
+          191133,
+          197133,
+          197633
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Boy",
+      "rekognition": {
+        "frames": 22,
+        "detections": 22,
+        "framesWithBoxes": 22,
+        "maxConfidence": 99.27127838134766,
+        "timestampsMs": [
+          121733,
+          122233,
+          126233,
+          126733,
+          127233
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Bread",
+      "rekognition": {
+        "frames": 8,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 81.26687622070312,
+        "timestampsMs": [
+          106433,
+          236533,
+          237466,
+          237533,
+          237966
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Bride",
+      "rekognition": {
+        "frames": 4,
+        "detections": 5,
+        "framesWithBoxes": 4,
+        "maxConfidence": 77.60597229003906,
+        "timestampsMs": [
+          238466,
+          238533,
+          238966,
+          239466
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Brush",
+      "rekognition": {
+        "frames": 40,
+        "detections": 7,
+        "framesWithBoxes": 7,
+        "maxConfidence": 99.36209106445312,
+        "timestampsMs": [
+          36866,
+          37366,
+          344066,
+          344566,
+          345066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Bumper",
+      "rekognition": {
+        "frames": 20,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 98.50225067138672,
+        "timestampsMs": [
+          44033,
+          44533,
+          52533,
+          53033,
+          53533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Business Card",
+      "rekognition": {
+        "frames": 25,
+        "detections": 25,
+        "framesWithBoxes": 25,
+        "maxConfidence": 81.08383178710938,
+        "timestampsMs": [
+          374533,
+          374900,
+          375033,
+          375400,
+          375533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Camera",
+      "rekognition": {
+        "frames": 5,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 81.93103790283203,
+        "timestampsMs": [
+          471400,
+          471900,
+          472400,
+          472900,
+          476900
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Camera Lens",
+      "rekognition": {
+        "frames": 6,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 81.08018493652344,
+        "timestampsMs": [
+          474400,
+          474900,
+          475900,
+          476400,
+          476900
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Can",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 84.72139739990234,
+        "timestampsMs": [
+          321066,
+          327066,
+          327566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Cat",
+      "rekognition": {
+        "frames": 3,
+        "detections": 3,
+        "framesWithBoxes": 3,
+        "maxConfidence": 73.72394561767578,
+        "timestampsMs": [
+          286566,
+          288566,
+          291066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Chair",
+      "rekognition": null,
+      "yolo": {
+        "detections": 11,
+        "maxConfidence": 0.5702977180480957,
+        "timestampsMs": [
+          155200,
+          155600,
+          156000,
+          444400
+        ]
+      }
+    },
+    {
+      "label": "Cheese",
+      "rekognition": {
+        "frames": 6,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 88.81092834472656,
+        "timestampsMs": [
+          94533,
+          95033,
+          95533,
+          96033,
+          96533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Child",
+      "rekognition": {
+        "frames": 4,
+        "detections": 4,
+        "framesWithBoxes": 4,
+        "maxConfidence": 75.80780029296875,
+        "timestampsMs": [
+          121733,
+          132233,
+          252766,
+          252966
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Chopsticks",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 73.9920883178711,
+        "timestampsMs": [
+          102933
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Citrus Fruit",
+      "rekognition": {
+        "frames": 4,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 92.30156707763672,
+        "timestampsMs": [
+          166066,
+          166566,
+          167066,
+          167566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Clamp",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 71.49574279785156,
+        "timestampsMs": [
+          486833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Cleaning",
+      "rekognition": {
+        "frames": 8,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 90.89363861083984,
+        "timestampsMs": [
+          46033,
+          46533,
+          325566,
+          331066,
+          331566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Cliff",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 80.2783432006836,
+        "timestampsMs": [
+          141633
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Clock",
+      "rekognition": null,
+      "yolo": {
+        "detections": 4,
+        "maxConfidence": 0.6369311213493347,
+        "timestampsMs": [
+          56800,
+          410800,
+          412000,
+          412400
+        ]
+      }
+    },
+    {
+      "label": "Clothing",
+      "rekognition": {
+        "frames": 62,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 98.70978546142578,
+        "timestampsMs": [
+          14500,
+          15500,
+          18366,
+          18500,
+          19500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Coat",
+      "rekognition": {
+        "frames": 16,
+        "detections": 2,
+        "framesWithBoxes": 2,
+        "maxConfidence": 95.75381469726562,
+        "timestampsMs": [
+          14500,
+          15500,
+          27866,
+          219233,
+          298700
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Coffee",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 77.4432601928711,
+        "timestampsMs": [
+          174566,
+          175066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Coffee Cup",
+      "rekognition": {
+        "frames": 2,
+        "detections": 2,
+        "framesWithBoxes": 2,
+        "maxConfidence": 77.4432601928711,
+        "timestampsMs": [
+          174566,
+          175066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Computer",
+      "rekognition": {
+        "frames": 26,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.89256286621094,
+        "timestampsMs": [
+          6000,
+          6500,
+          7000,
+          7500,
+          8000
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Computer Hardware",
+      "rekognition": {
+        "frames": 36,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.89256286621094,
+        "timestampsMs": [
+          0,
+          6000,
+          6500,
+          7000,
+          7500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Computer Keyboard",
+      "rekognition": {
+        "frames": 24,
+        "detections": 36,
+        "framesWithBoxes": 24,
+        "maxConfidence": 99.89256286621094,
+        "timestampsMs": [
+          6000,
+          6500,
+          7000,
+          7500,
+          8000
+        ]
+      },
+      "yolo": {
+        "detections": 53,
+        "maxConfidence": 0.9632313847541809,
+        "timestampsMs": [
+          6000,
+          6400,
+          6800,
+          7200,
+          7600
+        ]
+      }
+    },
+    {
+      "label": "Computer Mouse",
+      "rekognition": null,
+      "yolo": {
+        "detections": 33,
+        "maxConfidence": 0.6679986715316772,
+        "timestampsMs": [
+          6000,
+          6800,
+          7200,
+          7600,
+          8000
+        ]
+      }
+    },
+    {
+      "label": "Cooking",
+      "rekognition": {
+        "frames": 71,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.2327880859375,
+        "timestampsMs": [
+          9500,
+          10000,
+          10500,
+          11000,
+          11500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Cookware",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 79.73828125,
+        "timestampsMs": [
+          100933,
+          101433,
+          101933
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Cosmetics",
+      "rekognition": {
+        "frames": 141,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.8122329711914,
+        "timestampsMs": [
+          3500,
+          4000,
+          4500,
+          5000,
+          5500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Cream",
+      "rekognition": {
+        "frames": 35,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 94.1211166381836,
+        "timestampsMs": [
+          23866,
+          81533,
+          82033,
+          94033,
+          96033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Crying",
+      "rekognition": {
+        "frames": 8,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 93.8565444946289,
+        "timestampsMs": [
+          88033,
+          131233,
+          516700,
+          517200,
+          517700
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Cup",
+      "rekognition": {
+        "frames": 62,
+        "detections": 47,
+        "framesWithBoxes": 45,
+        "maxConfidence": 99.96809387207031,
+        "timestampsMs": [
+          10500,
+          168066,
+          170066,
+          170566,
+          171066
+        ]
+      },
+      "yolo": {
+        "detections": 148,
+        "maxConfidence": 0.9379271268844604,
+        "timestampsMs": [
+          6800,
+          7200,
+          8000,
+          8400,
+          9200
+        ]
+      }
+    },
+    {
+      "label": "Curtain",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 80.50607299804688,
+        "timestampsMs": [
+          402800,
+          403300
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Cushion",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 85.28849029541016,
+        "timestampsMs": [
+          219233
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Cutlery",
+      "rekognition": {
+        "frames": 17,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 91.93163299560547,
+        "timestampsMs": [
+          102933,
+          149633,
+          150133,
+          150633,
+          154066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Cylinder",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 88.4804458618164,
+        "timestampsMs": [
+          373400,
+          373900
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Dagger",
+      "rekognition": {
+        "frames": 4,
+        "detections": 4,
+        "framesWithBoxes": 4,
+        "maxConfidence": 78.73797607421875,
+        "timestampsMs": [
+          236966,
+          237033,
+          395533,
+          396033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Dessert",
+      "rekognition": {
+        "frames": 35,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 94.1211166381836,
+        "timestampsMs": [
+          23866,
+          81533,
+          82033,
+          94033,
+          96033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Device",
+      "rekognition": {
+        "frames": 75,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.36209106445312,
+        "timestampsMs": [
+          5500,
+          36866,
+          37366,
+          268766,
+          269266
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Document",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 75.82963562011719,
+        "timestampsMs": [
+          119233,
+          386533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Dynamite",
+      "rekognition": {
+        "frames": 1,
+        "detections": 1,
+        "framesWithBoxes": 1,
+        "maxConfidence": 75.85135650634766,
+        "timestampsMs": [
+          240466
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Electric Fan",
+      "rekognition": {
+        "frames": 5,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 82.87271881103516,
+        "timestampsMs": [
+          411800,
+          412300,
+          412800,
+          413300,
+          413800
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Electrical Device",
+      "rekognition": {
+        "frames": 26,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 97.43561553955078,
+        "timestampsMs": [
+          47533,
+          68666,
+          69166,
+          69666,
+          70166
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Electronics",
+      "rekognition": {
+        "frames": 208,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.99994659423828,
+        "timestampsMs": [
+          0,
+          500,
+          1000,
+          1500,
+          2000
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Face",
+      "rekognition": {
+        "frames": 80,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.99999237060547,
+        "timestampsMs": [
+          16000,
+          27866,
+          84533,
+          85033,
+          86033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Fallen Person",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 84.37596893310547,
+        "timestampsMs": [
+          126733,
+          127233,
+          523700
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Female",
+      "rekognition": {
+        "frames": 138,
+        "detections": 159,
+        "framesWithBoxes": 137,
+        "maxConfidence": 99.03351593017578,
+        "timestampsMs": [
+          1000,
+          18366,
+          18500,
+          19366,
+          19866
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Festival",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 70.92626190185547,
+        "timestampsMs": [
+          108433
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Finger",
+      "rekognition": {
+        "frames": 45,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.91831970214844,
+        "timestampsMs": [
+          12000,
+          12500,
+          77033,
+          77166,
+          77533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Fire",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 70.30883026123047,
+        "timestampsMs": [
+          144133
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Firearm",
+      "rekognition": {
+        "frames": 5,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 88.88731384277344,
+        "timestampsMs": [
+          482833,
+          483333,
+          483833,
+          486333,
+          486833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Flower",
+      "rekognition": {
+        "frames": 7,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.99332427978516,
+        "timestampsMs": [
+          82533,
+          83033,
+          90533,
+          91033,
+          91533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Foam",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 71.69451141357422,
+        "timestampsMs": [
+          296566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Food",
+      "rekognition": {
+        "frames": 139,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.9187240600586,
+        "timestampsMs": [
+          9500,
+          10000,
+          23866,
+          79666,
+          81033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Food Presentation",
+      "rekognition": {
+        "frames": 70,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.9187240600586,
+        "timestampsMs": [
+          81533,
+          82033,
+          84533,
+          85033,
+          97533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Football",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 80.23787689208984,
+        "timestampsMs": [
+          194133
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Footwear",
+      "rekognition": {
+        "frames": 20,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 98.5662841796875,
+        "timestampsMs": [
+          18366,
+          18500,
+          19500,
+          19866,
+          20366
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Fork",
+      "rekognition": {
+        "frames": 3,
+        "detections": 1,
+        "framesWithBoxes": 1,
+        "maxConfidence": 81.4074478149414,
+        "timestampsMs": [
+          102933,
+          268766,
+          278566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Formal Wear",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 80.18196105957031,
+        "timestampsMs": [
+          243466
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Fruit",
+      "rekognition": {
+        "frames": 10,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 95.34619903564453,
+        "timestampsMs": [
+          9500,
+          10000,
+          166066,
+          166566,
+          167066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Fun",
+      "rekognition": {
+        "frames": 10,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 94.64102935791016,
+        "timestampsMs": [
+          132733,
+          133233,
+          236466,
+          236533,
+          236966
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Furniture",
+      "rekognition": {
+        "frames": 20,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 93.11304473876953,
+        "timestampsMs": [
+          32366,
+          32866,
+          39533,
+          40033,
+          40533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Gambling",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 81.21904754638672,
+        "timestampsMs": [
+          75666,
+          85533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Game",
+      "rekognition": {
+        "frames": 5,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 81.21904754638672,
+        "timestampsMs": [
+          75666,
+          85533,
+          357400,
+          391533,
+          399033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Girl",
+      "rekognition": {
+        "frames": 6,
+        "detections": 6,
+        "framesWithBoxes": 6,
+        "maxConfidence": 98.1480484008789,
+        "timestampsMs": [
+          335066,
+          516700,
+          517200,
+          517700,
+          518200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Glove",
+      "rekognition": {
+        "frames": 5,
+        "detections": 5,
+        "framesWithBoxes": 5,
+        "maxConfidence": 81.79222106933594,
+        "timestampsMs": [
+          198633,
+          198733,
+          203733,
+          204233,
+          299200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Grater",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 72.51837158203125,
+        "timestampsMs": [
+          248466,
+          248966
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Grating Food",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 72.08284759521484,
+        "timestampsMs": [
+          248966
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Gun",
+      "rekognition": {
+        "frames": 5,
+        "detections": 4,
+        "framesWithBoxes": 4,
+        "maxConfidence": 86.46785736083984,
+        "timestampsMs": [
+          17500,
+          482333,
+          482833,
+          483333,
+          486833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Hail",
+      "rekognition": {
+        "frames": 12,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 88.34741973876953,
+        "timestampsMs": [
+          12000,
+          77033,
+          77166,
+          77533,
+          77666
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Haircut",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 80.38671875,
+        "timestampsMs": [
+          232533,
+          234033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Hairdresser",
+      "rekognition": {
+        "frames": 6,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 87.65123748779297,
+        "timestampsMs": [
+          222033,
+          223533,
+          231533,
+          232533,
+          234033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Hand",
+      "rekognition": {
+        "frames": 121,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.91831970214844,
+        "timestampsMs": [
+          12000,
+          12500,
+          14500,
+          15000,
+          15500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Handbag",
+      "rekognition": {
+        "frames": 69,
+        "detections": 7,
+        "framesWithBoxes": 7,
+        "maxConfidence": 100.0,
+        "timestampsMs": [
+          0,
+          19000,
+          19366,
+          19500,
+          19866
+        ]
+      },
+      "yolo": {
+        "detections": 16,
+        "maxConfidence": 0.5213849544525146,
+        "timestampsMs": [
+          126800,
+          127200,
+          127600,
+          128000,
+          128400
+        ]
+      }
+    },
+    {
+      "label": "Handcuffs",
+      "rekognition": {
+        "frames": 1,
+        "detections": 1,
+        "framesWithBoxes": 1,
+        "maxConfidence": 75.91475677490234,
+        "timestampsMs": [
+          409300
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Handicraft",
+      "rekognition": {
+        "frames": 5,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 91.63761901855469,
+        "timestampsMs": [
+          42033,
+          42533,
+          43033,
+          208233,
+          209233
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Hanukkah Menorah",
+      "rekognition": {
+        "frames": 1,
+        "detections": 1,
+        "framesWithBoxes": 1,
+        "maxConfidence": 70.92626190185547,
+        "timestampsMs": [
+          108433
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Happy",
+      "rekognition": {
+        "frames": 18,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.99795532226562,
+        "timestampsMs": [
+          122733,
+          123233,
+          123733,
+          300700,
+          302200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Hardware",
+      "rekognition": {
+        "frames": 37,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.89256286621094,
+        "timestampsMs": [
+          0,
+          6000,
+          6500,
+          7000,
+          7500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Hat",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 80.91191864013672,
+        "timestampsMs": [
+          91033,
+          91533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Head",
+      "rekognition": {
+        "frames": 107,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.99999237060547,
+        "timestampsMs": [
+          16000,
+          27866,
+          84533,
+          85033,
+          86033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "High Heel",
+      "rekognition": {
+        "frames": 6,
+        "detections": 2,
+        "framesWithBoxes": 2,
+        "maxConfidence": 90.64884948730469,
+        "timestampsMs": [
+          21866,
+          22366,
+          22866,
+          312200,
+          312700
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Hockey",
+      "rekognition": {
+        "frames": 27,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 95.60800170898438,
+        "timestampsMs": [
+          477833,
+          477900,
+          478333,
+          478400,
+          478833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Holding Hands",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 89.11185455322266,
+        "timestampsMs": [
+          14500,
+          15000
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Home Decor",
+      "rekognition": {
+        "frames": 7,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 89.9378662109375,
+        "timestampsMs": [
+          90033,
+          90533,
+          91033,
+          91533,
+          92033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Hoodie",
+      "rekognition": {
+        "frames": 2,
+        "detections": 2,
+        "framesWithBoxes": 2,
+        "maxConfidence": 78.13505554199219,
+        "timestampsMs": [
+          515200,
+          516200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Hugging",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 84.63097381591797,
+        "timestampsMs": [
+          225033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Ice Cream",
+      "rekognition": {
+        "frames": 34,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 93.80789947509766,
+        "timestampsMs": [
+          23866,
+          81533,
+          82033,
+          94033,
+          96033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Ice Hockey",
+      "rekognition": {
+        "frames": 27,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 95.60800170898438,
+        "timestampsMs": [
+          477833,
+          477900,
+          478333,
+          478400,
+          478833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Ice Hockey Puck",
+      "rekognition": {
+        "frames": 26,
+        "detections": 42,
+        "framesWithBoxes": 26,
+        "maxConfidence": 95.60800170898438,
+        "timestampsMs": [
+          477833,
+          477900,
+          478333,
+          478400,
+          478833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Icing",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 86.92459106445312,
+        "timestampsMs": [
+          374033,
+          378033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Id Cards",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 70.25157928466797,
+        "timestampsMs": [
+          386533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Indoors",
+      "rekognition": {
+        "frames": 176,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.69931030273438,
+        "timestampsMs": [
+          500,
+          1000,
+          1500,
+          2000,
+          2500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Interior Design",
+      "rekognition": {
+        "frames": 165,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.6783218383789,
+        "timestampsMs": [
+          500,
+          1000,
+          1500,
+          2000,
+          2500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Iphone",
+      "rekognition": {
+        "frames": 43,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.65850830078125,
+        "timestampsMs": [
+          463900,
+          464400,
+          464900,
+          465400,
+          465900
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Jacket",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 81.7830810546875,
+        "timestampsMs": [
+          15500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Jar",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 87.47771453857422,
+        "timestampsMs": [
+          373400,
+          373900,
+          377900
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Jeans",
+      "rekognition": {
+        "frames": 2,
+        "detections": 2,
+        "framesWithBoxes": 2,
+        "maxConfidence": 83.91319274902344,
+        "timestampsMs": [
+          323066,
+          333566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Jelly",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 86.13951110839844,
+        "timestampsMs": [
+          381033,
+          381533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Jewelry",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 81.48239135742188,
+        "timestampsMs": [
+          473900
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Ketchup",
+      "rekognition": {
+        "frames": 5,
+        "detections": 5,
+        "framesWithBoxes": 5,
+        "maxConfidence": 78.7398910522461,
+        "timestampsMs": [
+          9500,
+          10000,
+          166566,
+          167066,
+          167566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Key",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 80.1851577758789,
+        "timestampsMs": [
+          29366
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Kitchen Sink",
+      "rekognition": null,
+      "yolo": {
+        "detections": 1,
+        "maxConfidence": 0.2569429278373718,
+        "timestampsMs": [
+          305600
+        ]
+      }
+    },
+    {
+      "label": "Kitchen Utensil",
+      "rekognition": {
+        "frames": 11,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 91.70377349853516,
+        "timestampsMs": [
+          48033,
+          48533,
+          49033,
+          49533,
+          50033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Knife",
+      "rekognition": {
+        "frames": 6,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 82.75230407714844,
+        "timestampsMs": [
+          103933,
+          236966,
+          237033,
+          395533,
+          396033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Knitwear",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 78.13505554199219,
+        "timestampsMs": [
+          515200,
+          516200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Knot",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 74.0223388671875,
+        "timestampsMs": [
+          223033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Lamp",
+      "rekognition": {
+        "frames": 4,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 83.49087524414062,
+        "timestampsMs": [
+          356566,
+          359066,
+          360400,
+          360900
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Laptop",
+      "rekognition": null,
+      "yolo": {
+        "detections": 25,
+        "maxConfidence": 0.8316575884819031,
+        "timestampsMs": [
+          6000,
+          18400,
+          18800,
+          19200,
+          65600
+        ]
+      }
+    },
+    {
+      "label": "Laughing",
+      "rekognition": {
+        "frames": 8,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 94.84174346923828,
+        "timestampsMs": [
+          122733,
+          123233,
+          123733,
+          516700,
+          518700
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Leafy Green Vegetable",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 70.33509826660156,
+        "timestampsMs": [
+          341566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Leisure Activities",
+      "rekognition": {
+        "frames": 9,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 79.476806640625,
+        "timestampsMs": [
+          236466,
+          236533,
+          236966,
+          237033,
+          237466
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Light",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 87.2477035522461,
+        "timestampsMs": [
+          348066,
+          356566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Lingerie",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 87.65199279785156,
+        "timestampsMs": [
+          119733,
+          119933,
+          222533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Lipstick",
+      "rekognition": {
+        "frames": 70,
+        "detections": 120,
+        "framesWithBoxes": 60,
+        "maxConfidence": 99.25995635986328,
+        "timestampsMs": [
+          3500,
+          4000,
+          4500,
+          5000,
+          5500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Machine",
+      "rekognition": {
+        "frames": 6,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 80.39122009277344,
+        "timestampsMs": [
+          408300,
+          409800,
+          410800,
+          411800,
+          412300
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Male",
+      "rekognition": {
+        "frames": 57,
+        "detections": 67,
+        "framesWithBoxes": 57,
+        "maxConfidence": 99.59896087646484,
+        "timestampsMs": [
+          15000,
+          15500,
+          121733,
+          122233,
+          126233
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Mammal",
+      "rekognition": {
+        "frames": 7,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 78.01408386230469,
+        "timestampsMs": [
+          277066,
+          277266,
+          277766,
+          281566,
+          286566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Man",
+      "rekognition": {
+        "frames": 33,
+        "detections": 39,
+        "framesWithBoxes": 33,
+        "maxConfidence": 95.10600280761719,
+        "timestampsMs": [
+          15000,
+          15500,
+          129733,
+          130233,
+          130733
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Massage",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 89.40613555908203,
+        "timestampsMs": [
+          215233,
+          399300,
+          399533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Mat",
+      "rekognition": {
+        "frames": 4,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 86.10796356201172,
+        "timestampsMs": [
+          134233,
+          134733,
+          150133,
+          150633
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Medication",
+      "rekognition": {
+        "frames": 11,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 84.86823272705078,
+        "timestampsMs": [
+          77166,
+          93033,
+          93533,
+          94033,
+          110433
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Microphone",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 91.23909759521484,
+        "timestampsMs": [
+          493333,
+          493833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Milk",
+      "rekognition": {
+        "frames": 6,
+        "detections": 6,
+        "framesWithBoxes": 6,
+        "maxConfidence": 80.58848571777344,
+        "timestampsMs": [
+          107933,
+          108433,
+          108933,
+          171566,
+          172066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Mobile Phone",
+      "rekognition": {
+        "frames": 143,
+        "detections": 58,
+        "framesWithBoxes": 58,
+        "maxConfidence": 99.99994659423828,
+        "timestampsMs": [
+          0,
+          500,
+          1000,
+          1500,
+          2500
+        ]
+      },
+      "yolo": {
+        "detections": 263,
+        "maxConfidence": 0.9856463074684143,
+        "timestampsMs": [
+          0,
+          400,
+          800,
+          1200,
+          1600
+        ]
+      }
+    },
+    {
+      "label": "Monitor",
+      "rekognition": {
+        "frames": 33,
+        "detections": 57,
+        "framesWithBoxes": 33,
+        "maxConfidence": 98.96176147460938,
+        "timestampsMs": [
+          6000,
+          6500,
+          7000,
+          7500,
+          8000
+        ]
+      },
+      "yolo": {
+        "detections": 48,
+        "maxConfidence": 0.9698032736778259,
+        "timestampsMs": [
+          6000,
+          6400,
+          6800,
+          7200,
+          7600
+        ]
+      }
+    },
+    {
+      "label": "Mouse",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 89.92142486572266,
+        "timestampsMs": [
+          134233,
+          134733
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Mousepad",
+      "rekognition": {
+        "frames": 4,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 84.60599517822266,
+        "timestampsMs": [
+          134233,
+          134733,
+          150133,
+          150633
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Nail",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 74.58216857910156,
+        "timestampsMs": [
+          296700
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Nail Polish",
+      "rekognition": {
+        "frames": 60,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 90.95817565917969,
+        "timestampsMs": [
+          3500,
+          4000,
+          4500,
+          5000,
+          418833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Nature",
+      "rekognition": {
+        "frames": 25,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 100.0,
+        "timestampsMs": [
+          12000,
+          12500,
+          77033,
+          77166,
+          77533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Neck",
+      "rekognition": {
+        "frames": 4,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 93.94883728027344,
+        "timestampsMs": [
+          87033,
+          87533,
+          88033,
+          88533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Number",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 71.96013641357422,
+        "timestampsMs": [
+          388533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Orange",
+      "rekognition": {
+        "frames": 4,
+        "detections": 2,
+        "framesWithBoxes": 2,
+        "maxConfidence": 92.30156707763672,
+        "timestampsMs": [
+          166066,
+          166566,
+          167066,
+          167566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Outdoors",
+      "rekognition": {
+        "frames": 39,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 100.0,
+        "timestampsMs": [
+          12000,
+          12500,
+          77033,
+          77166,
+          77533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Package",
+      "rekognition": {
+        "frames": 16,
+        "detections": 16,
+        "framesWithBoxes": 16,
+        "maxConfidence": 95.0353775024414,
+        "timestampsMs": [
+          19866,
+          190133,
+          191133,
+          197133,
+          197633
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Pain",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 81.48372650146484,
+        "timestampsMs": [
+          302700
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Pancake",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 75.62739562988281,
+        "timestampsMs": [
+          106433
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Panties",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 80.29418182373047,
+        "timestampsMs": [
+          119733,
+          119933,
+          222533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Pants",
+      "rekognition": {
+        "frames": 9,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 88.50921630859375,
+        "timestampsMs": [
+          18366,
+          18500,
+          20866,
+          21366,
+          189633
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Paper",
+      "rekognition": {
+        "frames": 40,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 91.03726959228516,
+        "timestampsMs": [
+          83033,
+          83533,
+          84033,
+          117733,
+          117933
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Passport",
+      "rekognition": {
+        "frames": 1,
+        "detections": 1,
+        "framesWithBoxes": 1,
+        "maxConfidence": 70.25157928466797,
+        "timestampsMs": [
+          386533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Pen",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 72.25843048095703,
+        "timestampsMs": [
+          389033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Perfume",
+      "rekognition": {
+        "frames": 32,
+        "detections": 35,
+        "framesWithBoxes": 31,
+        "maxConfidence": 94.16598510742188,
+        "timestampsMs": [
+          234533,
+          235033,
+          235466,
+          425833,
+          426333
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Person",
+      "rekognition": {
+        "frames": 539,
+        "detections": 512,
+        "framesWithBoxes": 407,
+        "maxConfidence": 100.0,
+        "timestampsMs": [
+          1000,
+          2500,
+          3000,
+          3500,
+          4000
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Pet",
+      "rekognition": {
+        "frames": 5,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 73.72394561767578,
+        "timestampsMs": [
+          277066,
+          277266,
+          286566,
+          288566,
+          291066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Petal",
+      "rekognition": {
+        "frames": 7,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.99332427978516,
+        "timestampsMs": [
+          82533,
+          83033,
+          90533,
+          91033,
+          91533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Phone",
+      "rekognition": {
+        "frames": 147,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.99994659423828,
+        "timestampsMs": [
+          0,
+          500,
+          1000,
+          1500,
+          2000
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Photography",
+      "rekognition": {
+        "frames": 13,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 97.28263092041016,
+        "timestampsMs": [
+          127733,
+          470900,
+          471400,
+          471900,
+          474400
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Picnic",
+      "rekognition": {
+        "frames": 8,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 79.476806640625,
+        "timestampsMs": [
+          236466,
+          236533,
+          236966,
+          237033,
+          237466
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Piggy Bank",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 71.67507934570312,
+        "timestampsMs": [
+          229533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Pill",
+      "rekognition": {
+        "frames": 9,
+        "detections": 11,
+        "framesWithBoxes": 9,
+        "maxConfidence": 84.86823272705078,
+        "timestampsMs": [
+          77166,
+          93033,
+          93533,
+          94033,
+          113933
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Plant",
+      "rekognition": {
+        "frames": 26,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.99332427978516,
+        "timestampsMs": [
+          9500,
+          10000,
+          33866,
+          34366,
+          36366
+        ]
+      },
+      "yolo": {
+        "detections": 51,
+        "maxConfidence": 0.8673691153526306,
+        "timestampsMs": [
+          3200,
+          6400,
+          32000,
+          32400,
+          32800
+        ]
+      }
+    },
+    {
+      "label": "Plastic",
+      "rekognition": {
+        "frames": 34,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.79133605957031,
+        "timestampsMs": [
+          299066,
+          299200,
+          299700,
+          300200,
+          304200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Plastic Bag",
+      "rekognition": {
+        "frames": 24,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 96.40283966064453,
+        "timestampsMs": [
+          299700,
+          304200,
+          316200,
+          316700,
+          317700
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Plate",
+      "rekognition": {
+        "frames": 14,
+        "detections": 18,
+        "framesWithBoxes": 14,
+        "maxConfidence": 95.8036117553711,
+        "timestampsMs": [
+          98533,
+          99033,
+          105933,
+          106433,
+          164066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Plug",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 74.39073181152344,
+        "timestampsMs": [
+          139633,
+          141133
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Porcelain",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 83.5296630859375,
+        "timestampsMs": [
+          165566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Potted Plant",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 89.89703369140625,
+        "timestampsMs": [
+          33866,
+          34366,
+          36366
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Pottery",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 83.5296630859375,
+        "timestampsMs": [
+          165566,
+          373900
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Pouring Food",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 73.97566986083984,
+        "timestampsMs": [
+          172566,
+          188633
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Produce",
+      "rekognition": {
+        "frames": 11,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 95.34619903564453,
+        "timestampsMs": [
+          9500,
+          10000,
+          166066,
+          166566,
+          167066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Publication",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 83.58599090576172,
+        "timestampsMs": [
+          383533,
+          385033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Purse",
+      "rekognition": {
+        "frames": 40,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.9992446899414,
+        "timestampsMs": [
+          20366,
+          22366,
+          23366,
+          191133,
+          191633
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Racket",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 77.67166900634766,
+        "timestampsMs": [
+          218233
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Razor",
+      "rekognition": {
+        "frames": 2,
+        "detections": 2,
+        "framesWithBoxes": 2,
+        "maxConfidence": 76.9476547241211,
+        "timestampsMs": [
+          267266,
+          267766
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Receipt",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 75.75221252441406,
+        "timestampsMs": [
+          119233
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Rifle",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 79.48744201660156,
+        "timestampsMs": [
+          486833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Ring",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 79.70068359375,
+        "timestampsMs": [
+          473900
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Rink",
+      "rekognition": {
+        "frames": 27,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 95.60800170898438,
+        "timestampsMs": [
+          477833,
+          477900,
+          478333,
+          478400,
+          478833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Road Trip",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 79.38045501708984,
+        "timestampsMs": [
+          133233
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Rock",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 77.14381408691406,
+        "timestampsMs": [
+          141633,
+          143633
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Sad",
+      "rekognition": {
+        "frames": 8,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 93.8565444946289,
+        "timestampsMs": [
+          88033,
+          131233,
+          516700,
+          517200,
+          517700
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Screen",
+      "rekognition": {
+        "frames": 33,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 98.96176147460938,
+        "timestampsMs": [
+          6000,
+          6500,
+          7000,
+          7500,
+          8000
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Screw",
+      "rekognition": {
+        "frames": 1,
+        "detections": 1,
+        "framesWithBoxes": 1,
+        "maxConfidence": 71.96544647216797,
+        "timestampsMs": [
+          485833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Screwdriver",
+      "rekognition": {
+        "frames": 9,
+        "detections": 9,
+        "framesWithBoxes": 9,
+        "maxConfidence": 96.22119903564453,
+        "timestampsMs": [
+          5500,
+          392533,
+          421333,
+          427833,
+          428333
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Shaker",
+      "rekognition": {
+        "frames": 4,
+        "detections": 1,
+        "framesWithBoxes": 1,
+        "maxConfidence": 84.72359466552734,
+        "timestampsMs": [
+          373400,
+          378900,
+          379033,
+          379400
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Shelf",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 87.32418823242188,
+        "timestampsMs": [
+          33866,
+          37366,
+          43533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Shoe",
+      "rekognition": {
+        "frames": 19,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 98.5662841796875,
+        "timestampsMs": [
+          18366,
+          18500,
+          19500,
+          19866,
+          20366
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Shorts",
+      "rekognition": {
+        "frames": 5,
+        "detections": 4,
+        "framesWithBoxes": 4,
+        "maxConfidence": 84.57881164550781,
+        "timestampsMs": [
+          18366,
+          18500,
+          189633,
+          190133,
+          523700
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Shower Curtain",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 80.50607299804688,
+        "timestampsMs": [
+          402800,
+          403300
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Shuffling Cards",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 70.93440246582031,
+        "timestampsMs": [
+          75666,
+          85533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Sitting",
+      "rekognition": {
+        "frames": 10,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.89024353027344,
+        "timestampsMs": [
+          126733,
+          127233,
+          127733,
+          128233,
+          128733
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Skating",
+      "rekognition": {
+        "frames": 27,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 95.60800170898438,
+        "timestampsMs": [
+          477833,
+          477900,
+          478333,
+          478400,
+          478833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Sleeve",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 85.29827117919922,
+        "timestampsMs": [
+          302700,
+          332066,
+          333066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Smile",
+      "rekognition": {
+        "frames": 17,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.99795532226562,
+        "timestampsMs": [
+          122733,
+          123233,
+          123733,
+          300700,
+          302200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Smoke",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 74.21672058105469,
+        "timestampsMs": [
+          130233,
+          274766
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Smoke Pipe",
+      "rekognition": {
+        "frames": 15,
+        "detections": 14,
+        "framesWithBoxes": 14,
+        "maxConfidence": 84.88813781738281,
+        "timestampsMs": [
+          430333,
+          431333,
+          431833,
+          432333,
+          432833
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Sneaker",
+      "rekognition": {
+        "frames": 5,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 87.53516387939453,
+        "timestampsMs": [
+          18500,
+          21866,
+          190133,
+          192133,
+          193133
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Sneezing",
+      "rekognition": {
+        "frames": 14,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 92.85050201416016,
+        "timestampsMs": [
+          84533,
+          85033,
+          86033,
+          86533,
+          87033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Soda",
+      "rekognition": {
+        "frames": 4,
+        "detections": 4,
+        "framesWithBoxes": 4,
+        "maxConfidence": 82.9981689453125,
+        "timestampsMs": [
+          13500,
+          14000,
+          79666,
+          80033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Soft Serve Ice Cream",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 82.91744995117188,
+        "timestampsMs": [
+          96533,
+          97033,
+          97533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Spatula",
+      "rekognition": {
+        "frames": 4,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 88.89635467529297,
+        "timestampsMs": [
+          48033,
+          48533,
+          49033,
+          102433
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Spoon",
+      "rekognition": {
+        "frames": 11,
+        "detections": 11,
+        "framesWithBoxes": 10,
+        "maxConfidence": 90.78656768798828,
+        "timestampsMs": [
+          149633,
+          150133,
+          150633,
+          154066,
+          154133
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Sport",
+      "rekognition": {
+        "frames": 33,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 95.60800170898438,
+        "timestampsMs": [
+          117433,
+          117733,
+          194133,
+          284066,
+          413300
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Sports Ball",
+      "rekognition": null,
+      "yolo": {
+        "detections": 5,
+        "maxConfidence": 0.7486817240715027,
+        "timestampsMs": [
+          282800,
+          308000,
+          308800,
+          309200,
+          371200
+        ]
+      }
+    },
+    {
+      "label": "Sprinkling",
+      "rekognition": {
+        "frames": 13,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 95.22217559814453,
+        "timestampsMs": [
+          10500,
+          11000,
+          11500,
+          79166,
+          111933
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Stain",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 76.26630401611328,
+        "timestampsMs": [
+          296700
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Suitcase",
+      "rekognition": null,
+      "yolo": {
+        "detections": 13,
+        "maxConfidence": 0.7627423405647278,
+        "timestampsMs": [
+          127600,
+          128000,
+          133200,
+          133600,
+          190000
+        ]
+      }
+    },
+    {
+      "label": "Sweater",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 78.13505554199219,
+        "timestampsMs": [
+          515200,
+          516200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Sweatshirt",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 78.13505554199219,
+        "timestampsMs": [
+          515200,
+          516200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Switch",
+      "rekognition": {
+        "frames": 11,
+        "detections": 17,
+        "framesWithBoxes": 11,
+        "maxConfidence": 97.43561553955078,
+        "timestampsMs": [
+          47533,
+          68666,
+          69166,
+          69666,
+          70166
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Sword",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 71.72076416015625,
+        "timestampsMs": [
+          383033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Symbol",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 71.96013641357422,
+        "timestampsMs": [
+          388533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "T-Shirt",
+      "rekognition": {
+        "frames": 2,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 83.38398742675781,
+        "timestampsMs": [
+          332066,
+          333066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Table",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 79.18433380126953,
+        "timestampsMs": [
+          67666
+        ]
+      },
+      "yolo": {
+        "detections": 58,
+        "maxConfidence": 0.5160024762153625,
+        "timestampsMs": [
+          24800,
+          30400,
+          30800,
+          31200,
+          31600
+        ]
+      }
+    },
+    {
+      "label": "Tablet Computer",
+      "rekognition": {
+        "frames": 2,
+        "detections": 2,
+        "framesWithBoxes": 2,
+        "maxConfidence": 74.56942749023438,
+        "timestampsMs": [
+          18500,
+          20366
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Tape",
+      "rekognition": {
+        "frames": 25,
+        "detections": 25,
+        "framesWithBoxes": 25,
+        "maxConfidence": 93.86995697021484,
+        "timestampsMs": [
+          296566,
+          296700,
+          297066,
+          297200,
+          297566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Teen",
+      "rekognition": {
+        "frames": 20,
+        "detections": 20,
+        "framesWithBoxes": 20,
+        "maxConfidence": 99.27127838134766,
+        "timestampsMs": [
+          126733,
+          127233,
+          127733,
+          128233,
+          128733
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Text",
+      "rekognition": {
+        "frames": 65,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 95.90662384033203,
+        "timestampsMs": [
+          25366,
+          25866,
+          26366,
+          26866,
+          27366
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Texting",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 91.71390533447266,
+        "timestampsMs": [
+          465900,
+          466900,
+          467400
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Thong",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 72.64039611816406,
+        "timestampsMs": [
+          222533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Tie",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 80.18196105957031,
+        "timestampsMs": [
+          243466
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Tin",
+      "rekognition": {
+        "frames": 4,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 88.00098419189453,
+        "timestampsMs": [
+          320566,
+          321066,
+          327066,
+          327566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Toe",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 76.4094467163086,
+        "timestampsMs": [
+          281566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Tool",
+      "rekognition": {
+        "frames": 51,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 99.36209106445312,
+        "timestampsMs": [
+          5500,
+          36866,
+          37366,
+          342566,
+          344066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Toothbrush",
+      "rekognition": {
+        "frames": 40,
+        "detections": 48,
+        "framesWithBoxes": 40,
+        "maxConfidence": 98.58052825927734,
+        "timestampsMs": [
+          36866,
+          37366,
+          344066,
+          344566,
+          345066
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Toothpaste",
+      "rekognition": {
+        "frames": 35,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 94.51944732666016,
+        "timestampsMs": [
+          278066,
+          278266,
+          278566,
+          345566,
+          346566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Tote Bag",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 88.22474670410156,
+        "timestampsMs": [
+          202233,
+          202733,
+          203733
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Towel",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 78.95723724365234,
+        "timestampsMs": [
+          117733
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Transportation",
+      "rekognition": {
+        "frames": 22,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 98.50225067138672,
+        "timestampsMs": [
+          44033,
+          44533,
+          52533,
+          53033,
+          53533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Trash Can",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 84.0778579711914,
+        "timestampsMs": [
+          321066,
+          327066,
+          327566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Umbrella",
+      "rekognition": null,
+      "yolo": {
+        "detections": 29,
+        "maxConfidence": 0.8570616841316223,
+        "timestampsMs": [
+          154800,
+          155200,
+          155600,
+          156000,
+          157600
+        ]
+      }
+    },
+    {
+      "label": "Underwear",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 89.53858184814453,
+        "timestampsMs": [
+          119733,
+          119933,
+          222533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Utensil",
+      "rekognition": null,
+      "yolo": {
+        "detections": 27,
+        "maxConfidence": 0.6347910761833191,
+        "timestampsMs": [
+          31600,
+          236400,
+          236800,
+          237200,
+          237600
+        ]
+      }
+    },
+    {
+      "label": "Vacation",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 79.38045501708984,
+        "timestampsMs": [
+          133233
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Vandalism",
+      "rekognition": {
+        "frames": 6,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 85.26807403564453,
+        "timestampsMs": [
+          154633,
+          158566,
+          158633,
+          285566,
+          286566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Vegetable",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 70.56352233886719,
+        "timestampsMs": [
+          341566
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Vegetation",
+      "rekognition": {
+        "frames": 5,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 91.5865249633789,
+        "timestampsMs": [
+          128733,
+          516200,
+          524200,
+          524700,
+          525200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Vehicle",
+      "rekognition": {
+        "frames": 22,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 98.50225067138672,
+        "timestampsMs": [
+          44033,
+          44533,
+          52533,
+          53033,
+          53533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Video Gaming",
+      "rekognition": {
+        "frames": 22,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 92.22429656982422,
+        "timestampsMs": [
+          6000,
+          6500,
+          7000,
+          7500,
+          8000
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Wallet",
+      "rekognition": {
+        "frames": 7,
+        "detections": 7,
+        "framesWithBoxes": 7,
+        "maxConfidence": 87.83836364746094,
+        "timestampsMs": [
+          500,
+          1000,
+          1500,
+          2000,
+          2500
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Water",
+      "rekognition": {
+        "frames": 1,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 73.32784271240234,
+        "timestampsMs": [
+          516200
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Weapon",
+      "rekognition": {
+        "frames": 25,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 94.94374084472656,
+        "timestampsMs": [
+          17500,
+          37866,
+          60666,
+          61166,
+          61666
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Weather",
+      "rekognition": {
+        "frames": 16,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 100.0,
+        "timestampsMs": [
+          12000,
+          12500,
+          77033,
+          77166,
+          77533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Wedding",
+      "rekognition": {
+        "frames": 5,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 80.91620635986328,
+        "timestampsMs": [
+          238466,
+          238533,
+          238966,
+          239466,
+          301700
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Wedge",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 91.62677001953125,
+        "timestampsMs": [
+          227533,
+          228033,
+          228533
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Wheel",
+      "rekognition": {
+        "frames": 3,
+        "detections": 3,
+        "framesWithBoxes": 3,
+        "maxConfidence": 76.14923095703125,
+        "timestampsMs": [
+          408300,
+          411800,
+          412300
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "White Board",
+      "rekognition": {
+        "frames": 3,
+        "detections": 3,
+        "framesWithBoxes": 3,
+        "maxConfidence": 87.52123260498047,
+        "timestampsMs": [
+          145133,
+          145633,
+          146133
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Wine Glass",
+      "rekognition": null,
+      "yolo": {
+        "detections": 15,
+        "maxConfidence": 0.642514169216156,
+        "timestampsMs": [
+          10800,
+          11200,
+          11600,
+          95600,
+          168400
+        ]
+      }
+    },
+    {
+      "label": "Woman",
+      "rekognition": {
+        "frames": 130,
+        "detections": 150,
+        "framesWithBoxes": 129,
+        "maxConfidence": 99.03351593017578,
+        "timestampsMs": [
+          1000,
+          18366,
+          18500,
+          19366,
+          19866
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Writing",
+      "rekognition": {
+        "frames": 3,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 76.99339294433594,
+        "timestampsMs": [
+          386533,
+          387033,
+          389033
+        ]
+      },
+      "yolo": null
+    },
+    {
+      "label": "Zipper",
+      "rekognition": {
+        "frames": 5,
+        "detections": 0,
+        "framesWithBoxes": 0,
+        "maxConfidence": 79.85675811767578,
+        "timestampsMs": [
+          415800,
+          416300,
+          417300,
+          417800,
+          418300
+        ]
+      },
+      "yolo": null
+    }
+  ],
+  "requestedItems": {
+    "coin tissue": null,
+    "coin": null,
+    "tissue": null,
+    "optical mouse": {
+      "label": "Computer Mouse",
+      "rekognition": null,
+      "yolo": {
+        "detections": 33,
+        "maxConfidence": 0.6679986715316772,
+        "timestampsMs": [
+          6000,
+          6800,
+          7200,
+          7600,
+          8000
+        ]
+      }
+    },
+    "mouse": {
+      "label": "Computer Mouse",
+      "rekognition": null,
+      "yolo": {
+        "detections": 33,
+        "maxConfidence": 0.6679986715316772,
+        "timestampsMs": [
+          6000,
+          6800,
+          7200,
+          7600,
+          8000
+        ]
+      }
+    }
+  }
+}

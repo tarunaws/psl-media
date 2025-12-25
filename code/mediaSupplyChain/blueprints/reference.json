@@ -1,0 +1,77 @@
+{
+  "id": "media-supply-chain-phase-1",
+  "name": "Media Supply Chain Orchestration (Phase 1)",
+  "description": "Agentic workflow covering ingest, QC, enrichment, and automated packaging for promo assets.",
+  "priority": "P3",
+  "status": "pilot",
+  "owner": "Media Platform CoE",
+  "tags": [
+    "workflow",
+    "agentic",
+    "media",
+    "automation"
+  ],
+  "stages": [
+    {
+      "id": "ingest",
+      "name": "Ingest",
+      "type": "ingest",
+      "description": "Validate delivery package, normalize metadata, and push assets to the mastering bucket.",
+      "config": {
+        "manifest": "ingest_manifest.json",
+        "eta_minutes": 12
+      }
+    },
+    {
+      "id": "qc",
+      "name": "QC",
+      "type": "quality_control",
+      "description": "Blend computer vision and policy templates to build a QC report and creative brief.",
+      "config": {
+        "report": "qc_report.json",
+        "service_checks": [
+          {
+            "name": "Scene Summarization",
+            "url": "http://localhost:5004/health",
+            "timeout": 4
+          },
+          {
+            "name": "Content Moderation",
+            "url": "http://localhost:5006/health",
+            "timeout": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "personalize",
+      "name": "Personalize",
+      "type": "metadata_enrichment",
+      "description": "Generate localized tracks, promo copy, and CTA scripts using GenAI co-pilots.",
+      "config": {
+        "plan": "enrichment_plan.json",
+        "voiceover_service": {
+          "label": "synthetic-voiceover",
+          "url": "http://localhost:5003/generate-ssml",
+          "persona": "Sound like an energetic premium OTT promo host",
+          "language": "en",
+          "timeout": 15
+        }
+      }
+    },
+    {
+      "id": "package",
+      "name": "Package",
+      "type": "packaging",
+      "description": "Assemble deliverables, update slate metadata, and publish a single readiness manifest.",
+      "config": {
+        "package_manifest": "package_manifest.json",
+        "transcode": {
+          "enabled": true,
+          "bucket": "",
+          "destination_prefix": "media-supply-chain/deliverables"
+        }
+      }
+    }
+  ]
+}
