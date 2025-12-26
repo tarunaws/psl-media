@@ -21,6 +21,7 @@ code/.env.local
 # Runtime artifacts
 *.log
 *.pid
+*.bak
 
 # Media / binary artifacts (keep repo small)
 *.mp4
