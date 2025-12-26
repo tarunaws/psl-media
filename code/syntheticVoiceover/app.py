@@ -822,12 +822,29 @@ def _create_natural_ssml(text: str, engine: str = "neural") -> str:
         return "<speak></speak>"
     
     text = text.strip()
+
+    # Normalize whitespace and a few common technical-demo phrases that can sound odd when capitalized
+    # or when transcription introduces weird spacing/hyphenation.
+    import re
+    text = re.sub(r"\s+", " ", text)
+
+    # Some merged tokens from transcripts / captions
+    text = re.sub(r"\bGen\s*AI\b", "Gen AI", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bUse\s*Case\b", "use case", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bUse\s*[-_]?\s*Case(s)?\b", lambda m: f"use case{m.group(1) or ''}", text, flags=re.IGNORECASE)
+
+    # Pronunciation override: in "use case" the word "use" is typically the noun (/juːs/ "yoos").
+    # Polly often pronounces it as the verb (/juːz/ "yooz"), so we inject a phoneme.
+    # We use x-sampa for ASCII safety: ju:s.
+    USE_CASE_TOKEN = "__POLLY_USE_CASE__"
+    USE_CASES_TOKEN = "__POLLY_USE_CASES__"
+    text = re.sub(r"\buse\s+case\b", USE_CASE_TOKEN, text, flags=re.IGNORECASE)
+    text = re.sub(r"\buse\s+cases\b", USE_CASES_TOKEN, text, flags=re.IGNORECASE)
     
     # Build SSML with natural elements
     ssml_parts = ['<speak>']
     
     # Split by sentence endings but keep the punctuation
-    import re
     sentences = re.split(r'([.!?]+\s*)', text)
     
     # Reconstruct sentences with their punctuation
@@ -841,16 +858,30 @@ def _create_natural_ssml(text: str, engine: str = "neural") -> str:
     
     sentences = reconstructed if reconstructed else [text]
     
+    # Wrap as paragraphs/sentences; Polly tends to sound more natural with <p>/<s> boundaries.
+    ssml_parts.append('<p>')
+
     for i, sentence in enumerate(sentences):
         if not sentence.strip():
             continue
         
         # Escape HTML entities
         sentence_escaped = html.escape(sentence)
+
+        # Re-inject pronunciation overrides after escaping.
+        # (We must do it after escaping so that SSML tags are not escaped.)
+        sentence_escaped = sentence_escaped.replace(
+            USE_CASES_TOKEN,
+            '<phoneme alphabet="x-sampa" ph="ju:s">use</phoneme> cases',
+        )
+        sentence_escaped = sentence_escaped.replace(
+            USE_CASE_TOKEN,
+            '<phoneme alphabet="x-sampa" ph="ju:s">use</phoneme> case',
+        )
         
         # Add natural pauses between sentences (like breathing)
         if i > 0:
-            ssml_parts.append('<break time="350ms"/>')
+            ssml_parts.append('<break time="260ms"/>')
         
         # Detect sentence type and apply appropriate prosody
         if '?' in sentence:
@@ -861,11 +892,11 @@ def _create_natural_ssml(text: str, engine: str = "neural") -> str:
                 sentence_escaped,
                 flags=re.IGNORECASE
             )
-            ssml_parts.append(f'<prosody rate="100%" pitch="+3%">{sentence_escaped}</prosody>')
+            ssml_parts.append(f'<s><prosody rate="100%" pitch="+4%">{sentence_escaped}</prosody></s>')
         
         elif '!' in sentence:
             # Exclamations: more energetic, slight volume boost
-            ssml_parts.append(f'<prosody rate="103%" pitch="+2%" volume="+1dB">{sentence_escaped}</prosody>')
+            ssml_parts.append(f'<s><prosody rate="104%" pitch="+3%" volume="+1.5dB">{sentence_escaped}</prosody></s>')
         
         else:
             # Regular sentences: natural pacing with slight variation
@@ -873,37 +904,134 @@ def _create_natural_ssml(text: str, engine: str = "neural") -> str:
             
             if word_count > 20:
                 # Long sentences: slower for clarity
-                rate = "93%"
+                rate = "94%"
+                pitch = "-1%"
             elif word_count < 5:
                 # Short sentences: slightly faster, more natural
-                rate = "102%"
+                rate = "103%"
+                pitch = "+1%"
             else:
                 # Medium sentences: normal pace
-                rate = "98%"
+                rate = "99%"
+                pitch = "+0%" if (i % 2 == 0) else "+1%"
             
-            ssml_parts.append(f'<prosody rate="{rate}">{sentence_escaped}</prosody>')
+            ssml_parts.append(f'<s><prosody rate="{rate}" pitch="{pitch}">{sentence_escaped}</prosody></s>')
         
         # Add micro-pauses after commas and conjunctions for natural breathing
         last_part = ssml_parts[-1]
         # After commas
-        last_part = last_part.replace(',', ',<break time="250ms"/>')
+        last_part = last_part.replace(',', ',<break time="180ms"/>')
         # After conjunctions (but, and, or, so)
         last_part = re.sub(
             r'\b(but|and|or|so|because|however|therefore)\b',
-            r'\1<break time="200ms"/>',
+            r'\1<break time="140ms"/>',
             last_part,
             flags=re.IGNORECASE
         )
         ssml_parts[-1] = last_part
     
+    ssml_parts.append('</p>')
     ssml_parts.append('</speak>')
     return ''.join(ssml_parts)
+
+
+def _normalize_transcript_for_voiceover(text: str) -> str:
+    """Normalize raw ASR/transcript text for voiceover.
+
+    This is intentionally conservative: it removes obvious standalone filler fragments
+    (e.g., "OK.", "She.") without rewriting real content.
+    """
+    if not text:
+        return ""
+
+    cleaned = re.sub(r"\s+", " ", str(text)).strip()
+    if not cleaned:
+        return ""
+
+    # Normalize common smart quotes to plain ASCII.
+    cleaned = cleaned.replace("“", '"').replace("”", '"').replace("’", "'")
+
+    filler_words = {
+        "ok",
+        "okay",
+        "alright",
+        "right",
+        "yes",
+        "yeah",
+        "yep",
+        "no",
+        "nah",
+        "um",
+        "uh",
+        "hmm",
+    }
+    stray_singletons = {
+        "she",
+        "he",
+        "they",
+        "we",
+        "i",
+        "you",
+        "it",
+        "this",
+        "that",
+    }
+
+    def _strip_leading_filler(sentence: str) -> str:
+        return re.sub(
+            r"^(?:" + "|".join(sorted(filler_words)) + r")[,\s]+",
+            "",
+            sentence,
+            flags=re.IGNORECASE,
+        )
+
+    parts: list[str] = []
+    chunks = re.split(r"([.!?])", cleaned)
+    for i in range(0, len(chunks), 2):
+        sentence = (chunks[i] or "").strip()
+        punct = chunks[i + 1] if i + 1 < len(chunks) else ""
+        if not sentence:
+            continue
+
+        sentence = _strip_leading_filler(sentence).strip()
+        if not sentence:
+            continue
+
+        tokens = re.findall(r"[A-Za-z']+|\d+", sentence)
+        lower_tokens = [t.lower() for t in tokens]
+
+        # Drop 1-2 token sentences that are only filler / stray pronouns.
+        if 1 <= len(lower_tokens) <= 2 and all(
+            t in filler_words or t in stray_singletons for t in lower_tokens
+        ):
+            continue
+
+        # Also drop explicit two-token patterns like: "OK She" / "Okay He".
+        if (
+            len(lower_tokens) == 2
+            and lower_tokens[0] in filler_words
+            and lower_tokens[1] in stray_singletons
+        ):
+            continue
+
+        sentence = sentence.strip('"')
+        if sentence:
+            parts.append(f"{sentence}{punct}")
+
+    normalized = " ".join(parts)
+    normalized = re.sub(r"\s+", " ", normalized).strip()
+    return normalized
 
 
 def _sanitize_ssml_for_neural(ssml: str) -> str:
     sanitized = ssml
     # Remove amazon-specific tags unsupported by neural voices
     sanitized = re.sub(r"<\s*/?amazon:(?:effect|domain|auto-breaths)[^>]*>", "", sanitized, flags=re.IGNORECASE)
+    # Some Polly engines/voices can be picky; flatten paragraph/sentence wrappers.
+    sanitized = re.sub(r"<\s*/?p\s*>", "", sanitized, flags=re.IGNORECASE)
+    sanitized = re.sub(r"<\s*/?s\s*>", "", sanitized, flags=re.IGNORECASE)
+    # Remove pitch adjustments if the voice/engine rejects them.
+    sanitized = re.sub(r"\s+pitch=\"[^\"]*\"", "", sanitized, flags=re.IGNORECASE)
     # Simplify prosody attributes that can cause issues (e.g., extreme rates)
     sanitized = re.sub(r'rate="x-(fast|slow)"', r'rate="\1"', sanitized, flags=re.IGNORECASE)
     sanitized = re.sub(r'volume="x-(loud|soft)"', r'volume="\1"', sanitized, flags=re.IGNORECASE)
@@ -1457,6 +1585,7 @@ def replace_video_audio() -> Any:
             except:
                 pass
         
+        transcript_text = _normalize_transcript_for_voiceover(transcript_text)
         app.logger.info(f"Job {job_id}: Transcript: {transcript_text[:100]}...")
         
         # Step 3: Generate SSML from transcript
@@ -1784,21 +1913,92 @@ def analyze_video_speakers() -> Any:
                     segments = transcript_data.get("results", {}).get("speaker_labels", {}).get("segments", [])
                     items = transcript_data.get("results", {}).get("items", [])
 
-                    # Build a fast time-indexed list of words for robust segment text extraction.
-                    timed_words: list[tuple[float, float, str]] = []
+                    # Build a sequential token stream (pronunciation + punctuation) so segments keep punctuation.
+                    # This makes SSML generation much more human-like (pauses, emphasis, intonation).
+                    token_stream: list[dict[str, Any]] = []
                     for item in items:
-                        if item.get("type") != "pronunciation":
+                        item_type = item.get("type")
+                        if item_type not in {"pronunciation", "punctuation"}:
                             continue
-                        if "start_time" not in item or "end_time" not in item:
+                        alternatives = item.get("alternatives") or [{}]
+                        content = (alternatives[0] or {}).get("content", "")
+                        if not content:
                             continue
-                        try:
-                            start = float(item.get("start_time"))
-                            end = float(item.get("end_time"))
-                        except (TypeError, ValueError):
-                            continue
-                        content = (item.get("alternatives") or [{}])[0].get("content", "")
-                        if content:
-                            timed_words.append((start, end, content))
+
+                        if item_type == "pronunciation":
+                            try:
+                                start = float(item.get("start_time"))
+                                end = float(item.get("end_time"))
+                            except (TypeError, ValueError):
+                                continue
+                            token_stream.append({
+                                "type": "pronunciation",
+                                "start": start,
+                                "end": end,
+                                "content": content,
+                            })
+                        else:
+                            # punctuation tokens do not have timestamps
+                            token_stream.append({
+                                "type": "punctuation",
+                                "start": None,
+                                "end": None,
+                                "content": content,
+                            })
+
+                    def _segment_text_from_token_stream(
+                        stream: list[dict[str, Any]],
+                        start_s: float,
+                        end_s: float,
+                        cursor: int,
+                    ) -> tuple[str, int]:
+                        """Extract segment text using word timestamps + adjacent punctuation.
+
+                        Returns (text, new_cursor). The cursor helps keep extraction efficient
+                        since Transcribe segments are chronological.
+                        """
+                        eps = 0.02
+                        i = max(0, cursor)
+
+                        # Seek to first word that could overlap the segment.
+                        while i < len(stream):
+                            it = stream[i]
+                            if it.get("type") == "pronunciation" and it.get("end") is not None and float(it["end"]) >= (start_s - eps):
+                                break
+                            i += 1
+
+                        parts: list[str] = []
+                        last_was_word = False
+                        while i < len(stream):
+                            it = stream[i]
+                            it_type = it.get("type")
+
+                            if it_type == "pronunciation":
+                                st = it.get("start")
+                                en = it.get("end")
+                                if st is None or en is None:
+                                    last_was_word = False
+                                    i += 1
+                                    continue
+                                st_f = float(st)
+                                en_f = float(en)
+                                if st_f >= (end_s + eps):
+                                    break
+                                if en_f > (start_s - eps) and st_f < (end_s + eps):
+                                    if parts and not parts[-1].endswith(" "):
+                                        parts.append(" ")
+                                    parts.append(str(it.get("content", "")))
+                                    last_was_word = True
+                                else:
+                                    last_was_word = False
+                            elif it_type == "punctuation":
+                                if last_was_word:
+                                    parts.append(str(it.get("content", "")))
+                            i += 1
+
+                        return "".join(parts).strip(), i
+
+                    token_cursor = 0
                     
                     # Build speaker information
                     for segment in segments:
@@ -1816,29 +2016,14 @@ def analyze_video_speakers() -> Any:
                         segment_start = float(segment.get("start_time", 0))
                         segment_end = float(segment.get("end_time", 0))
                         duration = segment_end - segment_start
-                        
-                        # Get text for this segment
-                        segment_items = segment.get("items", [])
-                        segment_text = ""
-                        for item_ref in segment_items:
-                            start_time = float(item_ref.get("start_time", 0))
-                            end_time = float(item_ref.get("end_time", 0))
-                            # Find matching item in items array
-                            for item in items:
-                                if (item.get("type") == "pronunciation" and 
-                                    abs(float(item.get("start_time", -1)) - start_time) < 0.01):
-                                    segment_text += item.get("alternatives", [{}])[0].get("content", "") + " "
-                                    break
 
-                        # Fallback: if item-level matching produced no text, slice words by time window.
-                        # This is more resilient to float rounding, missing refs, and Transcribe schema variations.
-                        if not segment_text.strip() and timed_words:
-                            segment_words = [
-                                word
-                                for word_start, word_end, word in timed_words
-                                if word_end > segment_start and word_start < segment_end
-                            ]
-                            segment_text = " ".join(segment_words)
+                        # Get text for this segment (includes punctuation for more natural SSML prosody).
+                        segment_text, token_cursor = _segment_text_from_token_stream(
+                            token_stream,
+                            segment_start,
+                            segment_end,
+                            token_cursor,
+                        )
                         
                         speakers[speaker_label]["segments"].append({
                             "start": segment_start,
@@ -2065,6 +2250,82 @@ def replace_multi_speaker_audio() -> Any:
         speaker_mappings = json.loads(speaker_mappings_json)
     except json.JSONDecodeError:
         return jsonify({"error": "Invalid speaker_mappings JSON"}), 400
+
+    # Validate/sanitize voice IDs up-front so we never pass non-Polly IDs (e.g., header_* markers)
+    # into synthesize_speech.
+    try:
+        valid_voice_ids = {v.get("id") for v in _list_neural_voices() if v.get("id")}
+    except Exception:
+        valid_voice_ids = set()
+
+    def _sanitize_voice_id(candidate: str | None) -> str:
+        voice = (candidate or "").strip()
+        if not voice or voice.startswith("header_"):
+            return "Joanna"
+        if valid_voice_ids and voice not in valid_voice_ids:
+            return "Joanna"
+        return voice
+
+    def _polly_synthesize_segment(
+        *,
+        voice_id: str,
+        engine: str,
+        ssml: str,
+        language_code: str | None,
+    ) -> dict[str, Any]:
+        """Synthesize speech with robust fallbacks for SSML/engine incompatibilities."""
+
+        normalized_ssml, _was_modified, _notes = _normalize_ssml(ssml)
+
+        def _do_call(text: str, text_type: str, engine_choice: str) -> dict[str, Any]:
+            args: dict[str, Any] = {
+                "Text": text,
+                "TextType": text_type,
+                "OutputFormat": "mp3",
+                "VoiceId": voice_id,
+                "Engine": engine_choice,
+            }
+            if language_code:
+                args["LanguageCode"] = language_code
+            return polly.synthesize_speech(**args)
+
+        # 1) Try normalized SSML on chosen engine
+        try:
+            return _do_call(normalized_ssml, "ssml", engine)
+        except Exception as first_error:
+            msg = str(first_error)
+
+        # 2) If SSML rejected, try sanitizing for neural/strict engines
+        try:
+            sanitized = _sanitize_ssml_for_neural(normalized_ssml)
+            if sanitized != normalized_ssml:
+                return _do_call(sanitized, "ssml", engine)
+        except Exception as _:
+            pass
+
+        # 3) If standard engine supported, try standard with sanitized SSML
+        try:
+            supported_engines = _voice_supported_engines(voice_id)
+        except Exception:
+            supported_engines = []
+
+        if "standard" in supported_engines:
+            try:
+                sanitized = _sanitize_ssml_for_neural(normalized_ssml)
+                return _do_call(sanitized, "ssml", "standard")
+            except Exception:
+                pass
+
+        # 4) Final fallback: plain text minimal SSML
+        plain_text = _strip_ssml_tags(normalized_ssml) or "Narration coming up."
+        minimal_ssml = f"<speak>{html.escape(plain_text[:320])}</speak>"
+        try:
+            return _do_call(minimal_ssml, "ssml", engine)
+        except Exception:
+            if "standard" in supported_engines:
+                return _do_call(minimal_ssml, "ssml", "standard")
+            # last-last: plain text synthesis
+            return _do_call(plain_text[:320], "text", engine)
     
     job_id = str(uuid.uuid4())
     temp_dir = Path(tempfile.mkdtemp(prefix=f"multi_speaker_{job_id}_"))
@@ -2095,13 +2356,22 @@ def replace_multi_speaker_audio() -> Any:
         
         for mapping in speaker_mappings:
             speaker_id = mapping.get("speaker_id")
-            voice_id = mapping.get("voice_id", "Joanna")
+            raw_voice_id = mapping.get("voice_id", "Joanna")
+            voice_id = _sanitize_voice_id(raw_voice_id)
+            if raw_voice_id != voice_id:
+                app.logger.warning(
+                    "Job %s: Invalid voice_id '%s' for %s; falling back to '%s'",
+                    job_id,
+                    raw_voice_id,
+                    speaker_id,
+                    voice_id,
+                )
             segments = mapping.get("segments", [])
             
             app.logger.info(f"Job {job_id}: Processing {len(segments)} segments for {speaker_id} with voice {voice_id}")
             
             for idx, segment in enumerate(segments):
-                text = segment.get("text", "").strip()
+                text = _normalize_transcript_for_voiceover(segment.get("text", "").strip())
                 start_time = float(segment.get("start", 0))
                 end_time = float(segment.get("end", 0))
                 
@@ -2143,9 +2413,12 @@ def replace_multi_speaker_audio() -> Any:
                                 '<speak>',
                                 '<speak><amazon:domain name="conversational">'
                             ).replace('</speak>', '</amazon:domain></speak>')
-                            synth_params_style = synth_params.copy()
-                            synth_params_style["Text"] = natural_ssml_with_style
-                            response = polly.synthesize_speech(**synth_params_style)
+                            response = _polly_synthesize_segment(
+                                voice_id=voice_id,
+                                engine=best_engine,
+                                ssml=natural_ssml_with_style,
+                                language_code=(target_polly_language if translate_enabled and target_polly_language else None),
+                            )
                             synthesis_attempted = True
                         except Exception as style_error:
                             app.logger.warning(f"Job {job_id}: Conversational style failed for {voice_id}, trying without style: {str(style_error)}")
@@ -2153,7 +2426,12 @@ def replace_multi_speaker_audio() -> Any:
                     
                     # Fallback to regular SSML if style failed or not supported
                     if not synthesis_attempted:
-                        response = polly.synthesize_speech(**synth_params)
+                        response = _polly_synthesize_segment(
+                            voice_id=voice_id,
+                            engine=best_engine,
+                            ssml=natural_ssml,
+                            language_code=(target_polly_language if translate_enabled and target_polly_language else None),
+                        )
                     
                     # Save segment audio as MP3 first
                     segment_mp3_path = temp_dir / f"segment_{speaker_id}_{idx}.mp3"
@@ -2164,10 +2442,79 @@ def replace_multi_speaker_audio() -> Any:
                     segment_wav_path = temp_dir / f"segment_{speaker_id}_{idx}.wav"
                     convert_cmd = [
                         FFMPEG_PATH, "-i", str(segment_mp3_path),
-                        "-ar", "16000", "-ac", "1", "-acodec", "pcm_s16le",
+                        "-ar", "22050", "-ac", "1", "-acodec", "pcm_s16le",
                         str(segment_wav_path), "-y"
                     ]
                     subprocess.run(convert_cmd, capture_output=True, check=True)
+
+                    # Force the segment audio to fit exactly within the original time window.
+                    # This prevents "drift" and keeps speech aligned to the on-screen speaker.
+                    target_duration = max(0.12, end_time - start_time)
+
+                    def _probe_duration_seconds(path: Path) -> float | None:
+                        probe_cmd = [
+                            FFPROBE_PATH, "-v", "error",
+                            "-show_entries", "format=duration",
+                            "-of", "default=noprint_wrappers=1:nokey=1",
+                            str(path),
+                        ]
+                        probe_result = subprocess.run(probe_cmd, capture_output=True, text=True)
+                        try:
+                            value = float((probe_result.stdout or "").strip())
+                        except (TypeError, ValueError):
+                            return None
+                        return value if value > 0 else None
+
+                    def _atempo_chain(factor: float) -> str | None:
+                        # ffmpeg atempo supports 0.5..2.0 per filter; chain to reach wider ranges.
+                        if not factor or factor <= 0:
+                            return None
+                        if abs(factor - 1.0) < 0.02:
+                            return None
+                        parts: list[str] = []
+                        remaining = float(factor)
+                        while remaining < 0.5:
+                            parts.append("atempo=0.5")
+                            remaining /= 0.5
+                        while remaining > 2.0:
+                            parts.append("atempo=2.0")
+                            remaining /= 2.0
+                        parts.append(f"atempo={remaining:.4f}")
+                        return ",".join(parts)
+
+                    actual_duration = _probe_duration_seconds(segment_wav_path)
+                    if actual_duration and target_duration:
+                        # Only speed up when the synthesized segment is too long for the window.
+                        # Do NOT slow down short segments (that sounds unnatural and causes "slow voiceover").
+                        speed_factor = actual_duration / target_duration
+                        atempo = None
+                        if speed_factor > 1.05:
+                            speed_factor = min(speed_factor, 1.45)
+                            atempo = _atempo_chain(speed_factor)
+                        # Pad (if short) and trim (if long) to exact window.
+                        segment_fitted_path = temp_dir / f"segment_{speaker_id}_{idx}_fit.wav"
+                        filters: list[str] = []
+                        if atempo:
+                            filters.append(atempo)
+                        filters.append(f"apad=pad_dur={target_duration + 0.75:.3f}")
+                        filter_str = ",".join(filters)
+                        fit_cmd = [
+                            FFMPEG_PATH, "-i", str(segment_wav_path),
+                            "-filter:a", filter_str,
+                            "-t", f"{target_duration:.3f}",
+                            "-ar", "22050", "-ac", "1", "-acodec", "pcm_s16le",
+                            str(segment_fitted_path), "-y",
+                        ]
+                        fit_result = subprocess.run(fit_cmd, capture_output=True, text=True)
+                        if fit_result.returncode == 0 and segment_fitted_path.exists():
+                            segment_wav_path = segment_fitted_path
+                        else:
+                            app.logger.warning(
+                                "Job %s: Failed to time-fit segment %s (%s). Using original segment audio.",
+                                job_id,
+                                idx,
+                                fit_result.stderr[-600:] if fit_result.stderr else "unknown error",
+                            )
                     
                     synthetic_segments.append({
                         "audio_file": segment_wav_path,
@@ -2208,19 +2555,12 @@ def replace_multi_speaker_audio() -> Any:
         for idx, segment in enumerate(synthetic_segments):
             positioned_path = temp_dir / f"positioned_{idx}.wav"
             start_time = segment['start_time']
-            
-            # Get the duration of the segment audio
-            probe_cmd = [
-                FFPROBE_PATH, "-v", "error",
-                "-show_entries", "format=duration",
-                "-of", "default=noprint_wrappers=1:nokey=1",
-                str(segment['audio_file'])
-            ]
-            probe_result = subprocess.run(probe_cmd, capture_output=True, text=True)
+
+            # Use the intended window duration to ensure alignment.
             try:
-                segment_duration = float(probe_result.stdout.strip())
-            except:
-                segment_duration = segment['end_time'] - segment['start_time']
+                segment_duration = max(0.12, float(segment['end_time']) - float(segment['start_time']))
+            except Exception:
+                segment_duration = 0.12
             
             # Calculate silence after
             end_time = start_time + segment_duration
@@ -2232,7 +2572,7 @@ def replace_multi_speaker_audio() -> Any:
                 position_cmd = [
                     FFMPEG_PATH,
                     "-i", str(segment['audio_file']),  # The actual audio
-                    "-f", "lavfi", "-t", str(silence_after), "-i", "anullsrc=r=16000:cl=mono",  # Silence after
+                    "-f", "lavfi", "-t", str(silence_after), "-i", "anullsrc=r=22050:cl=mono",  # Silence after
                     "-filter_complex", "[0:a][1:a]concat=n=2:v=0:a=1[outa]",
                     "-map", "[outa]",
                     "-t", str(video_duration),
@@ -2241,9 +2581,9 @@ def replace_multi_speaker_audio() -> Any:
             else:  # Segment starts later, need silence before
                 position_cmd = [
                     FFMPEG_PATH,
-                    "-f", "lavfi", "-t", str(start_time), "-i", "anullsrc=r=16000:cl=mono",  # Silence before
+                    "-f", "lavfi", "-t", str(start_time), "-i", "anullsrc=r=22050:cl=mono",  # Silence before
                     "-i", str(segment['audio_file']),  # The actual audio
-                    "-f", "lavfi", "-t", str(silence_after), "-i", "anullsrc=r=16000:cl=mono",  # Silence after
+                    "-f", "lavfi", "-t", str(silence_after), "-i", "anullsrc=r=22050:cl=mono",  # Silence after
                     "-filter_complex", "[0:a][1:a][2:a]concat=n=3:v=0:a=1[outa]",
                     "-map", "[outa]",
                     "-t", str(video_duration),
@@ -2275,13 +2615,13 @@ def replace_multi_speaker_audio() -> Any:
         # Build the amix filter
         if len(positioned_segments) == 1:
             # Just copy the single segment
-            mix_cmd.extend(["-c:a", "pcm_s16le", "-ar", "16000", str(mixed_audio), "-y"])
+            mix_cmd.extend(["-c:a", "pcm_s16le", "-ar", "22050", str(mixed_audio), "-y"])
         else:
             # Mix all inputs
             filter_str = f"amix=inputs={len(positioned_segments)}:duration=longest:normalize=0"
             mix_cmd.extend([
                 "-filter_complex", filter_str,
-                "-c:a", "pcm_s16le", "-ar", "16000",
+                "-c:a", "pcm_s16le", "-ar", "22050",
                 str(mixed_audio), "-y"
             ])
         

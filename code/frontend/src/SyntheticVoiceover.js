@@ -636,9 +636,10 @@ export default function SyntheticVoiceover() {
   const [processedVideoUrl, setProcessedVideoUrl] = useState('');
   const [translateEnabled, setTranslateEnabled] = useState(false);
   const [sourceLanguage, setSourceLanguage] = useState('auto');
-  const [targetLanguage, setTargetLanguage] = useState('es');
-  const [targetPollyLanguage, setTargetPollyLanguage] = useState('es-ES');
+  const [targetLanguage, setTargetLanguage] = useState('en');
+  const [targetPollyLanguage, setTargetPollyLanguage] = useState('en-US');
   const [translationLanguages, setTranslationLanguages] = useState([]);
+  const [scriptEditsDirty, setScriptEditsDirty] = useState(false);
   const downloadRef = useRef(null);
   const scriptSectionRef = useRef(null);
   const ssmlSectionRef = useRef(null);
@@ -790,6 +791,7 @@ export default function SyntheticVoiceover() {
     setStatusError(false);
     setSpeakers([]);
     setSpeakerVoiceMappings({});
+    setScriptEditsDirty(false);
 
     try {
       const formData = new FormData();
@@ -802,13 +804,16 @@ export default function SyntheticVoiceover() {
 
       const speakersList = response?.data?.speakers || [];
       setSpeakers(speakersList);
+      setScriptEditsDirty(false);
 
       const transcriptText = (response?.data?.transcript || '').trim();
 
       // Initialize voice mappings with first suggested voice
       const initialMappings = {};
       speakersList.forEach((speaker) => {
-        const suggestedVoice = speaker.suggested_voices?.[0]?.voice_id || 'Joanna';
+        const suggestedVoice =
+          speaker.suggested_voices?.find((voice) => voice && !voice.is_header && voice.voice_id)?.voice_id ||
+          'Joanna';
         initialMappings[speaker.id] = suggestedVoice;
       });
       setSpeakerVoiceMappings(initialMappings);
@@ -841,6 +846,69 @@ export default function SyntheticVoiceover() {
     }));
   };
 
+  const formatTimestamp = useCallback((seconds) => {
+    const safeSeconds = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
+    const totalMs = Math.round(safeSeconds * 1000);
+    const ms = totalMs % 1000;
+    const totalSeconds = Math.floor(totalMs / 1000);
+    const s = totalSeconds % 60;
+    const totalMinutes = Math.floor(totalSeconds / 60);
+    const m = totalMinutes % 60;
+    const h = Math.floor(totalMinutes / 60);
+
+    const pad2 = (value) => String(value).padStart(2, '0');
+    const pad3 = (value) => String(value).padStart(3, '0');
+    if (h > 0) {
+      return `${pad2(h)}:${pad2(m)}:${pad2(s)}.${pad3(ms)}`;
+    }
+    return `${pad2(m)}:${pad2(s)}.${pad3(ms)}`;
+  }, []);
+
+  const updateSpeakerSegmentText = useCallback((speakerId, segmentIndex, nextText) => {
+    setSpeakers((prev) => prev.map((speaker) => {
+      if (speaker.id !== speakerId) return speaker;
+      const segments = Array.isArray(speaker.segments) ? speaker.segments : [];
+      if (!segments[segmentIndex]) return speaker;
+      const updatedSegments = segments.map((segment, idx) => (
+        idx === segmentIndex ? { ...segment, text: nextText } : segment
+      ));
+      return { ...speaker, segments: updatedSegments };
+    }));
+    setScriptEditsDirty(true);
+  }, []);
+
+  const downloadEditedScript = useCallback(() => {
+    if (!speakers?.length) return;
+    const lines = [];
+    lines.push('Edited script export');
+    lines.push(`Created: ${new Date().toISOString()}`);
+    lines.push('');
+
+    speakers.forEach((speaker) => {
+      lines.push(`${speaker.label || speaker.id}`);
+      lines.push('');
+      (speaker.segments || []).forEach((segment, idx) => {
+        const start = formatTimestamp(Number(segment.start));
+        const end = formatTimestamp(Number(segment.end));
+        const text = (segment.text || '').replace(/\s+/g, ' ').trim();
+        lines.push(`[${start} - ${end}] (${idx + 1}) ${text}`);
+      });
+      lines.push('');
+      lines.push('---');
+      lines.push('');
+    });
+
+    const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `voiceover-script-${Date.now()}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }, [formatTimestamp, speakers]);
+
   const handleGenerateMultiSpeakerVideo = async () => {
     if (!videoFile || speakers.length === 0) {
       setStatusError(true);
@@ -859,7 +927,9 @@ export default function SyntheticVoiceover() {
       // Build speaker mappings with segments
       const mappings = speakers.map((speaker) => ({
         speaker_id: speaker.id,
-        voice_id: speakerVoiceMappings[speaker.id] || 'Joanna',
+        voice_id: (speakerVoiceMappings[speaker.id] || 'Joanna').startsWith('header_')
+          ? 'Joanna'
+          : (speakerVoiceMappings[speaker.id] || 'Joanna'),
         segments: speaker.segments,
       }));
 
@@ -867,9 +937,11 @@ export default function SyntheticVoiceover() {
       
       // Add translation parameters
       formData.append('translate_enabled', translateEnabled.toString());
-      formData.append('source_language', sourceLanguage);
-      formData.append('target_language', targetLanguage);
-      formData.append('target_polly_language', targetPollyLanguage);
+      if (translateEnabled) {
+        formData.append('source_language', sourceLanguage);
+        formData.append('target_language', targetLanguage);
+        formData.append('target_polly_language', targetPollyLanguage);
+      }
 
       const response = await axios.post(
         `${VOICE_API_BASE}/replace-multi-speaker-audio`,
@@ -1572,6 +1644,59 @@ export default function SyntheticVoiceover() {
                         </select>
                       </div>
                     ))}
+
+                    <div style={{ marginTop: '1.25rem' }}>
+                      <Label>Review & edit the script (optional)</Label>
+                      <div style={{ color: 'rgba(182, 197, 239, 0.9)', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
+                        Remove irrelevant words before generating. Your edits are used for synthesis.
+                      </div>
+
+                      <SecondaryButton
+                        type="button"
+                        onClick={downloadEditedScript}
+                        disabled={!speakers.length}
+                        style={{ marginBottom: '0.75rem' }}
+                      >
+                        Save script (download)
+                      </SecondaryButton>
+
+                      <div style={{ maxHeight: '420px', overflow: 'auto', paddingRight: '0.35rem' }}>
+                        {speakers.map((speaker) => (
+                          <div
+                            key={`${speaker.id}-script`}
+                            style={{
+                              background: 'rgba(10, 20, 38, 0.6)',
+                              padding: '1rem',
+                              borderRadius: '8px',
+                              marginBottom: '0.75rem',
+                              border: '1px solid rgba(99, 102, 241, 0.2)',
+                            }}
+                          >
+                            <div style={{ fontWeight: 700, marginBottom: '0.75rem', color: '#e2e9ff' }}>
+                              {speaker.label || speaker.id}
+                            </div>
+                            {(speaker.segments || []).map((segment, idx) => (
+                              <div key={`${speaker.id}-seg-${idx}`} style={{ marginBottom: '0.85rem' }}>
+                                <div style={{ fontSize: '0.82rem', color: 'rgba(182, 197, 239, 0.9)', marginBottom: '0.35rem' }}>
+                                  {formatTimestamp(Number(segment.start))} - {formatTimestamp(Number(segment.end))}
+                                </div>
+                                <TextArea
+                                  value={segment.text || ''}
+                                  onChange={(e) => updateSpeakerSegmentText(speaker.id, idx, e.target.value)}
+                                  style={{ minHeight: '88px' }}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+
+                      {scriptEditsDirty && (
+                        <div style={{ marginTop: '0.75rem', color: 'rgba(148, 163, 184, 0.95)', fontSize: '0.85rem' }}>
+                          Script updated. Generate will use your edited text.
+                        </div>
+                      )}
+                    </div>
                     <PrimaryButton
                       type="button"
                       onClick={handleGenerateMultiSpeakerVideo}
