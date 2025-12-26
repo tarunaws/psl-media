@@ -1783,6 +1783,22 @@ def analyze_video_speakers() -> Any:
                     speakers = {}
                     segments = transcript_data.get("results", {}).get("speaker_labels", {}).get("segments", [])
                     items = transcript_data.get("results", {}).get("items", [])
+
+                    # Build a fast time-indexed list of words for robust segment text extraction.
+                    timed_words: list[tuple[float, float, str]] = []
+                    for item in items:
+                        if item.get("type") != "pronunciation":
+                            continue
+                        if "start_time" not in item or "end_time" not in item:
+                            continue
+                        try:
+                            start = float(item.get("start_time"))
+                            end = float(item.get("end_time"))
+                        except (TypeError, ValueError):
+                            continue
+                        content = (item.get("alternatives") or [{}])[0].get("content", "")
+                        if content:
+                            timed_words.append((start, end, content))
                     
                     # Build speaker information
                     for segment in segments:
@@ -1813,6 +1829,16 @@ def analyze_video_speakers() -> Any:
                                     abs(float(item.get("start_time", -1)) - start_time) < 0.01):
                                     segment_text += item.get("alternatives", [{}])[0].get("content", "") + " "
                                     break
+
+                        # Fallback: if item-level matching produced no text, slice words by time window.
+                        # This is more resilient to float rounding, missing refs, and Transcribe schema variations.
+                        if not segment_text.strip() and timed_words:
+                            segment_words = [
+                                word
+                                for word_start, word_end, word in timed_words
+                                if word_end > segment_start and word_start < segment_end
+                            ]
+                            segment_text = " ".join(segment_words)
                         
                         speakers[speaker_label]["segments"].append({
                             "start": segment_start,
