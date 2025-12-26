@@ -609,7 +609,7 @@ const decodeBase64 = (input) => {
 export default function SyntheticVoiceover() {
   const [prompt, setPrompt] = useState('');
   const [inputMode, setInputMode] = useState('genai');
-  const [persona, setPersona] = useState('');
+  const [persona, setPersona] = useState('news-brief');
   const [ssml, setSsml] = useState('');
   const [ssmlExpanded, setSsmlExpanded] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
@@ -803,6 +803,8 @@ export default function SyntheticVoiceover() {
       const speakersList = response?.data?.speakers || [];
       setSpeakers(speakersList);
 
+      const transcriptText = (response?.data?.transcript || '').trim();
+
       // Initialize voice mappings with first suggested voice
       const initialMappings = {};
       speakersList.forEach((speaker) => {
@@ -816,7 +818,11 @@ export default function SyntheticVoiceover() {
         .map((s) => `${s.label}: ${s.segment_count} segments, ${s.total_duration.toFixed(1)}s total\nSample: "${s.sample_text || 'N/A'}"`)
         .join('\n\n');
 
-      setPrompt(speakerSummary);
+      if (transcriptText) {
+        setPrompt(`Transcript (extracted from video)\n\n${transcriptText}\n\n---\n\nSpeaker summary\n\n${speakerSummary}`);
+      } else {
+        setPrompt(speakerSummary);
+      }
       setStatus(`Found ${speakersList.length} speaker(s). Assign voices below and generate.`);
     } catch (error) {
       console.error('Speaker analysis failed', error);

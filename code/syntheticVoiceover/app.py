@@ -1769,8 +1769,15 @@ def analyze_video_speakers() -> Any:
                     
                     # Download and parse transcript
                     import requests
-                    transcript_response = requests.get(transcript_uri)
+                    transcript_response = requests.get(transcript_uri, timeout=30)
                     transcript_data = transcript_response.json()
+
+                    # Full transcript (punctuated, no speaker labels)
+                    full_transcript = (
+                        transcript_data.get("results", {})
+                        .get("transcripts", [{}])[0]
+                        .get("transcript", "")
+                    )
                     
                     # Extract speaker segments
                     speakers = {}
@@ -1853,6 +1860,7 @@ def analyze_video_speakers() -> Any:
                         "speakers": list(speakers.values()),
                         "speaker_count": len(speakers),
                         "total_duration": sum(s["total_duration"] for s in speakers.values()),
+                        "transcript": full_transcript,
                         "message": "Speaker analysis completed successfully"
                     }), 200
                 
