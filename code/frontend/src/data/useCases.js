@@ -128,6 +128,20 @@ const useCases = [
     ],
   },
   {
+    id: 'engro-metadata',
+    title: 'Envid Metadata',
+    cardDescription: 'Extract rich metadata (tags, transcript, celebrities) and search it semantically.',
+    detailDescription: 'Upload videos to extract metadata like objects, scenes, activities, on-screen text, emotions, and celebrity detection. Then query your library with natural language using embeddings-based semantic ranking.',
+    image: '/usecases/semantic-search.svg',
+    path: '/engro-metadata',
+    status: 'available',
+    highlights: [
+      'Metadata extraction: labels, text, emotions, moderation signals, celebrities.',
+      'Semantic search across the extracted metadata text representation.',
+      'API-first backend suitable for external studio integration.',
+    ],
+  },
+  {
     id: 'genai-video-generation',
     title: 'AI-Powered Video Creation from Image',
     cardDescription: 'Blend prompts with reference images to craft Nova Reel videos in minutes.',

@@ -3,11 +3,13 @@
 # Start All Services Script
 # This script starts all backend services and the frontend
 
-echo "🚀 Starting MediaGenAI Complete Application..."
+echo "🚀 Starting BornInCloud Streaming application..."
 
 # Get the project root directory
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV_PYTHON="$PROJECT_ROOT/.venv/bin/python"
+ENV_FILE="$PROJECT_ROOT/.env"
+ENV_LOCAL_FILE="$PROJECT_ROOT/.env.local"
 
 # Dynamically build PATH with commonly needed directories
 # Prioritize local tools, then system paths
@@ -19,9 +21,33 @@ if [ -d "/usr/local/bin/ffmpeg" ]; then
 fi
 
 if [ "$PATH" != "$REQUIRED_PATH" ]; then
-    echo "ℹ️  Exporting required PATH for MediaGenAI services"
+    echo "ℹ️  Exporting required PATH for BornInCloud Streaming services"
 fi
 export PATH="$REQUIRED_PATH"
+
+if [ -f "$ENV_FILE" ]; then
+    echo "ℹ️  Loading environment from $ENV_FILE"
+    set -a
+    # shellcheck disable=SC1090
+    source "$ENV_FILE"
+    set +a
+fi
+
+if [ -f "$ENV_LOCAL_FILE" ]; then
+    echo "ℹ️  Loading environment from $ENV_LOCAL_FILE"
+    set -a
+    # shellcheck disable=SC1090
+    source "$ENV_LOCAL_FILE"
+    set +a
+fi
+
+export AWS_REGION="${AWS_REGION:-us-east-1}"
+
+if [ -z "$MEDIA_S3_BUCKET" ] && [ -n "$AWS_S3_BUCKET" ]; then
+    MEDIA_S3_BUCKET="$AWS_S3_BUCKET"
+fi
+export MEDIA_S3_BUCKET="${MEDIA_S3_BUCKET:-mediagenailab}"
+export VIDEO_GEN_S3_BUCKET="${VIDEO_GEN_S3_BUCKET:-mediagenai-video-generation}"
 
 # Ensure all services can import the shared helpers without per-app sys.path hacks
 export PYTHONPATH="$PROJECT_ROOT:${PYTHONPATH:-}"
@@ -72,6 +98,7 @@ start_service "movie-script" "movieScriptCreation" "app.py" "5005"
 start_service "content-moderation" "contentModeration" "app.py" "5006"
 start_service "personalized-trailer" "personalizedTrailer" "app.py" "5007"
 start_service "semantic-search" "semanticSearch" "app.py" "5008"
+start_service "engro-metadata" "engroMetadata" "app.py" "5014"
 start_service "video-generation" "videoGeneration" "app.py" "5009"
 start_service "dynamic-ad-insertion" "dynamicAdInsertion" "app.py" "5010"
 start_service "media-supply-chain" "mediaSupplyChain" "app.py" "5011"
@@ -104,7 +131,7 @@ else
 
     # Start the React development server
     echo "🔄 Starting React development server on port 3000..."
-    npm start &
+    nohup npm start > "../frontend.log" 2>&1 &
     FRONTEND_PID=$!
     echo $FRONTEND_PID > "../frontend.pid"
 fi
@@ -126,6 +153,7 @@ echo "   • Movie Script Creation Service: http://localhost:5005"
 echo "   • Content Moderation Service: http://localhost:5006"
 echo "   • Personalized Trailer Service: http://localhost:5007"
 echo "   • Semantic Search Service: http://localhost:5008"
+echo "   • Envid Metadata Service: http://localhost:5014"
 echo "   • Video Generation Service: http://localhost:5009"
 echo "   • Dynamic Ad Insertion Service: http://localhost:5010"
 echo "   • Media Supply Chain Service: http://localhost:5011"
@@ -141,11 +169,13 @@ echo "   • Movie Script Creation logs: $PROJECT_ROOT/movie-script.log"
 echo "   • Content Moderation logs: $PROJECT_ROOT/content-moderation.log"
 echo "   • Personalized Trailer logs: $PROJECT_ROOT/personalized-trailer.log"
 echo "   • Semantic Search logs: $PROJECT_ROOT/semantic-search.log"
+echo "   • Envid Metadata logs: $PROJECT_ROOT/engro-metadata.log"
 echo "   • Video Generation logs: $PROJECT_ROOT/video-generation.log"
 echo "   • Dynamic Ad Insertion logs: $PROJECT_ROOT/dynamic-ad-insertion.log"
 echo "   • Media Supply Chain logs: $PROJECT_ROOT/media-supply-chain.log"
 echo "   • Interactive & Shoppable logs: $PROJECT_ROOT/interactive-shoppable.log"
 echo "   • Use Case Visibility logs: $PROJECT_ROOT/usecase-visibility.log"
+echo "   • Frontend (React App) logs: $PROJECT_ROOT/frontend.log"
 echo ""
 echo "🛑 To stop all services, run: ./stop-all.sh"
 
