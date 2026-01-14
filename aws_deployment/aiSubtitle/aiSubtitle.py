@@ -1052,6 +1052,27 @@ def get_progress_endpoint(file_id):
     else:
         stage = 'upload'  # Still uploading/extracting
 
+    # Some clients interpret translationApplied as "requested languages are ready".
+    # Historically we only set translation_applied when an actual translated (non-original)
+    # track was generated, which can leave states like "en pending" even though the English
+    # (original) track is already available.
+    requested_targets = progress_info.get('target_language_requested')
+    requested_codes = []
+    if isinstance(requested_targets, (list, tuple)):
+        requested_codes = [normalize_translate_language_code(str(lang)) for lang in requested_targets]
+    elif isinstance(requested_targets, str) and requested_targets.strip():
+        requested_codes = [normalize_translate_language_code(requested_targets.strip())]
+
+    available_codes = {
+        str(track.get('code')).lower()
+        for track in (available_tracks or [])
+        if isinstance(track, dict) and track.get('code')
+    }
+
+    translation_applied = progress_info.get('translation_applied')
+    if requested_codes and all(code in available_codes for code in requested_codes if code):
+        translation_applied = True
+
     client_payload = {
         'progress': prog,
         'readyForFetch': bool(available_tracks) and not subtitles_in_progress,
@@ -1062,7 +1083,7 @@ def get_progress_endpoint(file_id):
         'transcribeStatus': progress_info.get('transcribe_status'),
         'detectedLanguage': progress_info.get('detected_language'),
         'targetLanguageRequested': progress_info.get('target_language_requested'),
-        'translationApplied': progress_info.get('translation_applied'),
+        'translationApplied': translation_applied,
         'availableSourceLanguages': progress_info.get('available_source_languages'),
         'languageDetectionError': progress_info.get('language_detection_error'),
         'subtitlesInProgress': subtitles_in_progress,
