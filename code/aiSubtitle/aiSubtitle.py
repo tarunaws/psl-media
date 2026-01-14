@@ -1185,7 +1185,13 @@ def get_progress_endpoint(file_id):
         'streamsReady': streams_ready,
         'subtitleAccuracy': accuracy_report
     }
-    return jsonify(client_payload)
+    response = jsonify(client_payload)
+    # This endpoint is polled frequently; caching can cause the UI to show stale
+    # states like "Translation requested: en (pending)" even after completion.
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 @app.route('/api-status', methods=['GET'])
 def api_status():
@@ -1803,12 +1809,16 @@ def get_subtitles(file_id):
         if not tracks:
             return jsonify({'error': 'Subtitle files not found'}), 404
 
-        return jsonify({
+        response = jsonify({
             'file_id': file_id,
             'tracks': tracks,
             'detected_language': progress_data.get(file_id, {}).get('detected_language'),
             'subtitle_accuracy': progress_data.get(file_id, {}).get('subtitle_accuracy')
-        }), 200
+        })
+        response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+        response.headers['Pragma'] = 'no-cache'
+        response.headers['Expires'] = '0'
+        return response, 200
         
     except Exception as e:
         return jsonify({'error': f'Failed to get subtitles: {str(e)}'}), 500
@@ -1853,10 +1863,14 @@ def get_streams(file_id):
     if not protocols:
         return jsonify({'error': 'Streaming manifests not found'}), 404
 
-    return jsonify({
+    response = jsonify({
         'file_id': file_id,
         'protocols': protocols
-    }), 200
+    })
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response, 200
 
 
 @app.route('/stream/<file_id>/<protocol>/<path:filename>', methods=['GET'])
