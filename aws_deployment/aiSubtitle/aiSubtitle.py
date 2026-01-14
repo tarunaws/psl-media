@@ -843,12 +843,18 @@ def generate_subtitles_with_aws_transcribe(
             transcription_params['LanguageCode'] = source_language
 
         transcribe_client.start_transcription_job(**transcription_params)
-        
+
         # Wait for transcription to complete
         if file_id:
-            update_progress(file_id, 50, 'Transcription started...')
-            
-        max_wait_time = 300  # 5 minutes maximum wait
+            update_progress(
+                file_id,
+                50,
+                'Transcription started...',
+                transcribe_job_name=job_name,
+                transcribe_status='IN_PROGRESS',
+            )
+
+        max_wait_time = int(os.getenv('TRANSCRIBE_MAX_WAIT_SECONDS', '1800'))
         wait_time = 0
         
         while wait_time < max_wait_time:
@@ -867,6 +873,8 @@ def generate_subtitles_with_aws_transcribe(
                     file_id,
                     int(progress),
                     message,
+                    transcribe_job_name=job_name,
+                    transcribe_status=status,
                     detected_language=detected_language,
                     available_source_languages=detected_languages,
                     language_detection_error=detection_error
@@ -877,6 +885,8 @@ def generate_subtitles_with_aws_transcribe(
                     update_progress(
                         file_id,
                         85,
+                        transcribe_job_name=job_name,
+                        transcribe_status=status,
                         detected_language=detected_language,
                         available_source_languages=detected_languages
                     )
@@ -972,11 +982,17 @@ def generate_subtitles_with_aws_transcribe(
             time.sleep(10)  # Wait 10 seconds before checking again
             wait_time += 10
         
-        raise Exception("Transcription timed out")
+        raise Exception(f"Transcription timed out after {max_wait_time}s")
     except Exception as e:
         print(f"Error in AWS Transcribe: {e}")
         if file_id:
-            update_progress(file_id, -1, str(e))
+            update_progress(
+                file_id,
+                -1,
+                str(e),
+                transcribe_job_name=job_name,
+                transcribe_status='ERROR',
+            )
         raise e
 
 def format_timestamp(seconds):
@@ -1013,15 +1029,25 @@ def get_progress_endpoint(file_id):
     accuracy_report = progress_info.get('subtitle_accuracy')
     
     # Determine readiness and stage
+    # NOTE: os.path.exists(audio_path) can flip true before FFmpeg finishes writing.
+    # Treat audio as "ready" only once we have a non-empty file and the background
+    # pipeline has advanced past extraction (progress >= 50).
     audio_path = os.path.join(AUDIO_FOLDER, f"{file_id}.mp3")
     audio_exists = os.path.exists(audio_path)
+    audio_size = 0
+    if audio_exists:
+        try:
+            audio_size = os.path.getsize(audio_path)
+        except OSError:
+            audio_size = 0
+    audio_ready = bool(audio_exists and audio_size > 0 and prog >= 50)
     subtitle_dir = os.path.join(SUBTITLE_FOLDER, file_id)
     subtitles_exist = os.path.isdir(subtitle_dir)
 
     # Determine stage based on what files exist
     if subtitles_exist and available_tracks:
         stage = 'complete'
-    elif audio_exists:
+    elif audio_ready:
         stage = 'transcribe'  # Audio extracted, ready or in transcription
     else:
         stage = 'upload'  # Still uploading/extracting
@@ -1029,7 +1055,7 @@ def get_progress_endpoint(file_id):
     client_payload = {
         'progress': prog,
         'readyForFetch': bool(available_tracks) and not subtitles_in_progress,
-        'readyForTranscription': audio_exists,
+        'readyForTranscription': audio_ready,
         'stage': stage,
         'message': progress_info.get('message', ''),
         'transcribeJobName': progress_info.get('transcribe_job_name'),

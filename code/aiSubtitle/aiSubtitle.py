@@ -1038,15 +1038,25 @@ def get_progress_endpoint(file_id):
     accuracy_report = progress_info.get('subtitle_accuracy')
     
     # Determine readiness and stage
+    # NOTE: os.path.exists(audio_path) can become true before FFmpeg finishes writing.
+    # Treat audio as "ready" only once we have a non-empty file and the background
+    # pipeline has advanced past extraction (progress >= 50).
     audio_path = os.path.join(AUDIO_FOLDER, f"{file_id}.mp3")
     audio_exists = os.path.exists(audio_path)
+    audio_size = 0
+    if audio_exists:
+        try:
+            audio_size = os.path.getsize(audio_path)
+        except OSError:
+            audio_size = 0
+    audio_ready = bool(audio_exists and audio_size > 0 and prog >= 50)
     subtitle_dir = os.path.join(SUBTITLE_FOLDER, file_id)
     subtitles_exist = os.path.isdir(subtitle_dir)
 
     # Determine stage based on what files exist
     if subtitles_exist and available_tracks:
         stage = 'complete'
-    elif audio_exists:
+    elif audio_ready:
         stage = 'transcribe'  # Audio extracted, ready or in transcription
     else:
         stage = 'upload'  # Still uploading/extracting
@@ -1054,7 +1064,7 @@ def get_progress_endpoint(file_id):
     client_payload = {
         'progress': prog,
         'readyForFetch': bool(available_tracks) and not subtitles_in_progress,
-        'readyForTranscription': audio_exists,
+        'readyForTranscription': audio_ready,
         'stage': stage,
         'message': progress_info.get('message', ''),
         'transcribeJobName': progress_info.get('transcribe_job_name'),
