@@ -16,6 +16,12 @@ kubectl -n kube-system rollout status deploy/aws-load-balancer-controller --time
 echo "Applying base manifests..." 
 kubectl apply -f "${AWS_DEPLOY_DIR}/k8s/base"
 
+echo "Restarting deployments to pull :latest images..." 
+kubectl -n "${EKS_NAMESPACE}" rollout restart deploy/frontend
+kubectl -n "${EKS_NAMESPACE}" rollout restart deploy/ai-subtitle
+kubectl -n "${EKS_NAMESPACE}" rollout restart deploy/highlight-trailer
+kubectl -n "${EKS_NAMESPACE}" rollout restart deploy/dynamic-ad-insertion
+
 echo "Applying ingress manifests..." 
 kubectl apply -f "${AWS_DEPLOY_DIR}/k8s/ingress/30-frontend-ingress.yaml"
 
