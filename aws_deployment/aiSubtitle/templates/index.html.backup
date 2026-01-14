@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Subtitle - Video Upload & Audio Extraction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .upload-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-section:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .upload-section.dragover {
+            border-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+
+        .upload-text {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .upload-subtext {
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn.secondary {
+            background: linear-gradient(45deg, #2196F3, #1976D2);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        .btn.secondary:hover {
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+        }
+
+        .file-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .file-info.show {
+            display: block;
+        }
+
+        .file-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .file-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .file-detail {
+            text-align: center;
+        }
+
+        .file-detail-label {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .file-detail-value {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .video-preview {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .progress-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            height: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+            display: none;
+        }
+
+        .progress-container.show {
+            display: block;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(45deg, #4CAF50, #81C784);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .status-message {
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+            display: none;
+        }
+
+        .status-message.show {
+            display: block;
+        }
+
+        .status-message.success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+        }
+
+        .status-message.error {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid #f44336;
+        }
+
+        .status-message.processing {
+            background: rgba(33, 150, 243, 0.2);
+            border: 1px solid #2196F3;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .download-section {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            display: none;
+        }
+
+        .download-section.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .upload-section {
+                padding: 30px 20px;
+            }
+
+            .file-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">🎬 AI Subtitle Generator</h1>
+            <p class="subtitle">Upload your video file to automatically generate subtitles with AI</p>
+        </div>
+
+        <div class="upload-section" id="uploadSection">
+            <div class="upload-icon">📁</div>
+            <div class="upload-text">Drag & Drop your video file here</div>
+            <div class="upload-subtext">or click to browse and select a file</div>
+            <div class="upload-subtext">Supported formats: MP4, AVI, MOV, MKV, WebM (Max 100MB)</div>
+            <input type="file" id="fileInput" class="file-input" accept="video/*">
+        </div>
+
+        <div class="file-info" id="fileInfo">
+            <div class="file-name" id="fileName"></div>
+            <div class="file-details">
+                <div class="file-detail">
+                    <div class="file-detail-label">File Size</div>
+                    <div class="file-detail-value" id="fileSize"></div>
+                </div>
+                <div class="file-detail">
+                    <div class="file-detail-label">File Type</div>
+                    <div class="file-detail-value" id="fileType"></div>
+                </div>
+                <div class="file-detail">
+                    <div class="file-detail-label">Duration</div>
+                    <div class="file-detail-value" id="fileDuration">Calculating...</div>
+                </div>
+            </div>
+            <video class="video-preview" id="videoPreview" controls></video>
+            <div style="text-align: center;">
+                <button class="btn" id="generateBtn" onclick="generateSubtitles()">🎬 Generate Subtitles</button>
+                <button class="btn secondary" onclick="resetUpload()">🔄 Upload New File</button>
+            </div>
+        </div>
+
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="status-message" id="statusMessage"></div>
+
+        <div class="download-section" id="downloadSection">
+            <h3>✅ Subtitles Generated Successfully!</h3>
+            <audio class="audio-player" id="audioPlayer" controls></audio>
+            <div>
+                <button class="btn" onclick="downloadAudio()">⬇️ Download Audio</button>
+                <button class="btn secondary" onclick="downloadSubtitles()" id="downloadSubtitlesBtn" style="display: none;">⬇️ Download Subtitles</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedFile = null;
+        let audioBlob = null;
+        let subtitlesContent = null;
+
+        // DOM elements
+        const uploadSection = document.getElementById('uploadSection');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        const fileType = document.getElementById('fileType');
+        const fileDuration = document.getElementById('fileDuration');
+        const videoPreview = document.getElementById('videoPreview');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const statusMessage = document.getElementById('statusMessage');
+        const downloadSection = document.getElementById('downloadSection');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const extractBtn = document.getElementById('extractBtn');
+        const generateBtn = document.getElementById('generateBtn');
+        const downloadSubtitlesBtn = document.getElementById('downloadSubtitlesBtn');
+
+        // Event listeners
+        uploadSection.addEventListener('click', () => fileInput.click());
+        uploadSection.addEventListener('dragover', handleDragOver);
+        uploadSection.addEventListener('dragleave', handleDragLeave);
+        uploadSection.addEventListener('drop', handleDrop);
+        fileInput.addEventListener('change', handleFileSelect);
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            uploadSection.classList.add('dragover');
+        }
+
+        function handleDragLeave(e) {
+            e.preventDefault();
+            uploadSection.classList.remove('dragover');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            uploadSection.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        }
+
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (file) {
+                handleFile(file);
+            }
+        }
+
+        function handleFile(file) {
+            // Validate file type
+            if (!file.type.startsWith('video/')) {
+                showMessage('Please select a valid video file.', 'error');
+                return;
+            }
+
+            // Validate file size (100MB)
+            if (file.size > 100 * 1024 * 1024) {
+                showMessage('File size exceeds 100MB limit.', 'error');
+                return;
+            }
+
+            selectedFile = file;
+            displayFileInfo(file);
+        }
+
+        function displayFileInfo(file) {
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+            fileType.textContent = file.type;
+
+            // Create video URL for preview
+            const videoUrl = URL.createObjectURL(file);
+            videoPreview.src = videoUrl;
+
+            // Get video duration
+            videoPreview.addEventListener('loadedmetadata', () => {
+                const duration = videoPreview.duration;
+                fileDuration.textContent = formatDuration(duration);
+            });
+
+            // Show file info section
+            fileInfo.classList.add('show');
+            uploadSection.style.display = 'none';
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function formatDuration(seconds) {
+            const hrs = Math.floor(seconds / 3600);
+            const mins = Math.floor((seconds % 3600) / 60);
+            const secs = Math.floor(seconds % 60);
+            
+            if (hrs > 0) {
+                return `${hrs}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            } else {
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+        }
+
+        async function extractAudio() {
+            if (!selectedFile) return;
+
+            extractBtn.disabled = true;
+            showProgress();
+            showMessage('Extracting audio from video...', 'processing');
+
+            try {
+                // Simulate audio extraction process
+                await simulateProgress();
+
+                // In a real implementation, you would:
+                // 1. Send video to backend
+                // 2. Use ffmpeg to extract audio
+                // 3. Return audio file
+
+                // For demo purposes, we'll create a mock audio extraction
+                audioBlob = await extractAudioFromVideo(selectedFile);
+                
+                if (audioBlob) {
+                    const audioUrl = URL.createObjectURL(audioBlob);
+                    audioPlayer.src = audioUrl;
+                    
+                    downloadSection.classList.add('show');
+                    generateBtn.disabled = false;
+                    showMessage('Audio extracted successfully!', 'success');
+                } else {
+                    throw new Error('Failed to extract audio');
+                }
+
+            } catch (error) {
+                showMessage('Error extracting audio: ' + error.message, 'error');
+            } finally {
+                extractBtn.disabled = false;
+                hideProgress();
+            }
+        }
+
+        async function extractAudioFromVideo(videoFile) {
+            // This is a mock function. In a real implementation, you would:
+            // 1. Send the video to your backend
+            // 2. Use ffmpeg to extract audio
+            // 3. Return the audio file
+
+            // For demonstration, we'll create a mock audio blob
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    // Create a small audio blob for demonstration
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const buffer = audioContext.createBuffer(2, 44100, 44100);
+                    
+                    // Fill with white noise for demo
+                    for (let channel = 0; channel < buffer.numberOfChannels; channel++) {
+                        const channelData = buffer.getChannelData(channel);
+                        for (let i = 0; i < channelData.length; i++) {
+                            channelData[i] = (Math.random() - 0.5) * 0.1; // Low volume white noise
+                        }
+                    }
+
+                    // Convert to blob (this is simplified)
+                    const mockBlob = new Blob(['mock audio data'], { type: 'audio/wav' });
+                    resolve(mockBlob);
+                }, 1000);
+            });
+        }
+
+        async function generateSubtitles() {
+            if (!audioBlob) return;
+
+            generateBtn.disabled = true;
+            showProgress();
+            showMessage('Generating subtitles from audio...', 'processing');
+
+            try {
+                await simulateProgress();
+
+                // Mock subtitle generation
+                subtitlesContent = `1
+00:00:00,000 --> 00:00:03,500
+Welcome to our AI-powered subtitle generation demo.
+
+2
+00:00:03,500 --> 00:00:07,000
+This technology automatically transcribes speech from video files.
+
+3
+00:00:07,000 --> 00:00:11,000
+The subtitles are generated using advanced speech recognition.
+
+4
+00:00:11,000 --> 00:00:15,000
+You can download the subtitle file when processing is complete.`;
+
+                downloadSubtitlesBtn.style.display = 'inline-block';
+                showMessage('Subtitles generated successfully!', 'success');
+
+            } catch (error) {
+                showMessage('Error generating subtitles: ' + error.message, 'error');
+            } finally {
+                generateBtn.disabled = false;
+                hideProgress();
+            }
+        }
+
+        function downloadAudio() {
+            if (!audioBlob) return;
+
+            const url = URL.createObjectURL(audioBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = selectedFile.name.replace(/\.[^/.]+$/, '') + '_audio.wav';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function downloadSubtitles() {
+            if (!subtitlesContent) return;
+
+            const blob = new Blob([subtitlesContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = selectedFile.name.replace(/\.[^/.]+$/, '') + '_subtitles.srt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function resetUpload() {
+            selectedFile = null;
+            audioBlob = null;
+            subtitlesContent = null;
+            
+            fileInfo.classList.remove('show');
+            downloadSection.classList.remove('show');
+            uploadSection.style.display = 'block';
+            
+            extractBtn.disabled = false;
+            generateBtn.disabled = true;
+            downloadSubtitlesBtn.style.display = 'none';
+            
+            hideProgress();
+            hideMessage();
+            
+            fileInput.value = '';
+            videoPreview.src = '';
+            audioPlayer.src = '';
+        }
+
+        function showProgress() {
+            progressContainer.classList.add('show');
+            progressBar.style.width = '0%';
+        }
+
+        function hideProgress() {
+            progressContainer.classList.remove('show');
+        }
+
+        async function simulateProgress() {
+            return new Promise((resolve) => {
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += Math.random() * 20;
+                    if (progress >= 100) {
+                        progress = 100;
+                        clearInterval(interval);
+                        resolve();
+                    }
+                    progressBar.style.width = progress + '%';
+                }, 200);
+            });
+        }
+
+        function showMessage(message, type) {
+            statusMessage.textContent = message;
+            statusMessage.className = `status-message show ${type}`;
+        }
+
+        function hideMessage() {
+            statusMessage.classList.remove('show');
+        }
+    </script>
+</body>
+</html>

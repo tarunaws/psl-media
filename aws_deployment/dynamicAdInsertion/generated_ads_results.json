@@ -1,0 +1,56 @@
+{
+  "completed": [
+    {
+      "ad_id": "tech_gadget_ad",
+      "generation_id": "864f4e14-dab4-4335-a285-bb45e6bd369a",
+      "prompt": "A sleek futuristic smartphone with holographic display rotating in space with blue neon lighting and particle effects, cinematic product photography",
+      "video_url": "https://mediagenai-video-generation.s3.amazonaws.com/generated-videos/864f4e14-dab4-4335-a285-bb45e6bd369a/32r3olsnwtbj/output.mp4",
+      "s3_path": "generated-videos/864f4e14-dab4-4335-a285-bb45e6bd369a/32r3olsnwtbj/output.mp4"
+    },
+    {
+      "ad_id": "sports_drink_ad",
+      "generation_id": "2dcfe1d1-0634-49e3-b3b3-e9f1eaf7dcbe",
+      "prompt": "Dynamic sports drink advertisement with athletes in action, energy bursts, liquid splashes with vibrant colors, high-energy cinematography",
+      "video_url": "https://mediagenai-video-generation.s3.amazonaws.com/generated-videos/2dcfe1d1-0634-49e3-b3b3-e9f1eaf7dcbe/464o30l2agg1/output.mp4",
+      "s3_path": "generated-videos/2dcfe1d1-0634-49e3-b3b3-e9f1eaf7dcbe/464o30l2agg1/output.mp4"
+    },
+    {
+      "ad_id": "streaming_service_ad",
+      "generation_id": "c144f25c-46d6-4f2a-a7fb-5d84c704d838",
+      "prompt": "Cinematic streaming service advertisement with movie scenes, popcorn, cozy home theater, dramatic lighting and genre transitions",
+      "video_url": "https://mediagenai-video-generation.s3.amazonaws.com/generated-videos/c144f25c-46d6-4f2a-a7fb-5d84c704d838/quiklknco451/output.mp4",
+      "s3_path": "generated-videos/c144f25c-46d6-4f2a-a7fb-5d84c704d838/quiklknco451/output.mp4"
+    },
+    {
+      "ad_id": "family_vacation_ad",
+      "generation_id": "a3cbdc6d-3908-47f5-96c2-53e258ea949e",
+      "prompt": "Heartwarming family at a beach resort, children playing, sunset views, joyful moments, bright cheerful atmosphere",
+      "video_url": "https://mediagenai-video-generation.s3.amazonaws.com/generated-videos/a3cbdc6d-3908-47f5-96c2-53e258ea949e/5fvvu2tv7f33/output.mp4",
+      "s3_path": "generated-videos/a3cbdc6d-3908-47f5-96c2-53e258ea949e/5fvvu2tv7f33/output.mp4"
+    },
+    {
+      "ad_id": "fitness_equipment_ad",
+      "generation_id": "cfaf9984-4e94-40b9-9235-785f3cde6cd7",
+      "prompt": "Motivational gym equipment advertisement with people exercising intensely, sweat droplets, powerful movements, dramatic lighting",
+      "video_url": "https://mediagenai-video-generation.s3.amazonaws.com/generated-videos/cfaf9984-4e94-40b9-9235-785f3cde6cd7/twaaee29p1y4/output.mp4",
+      "s3_path": "generated-videos/cfaf9984-4e94-40b9-9235-785f3cde6cd7/twaaee29p1y4/output.mp4"
+    },
+    {
+      "ad_id": "gaming_console_ad",
+      "generation_id": "586d4158-b513-40e5-bfdf-90f65e86772e",
+      "prompt": "Exciting gaming console with next-gen graphics, controller close-ups, explosive game scenes, neon cyberpunk lighting",
+      "video_url": "https://mediagenai-video-generation.s3.amazonaws.com/generated-videos/586d4158-b513-40e5-bfdf-90f65e86772e/98pqcb6bcu3i/output.mp4",
+      "s3_path": "generated-videos/586d4158-b513-40e5-bfdf-90f65e86772e/98pqcb6bcu3i/output.mp4"
+    },
+    {
+      "ad_id": "gourmet_food_ad",
+      "generation_id": "31a45da9-6685-4572-9922-bf8d4324d83e",
+      "prompt": "Delicious gourmet food with chef preparing exquisite dishes, steam rising, elegant plating, warm restaurant ambiance",
+      "video_url": "https://mediagenai-video-generation.s3.amazonaws.com/generated-videos/31a45da9-6685-4572-9922-bf8d4324d83e/5tkgvmtk26b9/output.mp4",
+      "s3_path": "generated-videos/31a45da9-6685-4572-9922-bf8d4324d83e/5tkgvmtk26b9/output.mp4"
+    }
+  ],
+  "failed": [],
+  "total": 10,
+  "timestamp": "2025-10-24 00:36:39"
+}

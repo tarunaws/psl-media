@@ -1,0 +1,16 @@
+## Optional ML / CV dependencies
+##
+## Install these only if you use the optional local face-matching (InsightFace)
+## in `code/metadata/app.py` or the YOLO product detection helper
+## `code/interactiveShoppable/backend/detect_products_yolo.py`.
+
+numpy>=1.26
+opencv-python>=4.9
+
+# YOLO / product detection
+torch>=2.2
+ultralytics>=8.0
+
+# Local face matching
+insightface>=0.7
+onnxruntime>=1.17

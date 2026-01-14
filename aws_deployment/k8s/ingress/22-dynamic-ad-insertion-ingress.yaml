@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: deprecated-backend-ingress-dynamic-ad-insertion
+  namespace: mediagenai-aws
+data:
+  note: "Do not apply a public Ingress for backend services. Only the frontend should be public; it reverse-proxies to internal ClusterIP services."

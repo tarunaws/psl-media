@@ -1,4 +1,4 @@
-# Envid Metadata Service
+# Metadata Service
 
 ## Overview
 Extract metadata from videos (tags, transcript, emotions, on-screen text, celebrities) and enable semantic search across the extracted metadata.
@@ -167,7 +167,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Service runs on **port 5014** (configurable via `ENGRO_METADATA_PORT`).
+Service runs on **port 5014** (configurable via `METADATA_PORT`).
 
 ## How It Works
 

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Subtitle Fetch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: #e5e5e5;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background: #1a1a1a;
+            color: #e5e5e5;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+        .result {
+            background: #333;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            white-space: pre-wrap;
+        }
+        .success {
+            border-left: 4px solid #28a745;
+        }
+        .error {
+            border-left: 4px solid #dc3545;
+        }
+        .log {
+            background: #1a1a1a;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Subtitle Fetch Test</h1>
+        <p>This page tests the subtitle fetching functionality directly.</p>
+        
+        <div class="test-section">
+            <h2>Test Subtitle Fetch</h2>
+            <div class="input-group">
+                <input type="text" id="fileIdInput" placeholder="Enter file ID (e.g., 7eee0a03-e0ad-48bf-98db-4ccdccedd490)" />
+                <button onclick="testFetch()">Fetch Subtitles</button>
+            </div>
+            <div>
+                <strong>Available test file IDs:</strong><br>
+                <button onclick="setFileId('7eee0a03-e0ad-48bf-98db-4ccdccedd490')">7eee0a03-e0ad-48bf-98db-4ccdccedd490</button>
+                <button onclick="setFileId('3f11bf1b-466f-4309-a1bc-ec336d5a8a0e')">3f11bf1b-466f-4309-a1bc-ec336d5a8a0e</button>
+                <button onclick="setFileId('b8a71efd-4a20-46ba-88dd-4f7a21bbb139')">b8a71efd-4a20-46ba-88dd-4f7a21bbb139</button>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Logs</h2>
+            <div id="logs"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Result</h2>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function setFileId(fileId) {
+            document.getElementById('fileIdInput').value = fileId;
+        }
+        
+        function log(message) {
+            const logs = document.getElementById('logs');
+            const logDiv = document.createElement('div');
+            logDiv.className = 'log';
+            logDiv.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logs.appendChild(logDiv);
+            logs.scrollTop = logs.scrollHeight;
+        }
+        
+        async function testFetch() {
+            const fileId = document.getElementById('fileIdInput').value.trim();
+            const resultDiv = document.getElementById('result');
+            
+            if (!fileId) {
+                alert('Please enter a file ID');
+                return;
+            }
+            
+            try {
+                log(`📥 Fetching subtitles for file_id: ${fileId}`);
+                
+                const SUBTITLE_API_BASE = 'http://localhost:5001';
+                const url = `${SUBTITLE_API_BASE}/subtitles/${fileId}`;
+                
+                log(`📥 Subtitle API base: ${SUBTITLE_API_BASE}`);
+                log(`📥 Full URL: ${url}`);
+                
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*'
+                    },
+                    timeout: 10000
+                });
+                
+                log(`📥 Response status: ${response.status}`);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`📥 Subtitles response received`);
+                    
+                    if (data.subtitles && data.subtitles.trim()) {
+                        log('✅ Success! Subtitles found and not empty');
+                        log(`   Subtitles length: ${data.subtitles.length}`);
+                        
+                        resultDiv.className = 'result success';
+                        resultDiv.innerHTML = `
+                            <strong>SUCCESS!</strong><br>
+                            File ID: ${data.file_id}<br>
+                            Subtitles Length: ${data.subtitles.length}<br>
+                            Download URL: ${data.download_url}<br><br>
+                            <strong>Subtitles Content:</strong><br>
+                            ${data.subtitles}
+                        `;
+                    } else {
+                        log('❌ Error: No subtitles found in response');
+                        resultDiv.className = 'result error';
+                        resultDiv.textContent = 'Error: No subtitles found in response';
+                    }
+                } else {
+                    const errorText = await response.text();
+                    log(`❌ HTTP Error: ${response.status}`);
+                    log(`❌ Response: ${errorText}`);
+                    
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `
+                        <strong>ERROR ${response.status}</strong><br>
+                        ${errorText}
+                    `;
+                }
+                
+            } catch (error) {
+                log(`❌ Fetch error: ${error.message}`);
+                log(`❌ Error type: ${error.constructor.name}`);
+                
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `
+                    <strong>FETCH ERROR</strong><br>
+                    ${error.message}<br>
+                    Type: ${error.constructor.name}
+                `;
+            }
+        }
+        
+        // Set a default file ID
+        setFileId('7eee0a03-e0ad-48bf-98db-4ccdccedd490');
+        log('Test page loaded. Ready to test subtitle fetching.');
+    </script>
+</body>
+</html>

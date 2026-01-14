@@ -724,7 +724,7 @@ const PreBlock = styled.pre`
 
 const BACKEND_URL = 'http://localhost:5014';
 
-function EngroMetadata() {
+function Metadata() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [videoTitle, setVideoTitle] = useState('');
   const [videoDescription, setVideoDescription] = useState('');
@@ -786,7 +786,7 @@ function EngroMetadata() {
       return;
     }
     try {
-      const raw = localStorage.getItem(`engroSpeakerAliases:${vid}`);
+      const raw = localStorage.getItem(`speakerAliases:${vid}`);
       const parsed = raw ? JSON.parse(raw) : {};
       setSpeakerAliases(parsed && typeof parsed === 'object' ? parsed : {});
     } catch {
@@ -798,7 +798,7 @@ function EngroMetadata() {
     const vid = selectedVideo?.id;
     if (!vid) return;
     try {
-      localStorage.setItem(`engroSpeakerAliases:${vid}`, JSON.stringify(speakerAliases || {}));
+      localStorage.setItem(`speakerAliases:${vid}`, JSON.stringify(speakerAliases || {}));
     } catch {
       // ignore storage errors (private mode / quota)
     }
@@ -1696,7 +1696,7 @@ function EngroMetadata() {
       
       <Container>
         <Header>
-          <Title>Envid Metadata</Title>
+          <Title>Metadata</Title>
           <Subtitle>Upload videos, extract rich metadata, and identify actors (AWS or local)</Subtitle>
         </Header>
 
@@ -1872,9 +1872,9 @@ function EngroMetadata() {
                               onClick={() => setXrayEnabled((v) => !v)}
                               $active={xrayEnabled}
                               aria-pressed={xrayEnabled}
-                              title="Toggle Envid eye overlay"
+                              title="Toggle eye overlay"
                             >
-                              Envid eye
+                              Eye overlay
                             </XRayButton>
                           </PlayerOverlayControls>
                         )}
@@ -2358,7 +2358,7 @@ function EngroMetadata() {
                                     setSpeakerAliases({});
                                     if (vid) {
                                       try {
-                                        localStorage.removeItem(`engroSpeakerAliases:${vid}`);
+                                        localStorage.removeItem(`speakerAliases:${vid}`);
                                       } catch {
                                         // ignore
                                       }
@@ -2574,4 +2574,4 @@ function EngroMetadata() {
   );
 }
 
-export default EngroMetadata;
+export default Metadata;

@@ -1,0 +1,52 @@
+{
+  "tech_gadget_ad": {
+    "generation_id": "864f4e14-dab4-4335-a285-bb45e6bd369a",
+    "s3_path": "generated-videos/864f4e14-dab4-4335-a285-bb45e6bd369a/32r3olsnwtbj/output.mp4",
+    "cdn_url": "https://mediagenai-video-generation.s3.us-east-1.amazonaws.com/generated-videos/864f4e14-dab4-4335-a285-bb45e6bd369a/32r3olsnwtbj/output.mp4"
+  },
+  "sports_drink_ad": {
+    "generation_id": "2dcfe1d1-0634-49e3-b3b3-e9f1eaf7dcbe",
+    "s3_path": "generated-videos/2dcfe1d1-0634-49e3-b3b3-e9f1eaf7dcbe/464o30l2agg1/output.mp4",
+    "cdn_url": "https://mediagenai-video-generation.s3.us-east-1.amazonaws.com/generated-videos/2dcfe1d1-0634-49e3-b3b3-e9f1eaf7dcbe/464o30l2agg1/output.mp4"
+  },
+  "streaming_service_ad": {
+    "generation_id": "c144f25c-46d6-4f2a-a7fb-5d84c704d838",
+    "s3_path": "generated-videos/c144f25c-46d6-4f2a-a7fb-5d84c704d838/quiklknco451/output.mp4",
+    "cdn_url": "https://mediagenai-video-generation.s3.us-east-1.amazonaws.com/generated-videos/c144f25c-46d6-4f2a-a7fb-5d84c704d838/quiklknco451/output.mp4"
+  },
+  "family_vacation_ad": {
+    "generation_id": "a3cbdc6d-3908-47f5-96c2-53e258ea949e",
+    "s3_path": "generated-videos/a3cbdc6d-3908-47f5-96c2-53e258ea949e/5fvvu2tv7f33/output.mp4",
+    "cdn_url": "https://mediagenai-video-generation.s3.us-east-1.amazonaws.com/generated-videos/a3cbdc6d-3908-47f5-96c2-53e258ea949e/5fvvu2tv7f33/output.mp4"
+  },
+  "fitness_equipment_ad": {
+    "generation_id": "cfaf9984-4e94-40b9-9235-785f3cde6cd7",
+    "s3_path": "generated-videos/cfaf9984-4e94-40b9-9235-785f3cde6cd7/twaaee29p1y4/output.mp4",
+    "cdn_url": "https://mediagenai-video-generation.s3.us-east-1.amazonaws.com/generated-videos/cfaf9984-4e94-40b9-9235-785f3cde6cd7/twaaee29p1y4/output.mp4"
+  },
+  "gaming_console_ad": {
+    "generation_id": "586d4158-b513-40e5-bfdf-90f65e86772e",
+    "s3_path": "generated-videos/586d4158-b513-40e5-bfdf-90f65e86772e/98pqcb6bcu3i/output.mp4",
+    "cdn_url": "https://mediagenai-video-generation.s3.us-east-1.amazonaws.com/generated-videos/586d4158-b513-40e5-bfdf-90f65e86772e/98pqcb6bcu3i/output.mp4"
+  },
+  "gourmet_food_ad": {
+    "generation_id": "31a45da9-6685-4572-9922-bf8d4324d83e",
+    "s3_path": "generated-videos/31a45da9-6685-4572-9922-bf8d4324d83e/5tkgvmtk26b9/output.mp4",
+    "cdn_url": "https://mediagenai-video-generation.s3.us-east-1.amazonaws.com/generated-videos/31a45da9-6685-4572-9922-bf8d4324d83e/5tkgvmtk26b9/output.mp4"
+  },
+  "travel_booking_ad": {
+    "generation_id": "44801165-cca2-4360-89ff-2b81e9bd8e12",
+    "s3_path": "generated-videos/44801165-cca2-4360-89ff-2b81e9bd8e12/kx9v625v5kts/output.mp4",
+    "cdn_url": "https://mediagenai-video-generation.s3.us-east-1.amazonaws.com/generated-videos/44801165-cca2-4360-89ff-2b81e9bd8e12/kx9v625v5kts/output.mp4"
+  },
+  "eco_products_ad": {
+    "generation_id": "c5490916-79cc-4ae2-92ed-dad79e06112f",
+    "s3_path": "generated-videos/c5490916-79cc-4ae2-92ed-dad79e06112f/jzhhd8ifmhvr/output.mp4",
+    "cdn_url": "https://mediagenai-video-generation.s3.us-east-1.amazonaws.com/generated-videos/c5490916-79cc-4ae2-92ed-dad79e06112f/jzhhd8ifmhvr/output.mp4"
+  },
+  "luxury_watch_ad": {
+    "generation_id": "88fca849-e73e-46f0-9ffb-8509aac9a84a",
+    "s3_path": "generated-videos/88fca849-e73e-46f0-9ffb-8509aac9a84a/bj4678y06jlh/output.mp4",
+    "cdn_url": "https://mediagenai-video-generation.s3.us-east-1.amazonaws.com/generated-videos/88fca849-e73e-46f0-9ffb-8509aac9a84a/bj4678y06jlh/output.mp4"
+  }
+}

@@ -7,6 +7,7 @@ import logging
 
 from flask import Flask, request, jsonify, send_file, render_template, send_from_directory
 from flask_cors import CORS
+from werkzeug.middleware.proxy_fix import ProxyFix
 try:
     from flask_limiter import Limiter
     from flask_limiter.util import get_remote_address
@@ -105,12 +106,22 @@ def _resolve_transcribe_region(bucket_region: str | None, default_region: str | 
 # AWS imports (will be imported only if AWS credentials are available)
 try:
     import boto3
+    from botocore.config import Config
     
     # Initialize AWS clients if credentials are available
     aws_access_key = os.getenv('AWS_ACCESS_KEY_ID')
     aws_secret_key = os.getenv('AWS_SECRET_ACCESS_KEY')
     aws_region = os.getenv('AWS_REGION')
     aws_s3_bucket = os.getenv('AWS_S3_BUCKET')
+
+    aws_client_config = Config(
+        connect_timeout=int(os.getenv('AWS_CONNECT_TIMEOUT_SECONDS', '10')),
+        read_timeout=int(os.getenv('AWS_READ_TIMEOUT_SECONDS', '60')),
+        retries={
+            'max_attempts': int(os.getenv('AWS_MAX_ATTEMPTS', '3')),
+            'mode': os.getenv('AWS_RETRY_MODE', 'standard'),
+        },
+    )
 
     if aws_access_key and aws_secret_key and aws_s3_bucket:
         if not aws_region:
@@ -132,19 +143,22 @@ try:
             'transcribe',
             aws_access_key_id=aws_access_key,
             aws_secret_access_key=aws_secret_key,
-                region_name=transcribe_region
+            region_name=transcribe_region,
+            config=aws_client_config,
         )
         s3_client = boto3.client(
             's3',
             aws_access_key_id=aws_access_key,
             aws_secret_access_key=aws_secret_key,
-                region_name=s3_region
+            region_name=s3_region,
+            config=aws_client_config,
         )
         translate_client = boto3.client(
             'translate',
             aws_access_key_id=aws_access_key,
             aws_secret_access_key=aws_secret_key,
-            region_name=aws_region
+            region_name=aws_region,
+            config=aws_client_config,
         )
     else:
         transcribe_client = None
@@ -159,6 +173,9 @@ app = Flask(__name__)
 app.logger.handlers = logging.getLogger().handlers
 app.logger.setLevel(logging.getLogger().level)
 LOGGER = app.logger
+
+# Trust upstream proxies (CloudFront -> ALB -> nginx) for client IP/scheme.
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=2, x_proto=2, x_host=1)
 
 # Configure Flask for larger file uploads and longer timeouts
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024 * 1024  # 5GB
@@ -180,8 +197,18 @@ DEFAULT_RATE_LIMIT = os.getenv('DEFAULT_RATE_LIMIT', '120 per minute')
 UPLOAD_RATE_LIMIT = os.getenv('UPLOAD_RATE_LIMIT', '4 per minute')
 GENERATE_RATE_LIMIT = os.getenv('GENERATE_RATE_LIMIT', '6 per minute')
 
+
+def _limiter_key_func() -> str:
+    """Rate limit by the real client IP when behind proxies."""
+    forwarded_for = request.headers.get('X-Forwarded-For', '')
+    if forwarded_for:
+        first = forwarded_for.split(',')[0].strip()
+        if first:
+            return first
+    return get_remote_address()
+
 limiter = Limiter(
-    get_remote_address,
+    _limiter_key_func,
     app=app,
     storage_uri=RATE_LIMIT_STORAGE_URI,
     default_limits=[DEFAULT_RATE_LIMIT],
@@ -774,7 +801,7 @@ def generate_subtitles_with_aws_transcribe(
     
     try:
         if file_id:
-            update_progress(file_id, 20)
+            update_progress(file_id, 20, 'Preparing transcription job...')
 
         requested_targets = []
         if isinstance(target_languages, (list, tuple)):
@@ -805,7 +832,7 @@ def generate_subtitles_with_aws_transcribe(
         s3_object_name = f"audio/{job_name}/{audio_filename}"
         
         if file_id:
-            update_progress(file_id, 30)
+            update_progress(file_id, 30, 'Uploading audio for transcription...')
         
         try:
             s3_uri = upload_to_s3(audio_path, os.getenv('AWS_S3_BUCKET'), s3_object_name)
@@ -835,9 +862,15 @@ def generate_subtitles_with_aws_transcribe(
         
         # Wait for transcription to complete
         if file_id:
-            update_progress(file_id, 50)
-            
-        max_wait_time = 300  # 5 minutes maximum wait
+            update_progress(file_id, 50, 'Transcription started...')
+
+        # Transcribe duration can scale with input length and service load.
+        # Default to 30 minutes, but allow override via env.
+        # If we can estimate media duration, allow longer waits for longer inputs.
+        configured_max_wait = int(os.getenv('TRANSCRIBE_MAX_WAIT_SECONDS', '1800'))
+        estimated_duration = get_media_duration(audio_path) or 0.0
+        duration_based_wait = int(min(6 * 3600, max(300, (estimated_duration * 2) + 180))) if estimated_duration else 0
+        max_wait_time = max(configured_max_wait, duration_based_wait)
         wait_time = 0
         
         while wait_time < max_wait_time:
@@ -851,9 +884,13 @@ def generate_subtitles_with_aws_transcribe(
             # Update progress based on wait time
             if file_id:
                 progress = min(50 + (wait_time / max_wait_time) * 30, 80)
+                message = 'Detecting spoken language automatically…' if (source_language == 'auto' or source_language is None) else 'Transcription in progress…'
                 update_progress(
                     file_id,
                     int(progress),
+                    message,
+                    transcribe_job_name=job_name,
+                    transcribe_status=status,
                     detected_language=detected_language,
                     available_source_languages=detected_languages,
                     language_detection_error=detection_error
@@ -879,7 +916,7 @@ def generate_subtitles_with_aws_transcribe(
                 s3_client.download_file(os.getenv('AWS_S3_BUCKET'), transcript_key, transcript_file)
                 
                 if file_id:
-                    update_progress(file_id, 90)
+                    update_progress(file_id, 90, 'Building subtitle tracks...')
                 
                 # Read and convert to SRT
                 with open(transcript_file, 'r') as f:
@@ -917,8 +954,18 @@ def generate_subtitles_with_aws_transcribe(
 
                 if translate_client and unique_targets:
                     source_for_translate = base_language or map_transcribe_to_translate_code(source_language) or 'auto'
-                    for lang_code in unique_targets:
+                    total_targets = len(unique_targets)
+                    for index, lang_code in enumerate(unique_targets):
                         try:
+                            if file_id:
+                                # Keep this under 100; finalization happens later.
+                                translate_progress = 92 + int(((index) / max(1, total_targets)) * 6)
+                                update_progress(
+                                    file_id,
+                                    translate_progress,
+                                    f"Translating subtitles to {lang_code}…",
+                                    target_language_requested=requested_targets,
+                                )
                             translated = translate_segments(segments, source_for_translate, lang_code)
                             translated_srt = segments_to_srt(translated)
                             subtitle_payloads.append({
@@ -930,6 +977,9 @@ def generate_subtitles_with_aws_transcribe(
                             })
                         except Exception as exc:
                             print(f"Translation failed for {lang_code}: {exc}")
+
+                    if file_id:
+                        update_progress(file_id, 98, 'Translation complete. Finalizing...')
 
                 # Cleanup temporary files
                 try:
@@ -1007,6 +1057,8 @@ def get_progress_endpoint(file_id):
         'readyForTranscription': audio_exists,
         'stage': stage,
         'message': progress_info.get('message', ''),
+        'transcribeJobName': progress_info.get('transcribe_job_name'),
+        'transcribeStatus': progress_info.get('transcribe_status'),
         'detectedLanguage': progress_info.get('detected_language'),
         'targetLanguageRequested': progress_info.get('target_language_requested'),
         'translationApplied': progress_info.get('translation_applied'),
@@ -1038,6 +1090,290 @@ def _save_large_file_streaming(file_stream, output_path, file_id, total_size):
             progress = int((bytes_written / total_size) * 20)
             update_progress(file_id, progress)
     update_progress(file_id, 20)
+
+
+def _resolve_raw_video_prefix() -> str:
+    prefix = os.getenv('RAW_VIDEO_PREFIX', 'rawVideo/')
+    prefix = (prefix or 'rawVideo/').lstrip('/')
+    if prefix and not prefix.endswith('/'):
+        prefix += '/'
+    return prefix
+
+
+def _get_s3_client():
+    """Return an initialized S3 client.
+
+    Prefers the module-level client, but can fall back to boto3's default
+    credential chain (useful for IAM roles / IRSA / instance profiles).
+    """
+    global s3_client
+    if s3_client is not None:
+        return s3_client
+
+    try:
+        import boto3 as _boto3
+    except Exception:
+        return None
+
+    bucket = os.getenv('AWS_S3_BUCKET')
+    region = os.getenv('AWS_REGION') or 'us-east-1'
+    if bucket:
+        bucket_region = _detect_bucket_region(bucket, region)
+        region = bucket_region or region
+
+    try:
+        from botocore.config import Config
+
+        client_config = Config(
+            connect_timeout=int(os.getenv('AWS_CONNECT_TIMEOUT_SECONDS', '10')),
+            read_timeout=int(os.getenv('AWS_READ_TIMEOUT_SECONDS', '60')),
+            retries={
+                'max_attempts': int(os.getenv('AWS_MAX_ATTEMPTS', '3')),
+                'mode': os.getenv('AWS_RETRY_MODE', 'standard'),
+            },
+        )
+        s3_client = _boto3.client('s3', region_name=region, config=client_config)
+        return s3_client
+    except Exception as exc:
+        LOGGER.warning('Unable to initialize s3 client: %s', exc)
+        return None
+
+
+def _start_background_video_processing(file_id: str, video_path: str, video_filename: str):
+    def process_in_background():
+        try:
+            audio_filename = f"{file_id}.mp3"
+            audio_path = os.path.join(AUDIO_FOLDER, audio_filename)
+
+            update_progress(file_id, 30)
+
+            if not FFMPEG_BINARY:
+                update_progress(
+                    file_id,
+                    -1,
+                    'Audio extraction requires FFmpeg. Install ffmpeg and expose it via PATH or set FFMPEG_BINARY in the environment before restarting the backend.'
+                )
+                return
+
+            if not extract_audio_from_video(video_path, audio_path):
+                update_progress(
+                    file_id,
+                    -1,
+                    'Failed to extract audio with FFmpeg. Verify the binary is installed and the uploaded file has an audio track.'
+                )
+                return
+
+            update_progress(file_id, 50)
+
+            # Generate streaming variants (HLS & DASH)
+            streams_ready = {}
+            try:
+                update_progress(file_id, 55, 'Generating streaming variants...')
+                hls_manifest = generate_hls_variant(video_path, file_id)
+                if hls_manifest:
+                    streams_ready['hls'] = f"/stream/{file_id}/hls/master.m3u8"
+                dash_manifest = generate_dash_variant(video_path, file_id)
+                if dash_manifest:
+                    streams_ready['dash'] = f"/stream/{file_id}/dash/manifest.mpd"
+            except Exception as stream_error:
+                print(f"Stream generation failed for {file_id}: {stream_error}")
+            finally:
+                if streams_ready:
+                    update_progress(
+                        file_id,
+                        58,
+                        'Streaming variants ready',
+                        streams_ready=streams_ready
+                    )
+
+            # Upload to S3
+            try:
+                client = _get_s3_client()
+                bucket = os.getenv('AWS_S3_BUCKET')
+                if client and bucket:
+                    update_progress(file_id, 60)
+
+                    s3_video_key = f"videos/{file_id}/{video_filename}"
+                    s3_audio_key = f"audio/{file_id}/{audio_filename}"
+
+                    upload_to_s3_with_progress(video_path, bucket, s3_video_key, file_id)
+                    upload_to_s3_with_progress(audio_path, bucket, s3_audio_key, file_id)
+            except Exception as exc:
+                error_message = f"S3 upload failed: {exc}"
+                update_progress(file_id, -1, error_message)
+                app.logger.exception(error_message)
+                return
+
+            update_progress(file_id, 100)
+
+        except Exception as exc:
+            update_progress(file_id, -1, str(exc))
+
+    thread = threading.Thread(target=process_in_background)
+    thread.daemon = True
+    thread.start()
+
+
+@app.route('/s3/raw-videos', methods=['GET'])
+def list_raw_videos():
+    bucket = os.getenv('AWS_S3_BUCKET')
+    if not bucket:
+        return jsonify({'error': 'AWS_S3_BUCKET is not set'}), 503
+
+    client = _get_s3_client()
+    if not client:
+        return jsonify({'error': 'S3 client is not configured'}), 503
+
+    prefix = _resolve_raw_video_prefix()
+    try:
+        max_keys = int(request.args.get('max_keys', '200'))
+    except ValueError:
+        max_keys = 200
+
+    try:
+        response = client.list_objects_v2(Bucket=bucket, Prefix=prefix, MaxKeys=max_keys)
+        contents = response.get('Contents') or []
+        items = []
+        for obj in contents:
+            key = obj.get('Key')
+            if not key or key.endswith('/'):
+                continue
+            items.append({
+                'key': key,
+                'size': obj.get('Size'),
+                'last_modified': obj.get('LastModified').isoformat() if obj.get('LastModified') else None,
+            })
+        return jsonify({'bucket': bucket, 'prefix': prefix, 'items': items})
+    except Exception as exc:
+        LOGGER.exception('list_raw_videos failed')
+        return jsonify({'error': str(exc)}), 500
+
+
+@app.route('/s3/browse', methods=['GET'])
+def browse_s3():
+    """Browse S3 under the configured rawVideo root prefix.
+
+    Returns subfolders (CommonPrefixes) and video files for the requested prefix.
+    """
+    bucket = os.getenv('AWS_S3_BUCKET')
+    if not bucket:
+        return jsonify({'error': 'AWS_S3_BUCKET is not set'}), 503
+
+    client = _get_s3_client()
+    if not client:
+        return jsonify({'error': 'S3 client is not configured'}), 503
+
+    root_prefix = _resolve_raw_video_prefix()
+
+    requested_prefix = (request.args.get('prefix') or '').strip()
+    if requested_prefix:
+        requested_prefix = requested_prefix.lstrip('/')
+        if not requested_prefix.endswith('/'):
+            requested_prefix += '/'
+        if not requested_prefix.startswith(root_prefix):
+            return jsonify({'error': f'prefix must start with {root_prefix}'}), 400
+        prefix = requested_prefix
+    else:
+        prefix = root_prefix
+
+    try:
+        max_keys = int(request.args.get('max_keys', '500'))
+    except ValueError:
+        max_keys = 500
+
+    try:
+        response = client.list_objects_v2(
+            Bucket=bucket,
+            Prefix=prefix,
+            Delimiter='/',
+            MaxKeys=max_keys,
+        )
+    except Exception as exc:
+        LOGGER.exception('browse_s3 failed')
+        return jsonify({'error': str(exc)}), 500
+
+    folders = []
+    for entry in response.get('CommonPrefixes', []) or []:
+        folder_prefix = entry.get('Prefix')
+        if not folder_prefix:
+            continue
+        name = folder_prefix
+        if folder_prefix.startswith(prefix):
+            name = folder_prefix[len(prefix):]
+        name = name.rstrip('/')
+        if not name:
+            continue
+        folders.append({'prefix': folder_prefix, 'name': name})
+
+    allowed_extensions = set((ALLOWED_EXTENSIONS or []))
+    files = []
+    for obj in response.get('Contents', []) or []:
+        key = obj.get('Key')
+        if not key or key.endswith('/'):
+            continue
+        if key == prefix:
+            continue
+        basename = key
+        if key.startswith(prefix):
+            basename = key[len(prefix):]
+        if '/' in basename:
+            continue
+        extension = (basename.rsplit('.', 1)[-1] or '').lower()
+        if allowed_extensions and extension and extension not in allowed_extensions:
+            continue
+        files.append({
+            'key': key,
+            'name': basename,
+            'size': obj.get('Size'),
+            'last_modified': obj.get('LastModified').isoformat() if obj.get('LastModified') else None,
+        })
+
+    return jsonify({
+        'bucket': bucket,
+        'root_prefix': root_prefix,
+        'prefix': prefix,
+        'folders': folders,
+        'files': files,
+    })
+
+
+@app.route('/upload-s3', methods=['POST'])
+@limiter.limit(UPLOAD_RATE_LIMIT)
+def upload_video_s3():
+    try:
+        bucket = os.getenv('AWS_S3_BUCKET')
+        if not bucket:
+            return jsonify({'error': 'AWS_S3_BUCKET is not set'}), 503
+
+        client = _get_s3_client()
+        if not client:
+            return jsonify({'error': 'S3 client is not configured'}), 503
+
+        payload = request.get_json(silent=True) or {}
+        s3_key = payload.get('s3_key') or payload.get('key')
+        if not s3_key or not isinstance(s3_key, str):
+            return jsonify({'error': 'Missing s3_key in request body'}), 400
+
+        file_id = str(uuid.uuid4())
+        ext = os.path.splitext(s3_key)[1].lstrip('.').lower() or 'mp4'
+        video_filename = f"{file_id}.{ext}"
+        video_path = os.path.join(UPLOAD_FOLDER, video_filename)
+
+        update_progress(file_id, 0)
+        update_progress(file_id, 10, 'Downloading from S3...')
+        client.download_file(bucket, s3_key, video_path)
+        update_progress(file_id, 20)
+
+        _start_background_video_processing(file_id, video_path, video_filename)
+
+        return jsonify({
+            'file_id': file_id,
+            's3_key': s3_key,
+            'message': 'S3 import started successfully'
+        }), 200
+    except Exception as exc:
+        LOGGER.exception('upload_video_s3 failed')
+        return jsonify({'error': f'Upload failed: {exc}'}), 500
 
 @app.route('/upload', methods=['POST'])
 @limiter.limit(UPLOAD_RATE_LIMIT)
@@ -1091,82 +1427,7 @@ def upload_video():
             file.save(video_path)
             update_progress(file_id, 20)
         
-        # Start background processing
-        def process_in_background():
-            try:
-                # Automatically extract audio
-                audio_filename = f"{file_id}.mp3"
-                audio_path = os.path.join(AUDIO_FOLDER, audio_filename)
-                
-                update_progress(file_id, 30)
-                
-                if not FFMPEG_BINARY:
-                    update_progress(
-                        file_id,
-                        -1,
-                        'Audio extraction requires FFmpeg. Install ffmpeg and expose it via PATH or set FFMPEG_BINARY in the environment before restarting the backend.'
-                    )
-                    return
-
-                if not extract_audio_from_video(video_path, audio_path):
-                    update_progress(
-                        file_id,
-                        -1,
-                        'Failed to extract audio with FFmpeg. Verify the binary is installed and the uploaded file has an audio track.'
-                    )
-                    return
-                
-                update_progress(file_id, 50)
-
-                # Generate streaming variants (HLS & DASH)
-                streams_ready = {}
-                try:
-                    update_progress(file_id, 55, 'Generating streaming variants...')
-                    hls_manifest = generate_hls_variant(video_path, file_id)
-                    if hls_manifest:
-                        streams_ready['hls'] = f"/stream/{file_id}/hls/master.m3u8"
-                    dash_manifest = generate_dash_variant(video_path, file_id)
-                    if dash_manifest:
-                        streams_ready['dash'] = f"/stream/{file_id}/dash/manifest.mpd"
-                except Exception as stream_error:
-                    print(f"Stream generation failed for {file_id}: {stream_error}")
-                finally:
-                    if streams_ready:
-                        update_progress(
-                            file_id,
-                            58,
-                            'Streaming variants ready',
-                            streams_ready=streams_ready
-                        )
-
-                # Upload to S3
-                try:
-                    if s3_client and os.getenv('AWS_S3_BUCKET'):
-                        update_progress(file_id, 60)
-                        
-                        # Upload video
-                        s3_video_key = f"videos/{file_id}/{video_filename}"
-                        s3_audio_key = f"audio/{file_id}/{audio_filename}"
-                        
-                        # Upload video file
-                        upload_to_s3_with_progress(video_path, os.getenv('AWS_S3_BUCKET'), s3_video_key, file_id)
-                        # Upload audio file
-                        upload_to_s3_with_progress(audio_path, os.getenv('AWS_S3_BUCKET'), s3_audio_key, file_id)
-                except Exception as e:
-                    error_message = f"S3 upload failed: {e}"
-                    update_progress(file_id, -1, error_message)
-                    app.logger.exception(error_message)
-                    return
-                
-                update_progress(file_id, 100)
-                
-            except Exception as e:
-                update_progress(file_id, -1, str(e))
-        
-        # Start background thread
-        thread = threading.Thread(target=process_in_background)
-        thread.daemon = True
-        thread.start()
+        _start_background_video_processing(file_id, video_path, video_filename)
         
         # Return response with file info
         return jsonify({

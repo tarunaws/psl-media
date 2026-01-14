@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: highlight-trailer
+  namespace: mediagenai-aws
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: highlight-trailer
+  template:
+    metadata:
+      labels:
+        app: highlight-trailer
+    spec:
+      containers:
+        - name: highlight-trailer
+          image: 462634386586.dkr.ecr.us-east-1.amazonaws.com/mediagenai/highlight-trailer:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5013
+          env:
+            - name: AWS_REGION
+              value: us-east-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: highlight-trailer
+  namespace: mediagenai-aws
+spec:
+  type: ClusterIP
+  selector:
+    app: highlight-trailer
+  ports:
+    - name: http
+      port: 5013
+      targetPort: 5013

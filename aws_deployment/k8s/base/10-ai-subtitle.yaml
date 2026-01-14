@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-subtitle
+  namespace: mediagenai-aws
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai-subtitle
+  template:
+    metadata:
+      labels:
+        app: ai-subtitle
+    spec:
+      containers:
+        - name: ai-subtitle
+          image: 462634386586.dkr.ecr.us-east-1.amazonaws.com/mediagenai/ai-subtitle:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5001
+          env:
+            - name: AWS_REGION
+              value: us-east-1
+            - name: AWS_S3_BUCKET
+              value: mediagenai-462634386586
+            - name: RAW_VIDEO_PREFIX
+              value: rawVideo/
+            - name: GENERATE_RATE_LIMIT
+              value: 60 per minute
+            # Transcribe jobs for longer videos can exceed a few minutes; allow longer polling.
+            - name: TRANSCRIBE_MAX_WAIT_SECONDS
+              value: "1800"
+            # Prevent boto3 calls from hanging forever (tune as needed).
+            - name: AWS_CONNECT_TIMEOUT_SECONDS
+              value: "10"
+            - name: AWS_READ_TIMEOUT_SECONDS
+              value: "60"
+            - name: AWS_MAX_ATTEMPTS
+              value: "3"
+            - name: AWS_RETRY_MODE
+              value: standard
+          # For AWS auth, prefer IRSA (IAM role for service account) instead of access keys.
+          # resources:
+          #   requests:
+          #     cpu: "250m"
+          #     memory: "512Mi"
+          #   limits:
+          #     cpu: "2"
+          #     memory: "4Gi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-subtitle
+  namespace: mediagenai-aws
+spec:
+  type: ClusterIP
+  selector:
+    app: ai-subtitle
+  ports:
+    - name: http
+      port: 5001
+      targetPort: 5001

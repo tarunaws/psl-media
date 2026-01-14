@@ -1,6 +1,6 @@
-# Envid Metadata Use Case — Implementation Checklist (mapped to this repo)
+# Metadata Use Case — Implementation Checklist (mapped to this repo)
 
-This checklist turns the requirements in [AIUseCases/code/engro-metadataUsecase](AIUseCases/code/engro-metadataUsecase) into concrete deliverables using the services already present in this workspace.
+This checklist turns the requirements in the metadata use case into concrete deliverables using the services already present in this workspace.
 
 ## 1) Scope (what “done” means)
 
@@ -10,7 +10,7 @@ Deliver a working pipeline that, for a given video asset, can:
 - Produce **intelligent tags** (objects, scenes, activities, topics, entities, moods/emotions)
 - Detect **celebrities** (names + confidence)
 - Enable **semantic search** across the extracted metadata (natural language queries)
-- Expose the above via stable **HTTP APIs** that can be called by “Envid AI Studio” (external integration)
+- Expose the above via stable **HTTP APIs** that can be called by an external studio integration
 
 > Note: “Netflix/Prime-level metadata” is best interpreted as *coverage* (breadth of fields + consistency), not perfect accuracy on every title without a ground-truth catalog.
 
@@ -98,9 +98,9 @@ Semantic search is already implemented. Ensure the metadata text that is embedde
 ### Option B: add a new dedicated “metadataExtraction” service
 Only do this if you need a strict boundary or separate deployment. Otherwise it’s extra surface area.
 
-## 5) Integration contract for Envid AI Studio (API-first)
+## 5) Integration contract for external studio (API-first)
 
-Because there’s no Envid AI Studio code in this workspace right now, the safest deliverable is a stable API contract.
+Because there’s no external studio code in this workspace right now, the safest deliverable is a stable API contract.
 
 Minimum contract:
 
@@ -111,7 +111,7 @@ Minimum contract:
 
 Integration pattern:
 
-- Envid AI Studio uploads asset → stores returned `id`
+- Studio uploads asset → stores returned `id`
 - Studio requests `/metadata/video/<id>` for display + export
 - Studio uses `/search` to power “search across library”
 

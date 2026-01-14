@@ -23,6 +23,7 @@ import UseCaseDetail from './UseCaseDetail';
 import UseCases from './UseCases';
 import VideoGeneration from './VideoGeneration';
 import MediaSupplyChain from './MediaSupplyChain';
+import Metadata from './Metadata';
 import { VisibleUseCasesProvider } from './VisibleUseCasesContext';
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
               <Route path="/scene-summarization" element={<SceneSummarization />} />
               <Route path="/ai-subtitling" element={<AISubtitling />} />
               <Route path="/media-supply-chain" element={<MediaSupplyChain />} />
+              <Route path="/metadata" element={<Metadata />} />
               <Route path="/demo-videos" element={<DemoVideos />} />
               <Route path="/about" element={<About />} />
                 <Route path="/interactive-video" element={<InteractiveShoppable />} />

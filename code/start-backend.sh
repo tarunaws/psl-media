@@ -13,8 +13,18 @@
 
 echo "🔧 Starting backend services..."
 
+# CLOUD-ONLY MODE
+# Local startup is intentionally disabled to avoid running services on this laptop.
+# To re-enable local startup, run:
+#   ENABLE_LOCAL_START=1 ./start-backend.sh
+if [ "${ENABLE_LOCAL_START:-}" != "1" ]; then
+  echo "🚫 Local startup disabled (cloud-only mode)."
+  echo "👉 If you want to run locally, set ENABLE_LOCAL_START=1"
+  exit 0
+fi
+
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-VENV_PYTHON="$PROJECT_ROOT/.venv/bin/python"
+VENV_PYTHON="$PROJECT_ROOT/.venv/bin/python3"
 ENV_FILE="$PROJECT_ROOT/.env"
 ENV_LOCAL_FILE="$PROJECT_ROOT/.env.local"
 
@@ -23,10 +33,10 @@ export PYTHONPATH="$PROJECT_ROOT:${PYTHONPATH:-}"
 
 # Dynamically build PATH with commonly needed directories
 # Prioritize local tools, then system paths
-REQUIRED_PATH="/usr/local/bin:/opt/homebrew/bin:$HOME/.nvm/versions/node/v22.20.0/bin:$HOME/Library/Python/3.14/lib/python/site-packages/:$HOME/Library/Python/3.14/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+REQUIRED_PATH="/usr/local/bin:/opt/homebrew/bin:$HOME/.nvm/versions/node/v22.20.0/bin:$HOME/Library/Python/3.13/lib/python/site-packages/:$HOME/Library/Python/3.13/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 if [ "$PATH" != "$REQUIRED_PATH" ]; then
-  echo "ℹ️  Exporting required PATH for BornInCloud Streaming services"
+  echo "ℹ️  Exporting required PATH for services"
 fi
 export PATH="$REQUIRED_PATH"
 
@@ -62,7 +72,7 @@ export DAI_MEDIA_SOURCE="${DAI_MEDIA_SOURCE:-local}"
 
 if [ ! -f "$VENV_PYTHON" ]; then
   echo "❌ Virtual environment not found at $PROJECT_ROOT/.venv"
-  echo "Please run: python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt"
+  echo "Please run: python3.13 -m venv .venv && source .venv/bin/activate && pip3 install -r requirements.txt"
   exit 1
 fi
 
@@ -107,8 +117,8 @@ start_service "personalized-trailer" "personalizedTrailer" "app.py" "5007"
 # Start Semantic Search (5008)
 start_service "semantic-search" "semanticSearch" "app.py" "5008"
 
-# Start Envid Metadata (5014)
-start_service "engro-metadata" "engroMetadata" "app.py" "5014"
+# Start Metadata (5014)
+start_service "metadata" "metadata" "app.py" "5014"
 
 # Start AI-Powered Video Generation (5009)
 start_service "video-generation" "videoGeneration" "app.py" "5009"

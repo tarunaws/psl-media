@@ -41,11 +41,11 @@ CORS(app)
 def _max_upload_bytes() -> int | None:
     """Return max upload bytes for Flask/werkzeug.
 
-    Default is generous for local dev demos. Set `ENGRO_MAX_UPLOAD_GB` (or
-    `ENGRO_MAX_UPLOAD_BYTES`) to tune.
+    Default is generous for local dev demos. Set `METADATA_MAX_UPLOAD_GB` (or
+    `METADATA_MAX_UPLOAD_BYTES`) to tune.
     """
 
-    raw_bytes = os.getenv("ENGRO_MAX_UPLOAD_BYTES")
+    raw_bytes = os.getenv("METADATA_MAX_UPLOAD_BYTES")
     if raw_bytes:
         try:
             v = int(raw_bytes)
@@ -53,7 +53,7 @@ def _max_upload_bytes() -> int | None:
         except ValueError:
             pass
 
-    raw_gb = os.getenv("ENGRO_MAX_UPLOAD_GB", "25")
+    raw_gb = os.getenv("METADATA_MAX_UPLOAD_GB", "25")
     try:
         gb = float(raw_gb)
     except ValueError:
@@ -750,7 +750,7 @@ _load_document_index()
 def health() -> Any:
     return jsonify({
         "status": "ok",
-        "service": "engro-metadata",
+        "service": "metadata",
         "region": DEFAULT_AWS_REGION
     })
 
@@ -1961,7 +1961,7 @@ def _process_stored_video(
     local_similarity_threshold: float = 0.35,
 ) -> Dict[str, Any]:
     """Re-process a video already stored on disk and return updated fields."""
-    temp_dir = Path(tempfile.mkdtemp(prefix=f"engro_metadata_reprocess_{video_id}_"))
+    temp_dir = Path(tempfile.mkdtemp(prefix=f"metadata_reprocess_{video_id}_"))
     try:
         working_video_path = temp_dir / "video.mp4"
         shutil.copy2(stored_video_path, working_video_path)
@@ -2256,7 +2256,7 @@ def upload_video() -> Any:
 
     job_id = str(uuid.uuid4())
     original_filename = video_file.filename
-    temp_dir = Path(tempfile.mkdtemp(prefix=f"engro_metadata_{job_id}_"))
+    temp_dir = Path(tempfile.mkdtemp(prefix=f"metadata_{job_id}_"))
 
     frame_interval_seconds = _parse_int_param(
         request.form.get("frame_interval_seconds"),
@@ -3221,7 +3221,7 @@ Answer:"""
 if __name__ == "__main__":
     _load_video_index()
     _load_document_index()
-    port = int(os.getenv("ENGRO_METADATA_PORT", "5014"))
+    port = int(os.getenv("METADATA_PORT", "5014"))
     debug_raw = (os.getenv("DEBUG") or "false").strip().lower()
     reloader_raw = (os.getenv("RELOADER") or "false").strip().lower()
     debug = debug_raw in {"1", "true", "yes", "y", "on"}

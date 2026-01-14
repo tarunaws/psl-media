@@ -39,6 +39,7 @@ stop_service "scene-summarization"
 stop_service "movie-script"
 stop_service "content-moderation"
 stop_service "personalized-trailer"
+stop_service "metadata"
 
 stop_service "video-generation"
 stop_service "semantic-search"
@@ -59,5 +60,6 @@ lsof -ti:5009 2>/dev/null | xargs kill -9 2>/dev/null || true
 lsof -ti:5011 2>/dev/null | xargs kill -9 2>/dev/null || true
 lsof -ti:5012 2>/dev/null | xargs kill -9 2>/dev/null || true
 lsof -ti:5013 2>/dev/null | xargs kill -9 2>/dev/null || true
+lsof -ti:5014 2>/dev/null | xargs kill -9 2>/dev/null || true
 
 echo "✅ Backend services stopped!"

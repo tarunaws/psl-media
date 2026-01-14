@@ -490,6 +490,13 @@ const ControlRow = styled.div`
   align-items: center;
 `;
 
+const ButtonRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+`;
+
 const ToggleButton = styled.button`
   padding: 0.6rem 1rem;
   border-radius: 999px;
@@ -607,6 +614,15 @@ const SuccessMessage = styled.div`
 
 export default function AISubtitling() {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [inputMode, setInputMode] = useState('upload');
+  const [rawVideoItems, setRawVideoItems] = useState([]);
+  const [rawVideoLoading, setRawVideoLoading] = useState(false);
+  const [rawVideoPrefix, setRawVideoPrefix] = useState('rawVideo/');
+  const [s3Bucket, setS3Bucket] = useState('');
+  const [s3RootPrefix, setS3RootPrefix] = useState('rawVideo/');
+  const [s3CurrentPrefix, setS3CurrentPrefix] = useState('rawVideo/');
+  const [s3Folders, setS3Folders] = useState([]);
+  const [selectedS3Key, setSelectedS3Key] = useState('');
   const [processing, setProcessing] = useState(false);
   const [progress, setProgress] = useState(0);
   const [progressMessage, setProgressMessage] = useState('');
@@ -635,6 +651,22 @@ export default function AISubtitling() {
 
   const SUBTITLE_API_BASE = useMemo(() => resolveSubtitleApiBase(), []);
 
+  const formatS3Label = useCallback((key) => {
+    if (!key) return '';
+    const currentPrefix = s3CurrentPrefix || '';
+    if (currentPrefix && key.startsWith(currentPrefix)) {
+      const relative = key.slice(currentPrefix.length);
+      return relative || key;
+    }
+    const rootPrefix = s3RootPrefix || rawVideoPrefix || 'rawVideo/';
+    if (rootPrefix && key.startsWith(rootPrefix)) {
+      const relative = key.slice(rootPrefix.length);
+      return relative || key;
+    }
+    const parts = key.split('/').filter(Boolean);
+    return parts[parts.length - 1] || key;
+  }, [rawVideoPrefix, s3CurrentPrefix, s3RootPrefix]);
+
   const resolveUrl = useCallback((path) => {
     if (!path) return '';
     if (path.startsWith('http://') || path.startsWith('https://')) {
@@ -642,6 +674,61 @@ export default function AISubtitling() {
     }
     return `${SUBTITLE_API_BASE}${path}`;
   }, [SUBTITLE_API_BASE]);
+
+  const browseS3 = useCallback(async (prefix) => {
+    if (!SUBTITLE_API_BASE) return;
+    setRawVideoLoading(true);
+    setError('');
+    try {
+      const params = prefix ? { prefix } : undefined;
+      const { data } = await axios.get(`${SUBTITLE_API_BASE}/s3/browse`, { params, timeout: 15000 });
+      const bucket = typeof data?.bucket === 'string' ? data.bucket : '';
+      const rootPrefix = typeof data?.root_prefix === 'string' && data.root_prefix ? data.root_prefix : 'rawVideo/';
+      const currentPrefix = typeof data?.prefix === 'string' && data.prefix ? data.prefix : rootPrefix;
+      const folders = Array.isArray(data?.folders) ? data.folders : [];
+      const files = Array.isArray(data?.files) ? data.files : [];
+
+      setS3Bucket(bucket);
+      setS3RootPrefix(rootPrefix);
+      setRawVideoPrefix(rootPrefix);
+      setS3CurrentPrefix(currentPrefix);
+      setS3Folders(folders);
+      setRawVideoItems(files);
+
+      if (selectedS3Key) {
+        const stillVisible = files.some((item) => item.key === selectedS3Key);
+        if (!stillVisible) {
+          setSelectedS3Key('');
+        }
+      }
+    } catch (fetchError) {
+      setS3Folders([]);
+      setRawVideoItems([]);
+      setError(
+        `Failed to browse S3: ${fetchError.response?.data?.error || fetchError.message}`
+      );
+    } finally {
+      setRawVideoLoading(false);
+    }
+  }, [SUBTITLE_API_BASE, selectedS3Key]);
+
+  const computeParentPrefix = useCallback((prefix) => {
+    const rootPrefix = s3RootPrefix || 'rawVideo/';
+    const current = (prefix || rootPrefix).endsWith('/') ? (prefix || rootPrefix) : `${prefix || rootPrefix}/`;
+    if (!current.startsWith(rootPrefix) || current === rootPrefix) {
+      return rootPrefix;
+    }
+    const trimmed = current.replace(/\/+$/, '');
+    const idx = trimmed.lastIndexOf('/');
+    if (idx === -1) {
+      return rootPrefix;
+    }
+    const parent = `${trimmed.slice(0, idx + 1)}`;
+    if (!parent.startsWith(rootPrefix) || parent.length < rootPrefix.length) {
+      return rootPrefix;
+    }
+    return parent;
+  }, [s3RootPrefix]);
 
   const cleanupVideoPlayers = () => {
     if (hlsInstanceRef.current) {
@@ -659,6 +746,11 @@ export default function AISubtitling() {
   };
 
   useEffect(() => () => cleanupVideoPlayers(), []);
+
+  useEffect(() => {
+    if (inputMode !== 's3') return;
+    browseS3('');
+  }, [browseS3, inputMode]);
 
   useEffect(() => {
     if (!availableSubtitles.length) {
@@ -1032,9 +1124,11 @@ export default function AISubtitling() {
   };
 
   const startProcessing = async () => {
-    if (!selectedFile || processing) return;
+    if (processing) return;
+    if (inputMode === 'upload' && !selectedFile) return;
+    if (inputMode === 's3' && !selectedS3Key) return;
 
-    const reuseExisting = Boolean(currentFileId && phase === 'complete');
+    const reuseExisting = Boolean(inputMode === 'upload' && currentFileId && phase === 'complete');
 
     setProcessing(true);
     setProgress(
@@ -1073,17 +1167,26 @@ export default function AISubtitling() {
         return;
       }
 
-      const formData = new FormData();
-      formData.append('video', selectedFile);
+      let uploadResponse;
+      if (inputMode === 'upload') {
+        const formData = new FormData();
+        formData.append('video', selectedFile);
 
-      setProgressMessage('Starting upload...');
-
-      const uploadResponse = await axios.post(`${SUBTITLE_API_BASE}/upload`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        },
-        timeout: 30 * 60 * 1000
-      });
+        setProgressMessage('Starting upload...');
+        uploadResponse = await axios.post(`${SUBTITLE_API_BASE}/upload`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          },
+          timeout: 30 * 60 * 1000
+        });
+      } else {
+        setProgressMessage('Starting S3 import...');
+        uploadResponse = await axios.post(
+          `${SUBTITLE_API_BASE}/upload-s3`,
+          { s3_key: selectedS3Key },
+          { timeout: 30 * 60 * 1000 }
+        );
+      }
 
       const uploadResult = uploadResponse.data;
       if (!uploadResult.file_id) {
@@ -1102,6 +1205,8 @@ export default function AISubtitling() {
 
   const removeFile = () => {
     setSelectedFile(null);
+    setSelectedS3Key('');
+    setInputMode('upload');
     setCurrentFileId('');
     setProgress(0);
     setProgressMessage('');
@@ -1165,12 +1270,42 @@ export default function AISubtitling() {
     <Page>
       <Title>AI Subtitle Generation</Title>
       <Description>
-        Upload a video to generate multi-language subtitles with adaptive streaming delivery. Select
-        HLS or MPEG-DASH playback, toggle captions on the fly, and download the subtitle files you
-        need without re-uploading your media.
+        Upload a video (or pick one from S3) to generate multi-language subtitles with adaptive
+        streaming delivery. Select HLS or MPEG-DASH playback, toggle captions on the fly, and
+        download the subtitle files you need without re-uploading your media.
       </Description>
 
-      {!selectedFile && (
+      <ControlRow style={{ justifyContent: 'center', marginBottom: '1.25rem' }}>
+        <ToggleButton
+          type="button"
+          $active={inputMode === 'upload'}
+          onClick={() => {
+            if (processing) return;
+            setInputMode('upload');
+            setSelectedS3Key('');
+          }}
+          disabled={processing}
+        >
+          Upload
+        </ToggleButton>
+        <ToggleButton
+          type="button"
+          $active={inputMode === 's3'}
+          onClick={() => {
+            if (processing) return;
+            setInputMode('s3');
+            setSelectedFile(null);
+            if (fileInputRef.current) {
+              fileInputRef.current.value = '';
+            }
+          }}
+          disabled={processing}
+        >
+          Select from S3
+        </ToggleButton>
+      </ControlRow>
+
+      {inputMode === 'upload' && !selectedFile && (
         <UploadContainer
           className={dragOver ? 'dragover' : ''}
           onDrop={handleDrop}
@@ -1190,26 +1325,99 @@ export default function AISubtitling() {
         </UploadContainer>
       )}
 
-      {selectedFile && (
+      {inputMode === 's3' && !selectedS3Key && (
         <VideoPreview>
           <VideoInfo>
-            <VideoName>{selectedFile.name}</VideoName>
-            <VideoSize>{formatFileSize(selectedFile.size)}</VideoSize>
+            <VideoName>Select a video from S3</VideoName>
+            <VideoSize>{rawVideoLoading ? 'Loading…' : `${rawVideoItems.length} videos found`}</VideoSize>
           </VideoInfo>
-          <FileMeta>
-            <FileMetaRow>
-              <FileLabel>Type</FileLabel>
-              <span>{selectedFile.type || 'Unknown'}</span>
-            </FileMetaRow>
-            <FileMetaRow>
-              <FileLabel>Last modified</FileLabel>
-              <span>
-                {selectedFile.lastModified
-                  ? new Date(selectedFile.lastModified).toLocaleString()
-                  : '—'}
-              </span>
-            </FileMetaRow>
-          </FileMeta>
+
+          <LanguageControls>
+            <ControlGroup>
+              <Label>Bucket</Label>
+              <HelperText>{s3Bucket || '—'}</HelperText>
+            </ControlGroup>
+
+            <ControlGroup>
+              <Label>Subfolders</Label>
+              <HelperText>Folder: {s3CurrentPrefix || s3RootPrefix || rawVideoPrefix || 'rawVideo/'}</HelperText>
+              <CompactActions>
+                <CompactButton
+                  type="button"
+                  onClick={() => {
+                    if (processing || rawVideoLoading) return;
+                    const parent = computeParentPrefix(s3CurrentPrefix);
+                    if (parent === s3CurrentPrefix) return;
+                    setSelectedS3Key('');
+                    browseS3(parent);
+                  }}
+                  disabled={processing || rawVideoLoading || (s3CurrentPrefix === (s3RootPrefix || 'rawVideo/'))}
+                >
+                  Back
+                </CompactButton>
+                {s3Folders.map((folder) => (
+                  <CompactButton
+                    key={folder.prefix}
+                    type="button"
+                    onClick={() => {
+                      if (processing || rawVideoLoading) return;
+                      setSelectedS3Key('');
+                      browseS3(folder.prefix);
+                    }}
+                    disabled={processing || rawVideoLoading}
+                  >
+                    {folder.name}
+                  </CompactButton>
+                ))}
+              </CompactActions>
+            </ControlGroup>
+
+            <ControlGroup>
+              <Label htmlFor="s3-video">Video file</Label>
+              <Select
+                id="s3-video"
+                value={selectedS3Key}
+                onChange={(event) => setSelectedS3Key(event.target.value)}
+                disabled={processing || rawVideoLoading}
+              >
+                <option value="">Select a video…</option>
+                {rawVideoItems.map((item) => (
+                  <option key={item.key} value={item.key}>
+                    {item.name || formatS3Label(item.key)}
+                  </option>
+                ))}
+              </Select>
+            </ControlGroup>
+          </LanguageControls>
+        </VideoPreview>
+      )}
+
+      {(inputMode === 'upload' ? selectedFile : selectedS3Key) && (
+        <VideoPreview>
+          <VideoInfo>
+            <VideoName>
+              {inputMode === 'upload' ? selectedFile.name : formatS3Label(selectedS3Key)}
+            </VideoName>
+            <VideoSize>
+              {inputMode === 'upload' ? formatFileSize(selectedFile.size) : 'S3 object'}
+            </VideoSize>
+          </VideoInfo>
+          {inputMode === 'upload' && (
+            <FileMeta>
+              <FileMetaRow>
+                <FileLabel>Type</FileLabel>
+                <span>{selectedFile.type || 'Unknown'}</span>
+              </FileMetaRow>
+              <FileMetaRow>
+                <FileLabel>Last modified</FileLabel>
+                <span>
+                  {selectedFile.lastModified
+                    ? new Date(selectedFile.lastModified).toLocaleString()
+                    : '—'}
+                </span>
+              </FileMetaRow>
+            </FileMeta>
+          )}
           <LanguageControls>
             <ControlGroup>
               <Label htmlFor="source-language">Source language</Label>
