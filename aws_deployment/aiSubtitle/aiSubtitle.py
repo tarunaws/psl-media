@@ -397,16 +397,50 @@ def extract_audio_from_video(video_path, audio_path):
         print("FFmpeg binary missing when attempting extraction.")
         return False
 
-def upload_to_s3_with_progress(file_path, bucket_name, object_name, file_id=None):
-    """Upload a file to an S3 bucket with progress tracking and multipart upload for large files."""
+def upload_to_s3_with_progress(
+    file_path,
+    bucket_name,
+    object_name,
+    file_id=None,
+    progress_start: int | None = None,
+    progress_end: int | None = None,
+):
+    """Upload a file to an S3 bucket with progress tracking.
+
+    If progress_start/progress_end are provided and file_id is set, the internal 0-100%
+    upload progress is mapped into the provided inclusive range.
+    """
     try:
         file_size = os.path.getsize(file_path)
+
+        mapped_start = int(progress_start) if progress_start is not None else None
+        mapped_end = int(progress_end) if progress_end is not None else None
+
+        if file_id and mapped_start is not None and mapped_end is not None:
+            if mapped_end < mapped_start:
+                mapped_start, mapped_end = mapped_end, mapped_start
         
         # Use multipart upload for files larger than 100MB
         if file_size > 100 * 1024 * 1024:  # 100MB threshold
-            return _multipart_upload_to_s3(file_path, bucket_name, object_name, file_id, file_size)
+            return _multipart_upload_to_s3(
+                file_path,
+                bucket_name,
+                object_name,
+                file_id,
+                file_size,
+                progress_start=mapped_start,
+                progress_end=mapped_end,
+            )
         else:
-            return _single_upload_to_s3(file_path, bucket_name, object_name, file_id, file_size)
+            return _single_upload_to_s3(
+                file_path,
+                bucket_name,
+                object_name,
+                file_id,
+                file_size,
+                progress_start=mapped_start,
+                progress_end=mapped_end,
+            )
             
     except Exception as e:
         error_message = f"Failed to upload {object_name} to {bucket_name}: {e}"
@@ -415,12 +449,36 @@ def upload_to_s3_with_progress(file_path, bucket_name, object_name, file_id=None
         print(f"Error uploading to S3: {error_message}")
         raise RuntimeError(error_message) from e
 
-def _single_upload_to_s3(file_path, bucket_name, object_name, file_id, file_size):
+def _single_upload_to_s3(
+    file_path,
+    bucket_name,
+    object_name,
+    file_id,
+    file_size,
+    progress_start: int | None = None,
+    progress_end: int | None = None,
+):
     """Single-part upload for smaller files."""
+    bytes_seen = 0
+
+    def _map_progress(raw_percent: int) -> int:
+        if progress_start is None or progress_end is None:
+            return raw_percent
+        span = progress_end - progress_start
+        return progress_start + int((raw_percent / 100) * span)
+
     def progress_callback(bytes_transferred):
-        if file_id:
-            progress = int((bytes_transferred / file_size) * 100)
-            update_progress(file_id, progress)
+        nonlocal bytes_seen
+        if not file_id:
+            return
+
+        # boto3's upload_file Callback receives incremental bytes, not total.
+        bytes_seen += bytes_transferred
+        if file_size <= 0:
+            return
+
+        raw_progress = min(int((bytes_seen / file_size) * 100), 100)
+        update_progress(file_id, _map_progress(raw_progress))
     
     s3_client.upload_file(
         file_path, 
@@ -430,12 +488,26 @@ def _single_upload_to_s3(file_path, bucket_name, object_name, file_id, file_size
     )
     
     if file_id:
-        update_progress(file_id, 100)
+        update_progress(file_id, _map_progress(100))
     
     return f"s3://{bucket_name}/{object_name}"
 
-def _multipart_upload_to_s3(file_path, bucket_name, object_name, file_id, file_size):
+def _multipart_upload_to_s3(
+    file_path,
+    bucket_name,
+    object_name,
+    file_id,
+    file_size,
+    progress_start: int | None = None,
+    progress_end: int | None = None,
+):
     """Multipart upload for large files with progress tracking."""
+    def _map_progress(raw_percent: int) -> int:
+        if progress_start is None or progress_end is None:
+            return raw_percent
+        span = progress_end - progress_start
+        return progress_start + int((raw_percent / 100) * span)
+
     # Initialize multipart upload
     response = s3_client.create_multipart_upload(
         Bucket=bucket_name,
@@ -450,7 +522,7 @@ def _multipart_upload_to_s3(file_path, bucket_name, object_name, file_id, file_s
         bytes_uploaded = 0
         
         if file_id:
-            update_progress(file_id, 0)
+            update_progress(file_id, _map_progress(0))
         
         with open(file_path, 'rb') as file:
             while True:
@@ -459,9 +531,9 @@ def _multipart_upload_to_s3(file_path, bucket_name, object_name, file_id, file_s
                 if not part_data:
                     break
                 
-                if file_id:
-                    progress = int((bytes_uploaded / file_size) * 100)
-                    update_progress(file_id, progress)
+                if file_id and file_size > 0:
+                    progress = min(int((bytes_uploaded / file_size) * 100), 100)
+                    update_progress(file_id, _map_progress(progress))
                 
                 # Upload part
                 part_response = s3_client.upload_part(
@@ -479,6 +551,10 @@ def _multipart_upload_to_s3(file_path, bucket_name, object_name, file_id, file_s
                 
                 bytes_uploaded += len(part_data)
                 part_number += 1
+
+                if file_id and file_size > 0:
+                    progress = min(int((bytes_uploaded / file_size) * 100), 100)
+                    update_progress(file_id, _map_progress(progress))
         
         # Complete multipart upload
         s3_client.complete_multipart_upload(
@@ -489,7 +565,7 @@ def _multipart_upload_to_s3(file_path, bucket_name, object_name, file_id, file_s
         )
         
         if file_id:
-            update_progress(file_id, 100)
+            update_progress(file_id, _map_progress(100))
         
         return f"s3://{bucket_name}/{object_name}"
         
@@ -819,7 +895,16 @@ def generate_subtitles_with_aws_transcribe(
             update_progress(file_id, 30, 'Uploading audio for transcription...')
         
         try:
-            s3_uri = upload_to_s3(audio_path, aws_s3_bucket, s3_object_name)
+            # Map internal 0-100% upload progress into the overall pipeline range.
+            # This prevents the UI from appearing "stuck" at 30% during large/slow uploads.
+            s3_uri = upload_to_s3_with_progress(
+                audio_path,
+                aws_s3_bucket,
+                s3_object_name,
+                file_id=file_id,
+                progress_start=30,
+                progress_end=49,
+            )
         except Exception as upload_error:
             raise RuntimeError(f"Failed to upload audio to S3: {upload_error}") from upload_error
         
